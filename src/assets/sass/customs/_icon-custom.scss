@@ -1,0 +1,5 @@
+// general font-sizing for icon fonts can be overridden via more specific selectors
+  .icon, .icon + * {
+    font-size: $base-font-size;
+    font-weight: 500;
+  }

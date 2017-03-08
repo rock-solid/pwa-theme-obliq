@@ -1,0 +1,29 @@
+$multiplying-factor: 1.2;
+
+$base-padding: 16px !default;
+$base-padding-sm: 8px !default;
+$base-padding-lg: 32px !default;
+$base-padding-xl: 64px !default;
+$base-margin: 16px !default;
+$base-margin-sm: 8px !default;
+$base-margin-xs: 4px !default;
+$base-margin-md: 24px !default;
+$base-margin-lg: 32px !default;
+
+// used for vertical rhythm in text
+$line-height-base: 1.6 !default;
+$line-height-computed: decimal-round($base-font-size * $line-height-base, 2, 'floor') !default;
+$headings-line-height: 1.2 !default;
+
+$facebook: #3B5998;
+$twitter: #55ACEE;
+$google:  #D34836;
+
+$neutral-grey: hsl(0, 0%, 50%);
+$dark-grey: hsl(0, 0%, 20%);
+$light-grey: hsl(0, 0%, 80%);
+
+$error-color: #ec5c5b;
+
+$headings-font-weight: 600 !default;
+$left-buttons-width: 81px;

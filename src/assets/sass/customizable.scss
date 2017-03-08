@@ -1,0 +1,28 @@
+//BASE
+@import
+  "utilities/functions",
+  "utilities/appticles-variables",
+  "utilities/appticles-variables-test",
+  "utilities/internal-variables",
+  "utilities/mixins",
+  "utilities/helpers",
+  "utilities/typography";
+
+//CUSTOMS
+@import
+  "customs/item-custom",
+  "customs/icon-custom",
+  "customs/typography-custom";
+
+//MODULES
+@import
+"../../app/posts/latest/latest-custom",
+"../../app/posts/category/post-list-custom",
+"../../app/posts/comments/comment-list-custom",
+"../../app/posts/details/post-details-custom",
+//"../../app/posts/add-comment/add-comment-custom",
+
+"../../app/pages/details/page-details-custom",
+"../../app/pages/list/page-list-custom",
+
+"../../app/categories/list/category-list-custom";

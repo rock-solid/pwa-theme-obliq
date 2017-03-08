@@ -1,0 +1,51 @@
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin gradient-diagonal($first-color, $second-color, $third-color) {
+  background: $first-color !important;
+  background: -moz-linear-gradient(45deg,  $first-color 1%, $second-color 58%, $third-color 100%) !important;
+  background: -webkit-linear-gradient(45deg,  $first-color 1%, $second-color 58%, $third-color 100%) !important;
+  background: linear-gradient(45deg,  $first-color 1%, $second-color 58%, $third-color 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($first-color)}', endColorstr='#{ie-hex-str($third-color)}',GradientType=1 ) !important;
+}
+
+@mixin button-custom($color, $text-color:"") {
+  &.button-custom {
+    border-color: $color;
+    background: rgba($color, 0.1);
+    @if $text-color == "" {
+      $text-color: $color;
+    }
+    color: $text-color;
+    &.active,
+    &.activated {
+      background-color: $color;
+      box-shadow: none;
+      color: #fff;
+    }
+  }
+}
+
+@mixin bar-style($bg-color, $border-color, $color) {
+  border-color: $border-color;
+  background-color: $bg-color;
+  background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+  color: $color;
+
+  .title {
+    color: $color;
+  }
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}

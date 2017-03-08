@@ -1,0 +1,8 @@
+<div data-ng-bind-html="adsVm.content1 | TrustHtmlFilter"></div>
+<div ng-if="adsVm.hasAds" class="dfp-ad" data-ng-dfp-ad-container>
+    <div data-ng-dfp-ad="div-dfp-ads" data-ng-dfp-ad-hide-when-empty></div>
+    <div class="translation">
+      <span translate="TEXTS.GOOGLE_ADS"></span>
+    </div>
+</div>
+<div data-ng-bind-html="adsVm.content2 | TrustHtmlFilter"></div>

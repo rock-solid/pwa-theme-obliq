@@ -1,0 +1,10 @@
+.item {
+
+& h1, .h1 { font-size: $base-font-size * mpow($multiplying-factor, 4);  } // ~36px
+& h2, .h2 { font-size: $base-font-size * mpow($multiplying-factor, 3);  } // ~30px
+& h3, .h3 { font-size: $base-font-size * mpow($multiplying-factor, 2);  } // ~24px
+& h4, .h4 { font-size: $base-font-size * mpow($multiplying-factor, 1); } // ~18px
+& h5, .h5 { font-size: $base-font-size; }
+& h6, .h6 { font-size: $base-font-size / mpow($multiplying-factor, 1); } // ~12px
+
+}

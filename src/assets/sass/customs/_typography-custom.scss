@@ -1,0 +1,53 @@
+
+// Emphasis & misc
+// -------------------------
+
+small   { font-size: $base-font-size / mpow($multiplying-factor, 1); }
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+}
+
+h1, .h1 { font-size: $base-font-size * mpow($multiplying-factor, 4);  } // ~36px
+h2, .h2 { font-size: $base-font-size * mpow($multiplying-factor, 3);  } // ~30px
+h3, .h3 { font-size: $base-font-size * mpow($multiplying-factor, 2);  } // ~24px
+h4, .h4 { font-size: $base-font-size * mpow($multiplying-factor, 1); } // ~18px
+h5, .h5 { font-size: $base-font-size; }
+h6, .h6 { font-size: $base-font-size / mpow($multiplying-factor, 1); } // ~12px
+
+
+h1 small, .h1 small { font-size: $base-font-size * mpow($multiplying-factor, 2); } // ~24px
+h2 small, .h2 small { font-size: $base-font-size * mpow($multiplying-factor, 1); } // ~18px
+h3 small, .h3 small,
+h4 small, .h4 small { font-size: $base-font-size; }
+
+// Blockquotes
+// -------------------------
+
+blockquote {
+  border-left: 5px solid gray;
+
+  p {
+    font-weight: 300;
+    font-size: $base-font-size * mpow($multiplying-factor, 1);
+    line-height: 1.25;
+  }
+}
+
+
+
+p,ul, li, div, span, small, blockquote, input, button, select, textarea {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $line-height-base;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $headings-font-family;
+}
