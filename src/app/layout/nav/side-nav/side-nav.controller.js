@@ -6,6 +6,12 @@ class SideNav {
     this.openDesktopWebsite = openDesktopWebsite;
 
     this.pageContentLoaded = false;
+    this.categoryContentLoaded = false;
+
+    this.loadPages = loadPages;
+    this.loadCategories = loadCategories;
+
+    this.hasCategories = true;
     this.hasPages = true;
 
     this.directiveApi = {
@@ -48,7 +54,6 @@ class SideNav {
     };
 
     function loadPages() {
-      this.directiveApi.isRoot = false;
 
       if(!this.pageContentLoaded) {
         AppticlesAPI
@@ -57,6 +62,7 @@ class SideNav {
           .then(populateSideNav)
           .then(() => {
             this.pageContentLoaded = true;
+            this.directiveApi.isRoot = false;
           })
           .catch($log.error);
       }
@@ -70,6 +76,51 @@ class SideNav {
       return $q.when(hasPages);
     };
     checkHasPages().then(res => this.hasPages = res);
+
+
+    function checkHasCategories() {
+      let hasCategories = AppticlesAPI
+        .findCategories({ withArticles: 0, page: 1, rows: 1 })
+        .then((res) => res.data.categories && res.data.categories.length > 0 ? true : false);
+
+      return $q.when(hasCategories);
+    };
+    checkHasCategories().then(res => this.hasCategories = res);
+
+
+    const validateCategories = (result) => {
+
+      let validCategories = AppticlesValidation.validateCategories(result);
+
+      if (angular.isDefined(validCategories.error)) {
+        return $q.reject('error fetching category list');
+      }
+
+      return $q.when(validCategories);
+    };
+
+    const populateCategoryList = (result) => {
+      // sort pages
+      if (angular.isDefined(result)) {
+        let categories = result.sort((a, b) => { return a.order - b.order; }).filter(category => category.id !== 0);
+        this.allCategories = categories;
+      }
+    };
+
+    function loadCategories() {
+
+      AppticlesAPI
+        .findCategories({ withArticles: 0 })
+        .then(validateCategories)
+        .then(populateCategoryList)
+        .then(() => {
+          this.categoryContentLoaded = true;
+          this.directiveApi.isRoot = false;
+        })
+        .catch($log.error);
+    }
+
+
   }
 }
 
