@@ -1,0 +1,18 @@
+<ion-view cache-view="false" class="posts-categ-ctx">
+<ion-nav-buttons side="right">
+  <button class="button button-icon button-clear button-dark ion-navicon latest-page__button-more latest-page-custom__button-more-custom"
+    menu-toggle="right"></button>
+</ion-nav-buttons>
+<ion-content scroll="false" style="top: 0 !important;">
+  <!-- first elem -->
+  <ion-slides options="listVm.sliderOptions" slider="listVm.slider">
+    <ion-slide-page data-ng-repeat="page in listVm.postList">
+      <div style="display: flex; flex-direction: column; height: 100%">
+        <div data-ng-repeat="post in page" style="display: flex; flex-direction:column; align-items: center; justify-content: center;flex: 1 0 auto;border: 1px solid red; background-image: url('https://source.unsplash.com/random');background-size: cover; background-repeat: no-repeat;">
+          <div class="h4" style="color:azure" data-ng-bind-html="post.title | TrustHtmlFilter"></div>
+          <div class="h3" style="color:azure">{{post.id}}</div>
+        </div>
+      </div>
+    </ion-slide-page>
+  </ion-slides>
+</ion-view>
