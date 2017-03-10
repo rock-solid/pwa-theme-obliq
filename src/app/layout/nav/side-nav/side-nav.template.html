@@ -1,6 +1,6 @@
 <ion-view cache-view="false" class="side-nav-view side-nav-view-custom">
   <ion-content data-ng-show="navSideVm.currentPages !== '' " class="side-nav-view__container side-nav-view-custom__container-custom">
-    <div data-ng-if="navSideVm.isRoot" class="animate-repeat">
+    <div data-ng-if="navSideVm.directiveApi.isRoot" class="animate-repeat">
       <div class="side-nav-view__categories-container">
         <h4 menu-close class="side-nav-view__categories-title side-nav-view-custom__categories-title-custom m-a-0" data-ui-sref="app.nav.latest"
           translate="LINKS.HOME"></h4>
@@ -15,13 +15,8 @@
       <div class="side-nav-view__go-to-container side-nav-view-custom__go-to-container-custom" ng-if="navSideVm.websiteUrl" data-ng-click="navSideVm.openDesktopWebsite()"></div>
       <h4 class="side-nav-view__go-to-title side-nav-view-custom__go-to-title-custom" translate="LINKS.VISIT_WEBSITE"></h4>
     </div>
-    <div data-ng-if="!navSideVm.isRoot && navSideVm.pageContentLoaded" class="animate-repeat">
-      <a data-ng-click="navSideVm.goBackTo(navSideVm.currentParentId)" class="button icon-left ion-chevron-left button-clear button-dark ">Back to {{navSideVm.currentParentId}}</a>
-    </div>
-    <div data-ng-if="!navSideVm.isRoot && navSideVm.pageContentLoaded && navSideVm.shouldAnimate" class="side-nav-view__static-pages-list animate-repeat">
-      <div data-ng-repeat="page in navSideVm.currentPages" class="animate-repeat">
-        <p>{{page.title}}<i data-ng-click="navSideVm.openChildPages(page.id)" data-ng-if="page.children" class="icon button-icon ion-ios-arrow-right"></i></p>
-      </div>
+    <div data-ng-if="!navSideVm.directiveApi.isRoot && navSideVm.pageContentLoaded" class="side-nav-view__static-pages-list animate-repeat">
+      <appticles-nested-pages directive-api="navSideVm.directiveApi" pages="navSideVm.allPages"></appticles-nested-pages>
     </div>
   </ion-content>
 </ion-view>

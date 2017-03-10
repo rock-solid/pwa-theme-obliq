@@ -1,0 +1,11 @@
+<div class="animate-repeat">
+  <a data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)" class="button icon-left ion-chevron-left button-clear button-dark "></a>
+</div>
+<div class="page-item animate-repeat" ng-repeat="page in nestedPagesVm.currentPages">
+  <ion-item class="item-complex">
+    <h4 class="item-content" data-ng-bind-html="page.title | TrustHtmlFilter" ng-click="nestedPagesVm.openContent(page)"></h4>
+    <i
+    class="icon button-icon"
+    ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)" ng-class="{'ion-ios-arrow-down': !page.active, 'ion-ios-arrow-up': page.active}"></i>
+  </ion-item>
+</div>
