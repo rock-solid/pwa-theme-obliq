@@ -22,22 +22,21 @@ function AppticlesNestedPages($log, $state, $ionicScrollDelegate, $ionicSideMenu
 class NestedPagesController {
   constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state) {
     this.openContent = openContent;
-    this.openChildPages = openChildPages;
     this.goBackTo = goBackTo;
 
     let initialPagelist = this.pages;
     this.currentPages = this.buildNestedTree(this.pages, 0);
 
 
-    function openChildPages(parentPageId) {
+    const openChildPages = (parentPageId) => {
       // prevent scrolling issues by scrolling to top before updating the pageList
       $ionicScrollDelegate.scrollTop();
 
       let parentPage = this.currentPages.filter((page) => page.id === parentPageId);
       this.currentPages = parentPage[0].children;
       this.currentParentId = this.currentPages[0].parent_id;
-
-    }
+    };
+    this.openChildPages = openChildPages;
 
     function goBackTo(parentPageId = 0) {
       if (parentPageId === 0) {
