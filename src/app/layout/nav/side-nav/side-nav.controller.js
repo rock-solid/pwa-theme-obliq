@@ -15,7 +15,9 @@ class SideNav {
     this.hasPages = true;
 
     this.directiveApi = {
-      isRoot: true
+      isRoot: true,
+      pagesVisible: false,
+      categoriesVisible: false
     };
 
     this.loadPages = loadPages;
@@ -63,6 +65,7 @@ class SideNav {
           .then(() => {
             this.pageContentLoaded = true;
             this.directiveApi.isRoot = false;
+            this.directiveApi.pagesVisible = true;
           })
           .catch($log.error);
       }
@@ -116,6 +119,7 @@ class SideNav {
         .then(() => {
           this.categoryContentLoaded = true;
           this.directiveApi.isRoot = false;
+          this.directiveApi.categoriesVisible = true;
         })
         .catch($log.error);
     }

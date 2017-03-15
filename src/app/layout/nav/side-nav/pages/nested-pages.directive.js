@@ -41,6 +41,7 @@ class NestedPagesController {
     function goBackTo(parentPageId = 0) {
       if (parentPageId === 0) {
         this.directiveApi.isRoot = true;
+        this.directiveApi.pagesVisible = false;
         this.shouldAnimate = false;
       }
       else {

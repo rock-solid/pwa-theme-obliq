@@ -41,6 +41,7 @@ class NestedCategoriesController {
     function goBackTo(parentCategoryId = 0) {
       if (parentCategoryId === 0) {
         this.directiveApi.isRoot = true;
+        this.directiveApi.categoriesVisible = false;
         this.shouldAnimate = false;
       }
       else {

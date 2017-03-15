@@ -22,10 +22,10 @@
       <div class="side-nav-view__go-to-container side-nav-view-custom__go-to-container-custom" ng-if="navSideVm.websiteUrl" data-ng-click="navSideVm.openDesktopWebsite()"></div>
       <h4 class="side-nav-view__go-to-title side-nav-view-custom__go-to-title-custom" translate="LINKS.VISIT_WEBSITE"></h4>
     </div>
-    <div data-ng-if="!navSideVm.directiveApi.isRoot && navSideVm.pageContentLoaded" class="side-nav-view__static-pages-list animate-repeat">
+    <div data-ng-if="navSideVm.directiveApi.pagesVisible && navSideVm.pageContentLoaded" class="side-nav-view__static-pages-list animate-repeat">
       <appticles-nested-pages directive-api="navSideVm.directiveApi" pages="navSideVm.allPages"></appticles-nested-pages>
     </div>
-    <div data-ng-if="!navSideVm.directiveApi.isRoot && navSideVm.categoryContentLoaded" class="side-nav-view__static-pages-list animate-repeat">
+    <div data-ng-if="navSideVm.directiveApi.categoriesVisible && navSideVm.categoryContentLoaded" class="side-nav-view__static-pages-list animate-repeat">
       <appticles-nested-categories directive-api="navSideVm.directiveApi" categories="navSideVm.allCategories"></appticles-nested-categories>
     </div>
   </ion-content>
