@@ -1,0 +1,37 @@
+<ion-modal-view class="ex-comments-modal__view ex-comments-modal__view-custom">
+  <ion-view>
+    <ion-header-bar class="bar bar-clear flex-end">
+      <button class="button icon ion-close ex-close-btn ex-close-btn-custom" data-ng-click="commentsVm.closeModal()"></button>
+      <p style="color:red" class="title h4" translate="TEXTS.LEAVE_COMMENTS"></p>
+    </ion-header-bar>
+    <ion-content class="ex-comments-modal ex-comments-modal-custom" style="height:60vh; border: 1px solid red;">
+      <!-- if there are no comments-->
+      <div class="item item-noComments" data-ng-if="commentsVm.commentList.length == 0">
+        <h4 translate="TEXTS.NO_COMMENTS"></h4>
+      </div>
+      <div class="ex-comments-modal__card" data-ng-if="commentsVm.commentList.length !== 0" data-ng-repeat="comment in commentsVm.commentList">
+        <div class="item ex-comments__item">
+          <div class="row no-padding flex-align-center">
+            <div data-ng-if="$index !== 0" class="ex-border ex-border-custom"></div>
+            <a data-ng-href="{{comment.author_url}}">
+              <div data-ng-if="comment.avatar" class="item-avatar ex-item-avatar">
+                <img data-ng-src="{{comment.avatar}}">
+              </div>
+            </a>
+            <div class="col">
+              <h5 class="ex-comments-modal__author-name ex-comments-modal__author-name-custom"> {{comment.author}} </h5>
+              <p class="ex-comments-modal__author-name ex-comments-modal__author-name-custom"> {{comment.date}} </p>
+            </div>
+          </div>
+        </div>
+        <div class="ex-card__content-wrapper">
+          <div class="ex-comments-modal__content ex-comments-modal__content-custom" data-ng-bind-html="comment.content | TrustHtmlFilter"></div>
+        </div>
+      </div>
+      <div>{{commentsVm.postDetails.commentStatus}}</div>
+    </ion-content>
+    <ion-footer-bar style="height:260px; border: 1px solid blue;">
+      <appticles-add-comment data-ng-if="commentsVm.postDetails['comment_status'] == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
+    </ion-footer-bar>
+  </ion-view>
+</ion-modal-view>

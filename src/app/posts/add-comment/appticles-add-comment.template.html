@@ -1,0 +1,53 @@
+<form ng-model-options="{ updateOn: 'blur', debounce: { 'default': 300, 'blur': 0 } }" name="addCommentVm.commentForm" novalidate
+  data-ng-submit="addCommentVm.postComment()">
+  <div class="list list-inset">
+    <label data-ng-class="{'error': addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid }" class="item item-custom item-input">
+      <input type="text" name="author" data-ng-model="addCommentVm.author" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}">
+      <i data-ng-show="addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid" class="icon ion-ios-close-outline form-label"></i>
+    </label>
+
+    <div class="error-container">
+      <div ng-show="!addCommentVm.commentForm.author.$pristine && addCommentVm.commentForm.author.$invalid ">
+        <p ng-show="addCommentVm.commentForm.author.$error.required" translate="FORMS.YOUR_NAME_ERROR"></p>
+      </div>
+    </div>
+  </div>
+  <!-- error container -->
+
+  <div class="list list-inset">
+    <label data-ng-class="{'error': addCommentVm.commentForm.email.$dirty && addCommentVm.commentForm.email.$invalid }" class="item item-custom item-input">
+      <input type="email" name="email" data-ng-model="addCommentVm.email" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_EMAIL' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}" >
+      <i data-ng-show="addCommentVm.commentForm.email.$dirty && addCommentVm.commentForm.email.$invalid" class="icon ion-ios-close-outline form-label"></i>
+        </label>
+    <!-- error container -->
+    <div class="error-container">
+      <div ng-show="!addCommentVm.commentForm.email.$pristine && addCommentVm.commentForm.email.$invalid ">
+        <p ng-show="addCommentVm.commentForm.email.$error.required" translate="FORMS.YOUR_EMAIL_ERROR"></p>
+        <p ng-show="!addCommentVm.commentForm.email.$error.required && addCommentVm.commentForm.email.$invalid" translate="FORMS.YOUR_EMAIL_ERROR2"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="list list-inset">
+    <label data-ng-class="{'error': addCommentVm.commentForm.content.$dirty && addCommentVm.commentForm.content.$invalid }" class="item item-custom item-input">
+      <textarea type="text" name="content"
+      data-ng-model="addCommentVm.content"
+      data-ng-model-options="{updateOn: 'default'}"
+      data-ng-required="true" placeholder="{{('FORMS.YOUR_COMMENT' | translate) + '*'}}"></textarea>
+      <i data-ng-show="addCommentVm.commentForm.content.$dirty && addCommentVm.commentForm.content.$invalid" class="icon ion-ios-close-outline form-label"></i>
+    </label>
+
+    <!-- error container -->
+    <div class="error-container">
+      <div ng-show="!addCommentVm.commentForm.content.$pristine && addCommentVm.commentForm.content.$invalid ">
+        <p ng-show="addCommentVm.commentForm.content.$error.required" translate="FORMS.YOUR_COMMENT_ERROR"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="list list-inset">
+    <button data-ng-disabled="addCommentVm.commentForm.$invalid || addCommentVm.submitted" class="button button-block comment-list ex-button ex-button-custom"
+      translate="FORMS.SEND">
+        </button>
+  </div>
+</form>
