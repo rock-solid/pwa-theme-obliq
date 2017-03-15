@@ -1,0 +1,16 @@
+<ion-view cache-view="false" class="page-ctx">
+  <ion-nav-buttons side="left">
+    <button class="button icon ion-close ex-close-btn ex-close-btn-custom" style="height:50px;width:50px;" data-ui-sref="app.nav.latest"></button>
+  </ion-nav-buttons>
+  <ion-content data-ng-show="pageVm.contentLoaded">
+    <h1 class="h3 page__title page-custom__title-custom bar-title" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
+    <div ng-if="pageVm.image && pageVm.image.src" class="page__cover" data-ng-style=" {'background':'url( {{ pageVm.image.src }} )'}"></div>
+
+    <!-- content -->
+    <div class="page__content page-custom__content-custom">
+      <div data-ng-bind-html="pageVm.content | TrustHtmlFilter"></div>
+    </div>
+    <!-- end content -->
+
+  </ion-content>
+</ion-view>

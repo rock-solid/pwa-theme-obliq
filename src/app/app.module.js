@@ -8,8 +8,7 @@ angular.module('appticles', [
   'appticles.base',
   'appticles.nav',
   'appticles.posts',
-  // 'appticles.categories',
-  // 'appticles.pages'
+  'appticles.pages'
 ])
   .run(configure);
 
