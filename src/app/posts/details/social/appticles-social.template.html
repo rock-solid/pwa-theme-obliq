@@ -1,0 +1,30 @@
+<ion-modal-view class="social-modal__view social-modal__view-custom">
+  <ion-view>
+    <ion-content scroll="false" class="social-modal">
+      <div class="row social-modal__content">
+        <div ng-if="socialNetworksVm.directiveApi.hasComments">
+          <a>
+            <button data-ng-if="postDetailsVm.directiveApi.props !== '' " appticles-comments data-ng-click="postDetailsVm.directiveApi.triggerCommentsModal()"
+              directive-api="postDetailsVm.directiveApi" class="button icon ion-ios-chatboxes-outline ex-social-btn ex-social-btn-custom"></button>
+          </a>
+        </div>
+        <div data-ng-if="socialNetworksVm.hasFacebook">
+          <a data-ng-href="https://m.facebook.com/sharer.php?u={{socialNetworksVm.postDetails.link}}" target="_blank">
+            <button class="button icon ion-social-facebook social-modal__btn social-modal__btn-custom"></button>
+          </a>
+        </div>
+        <div data-ng-if="socialNetworksVm.hasTwitter">
+          <a data-ng-href="https://twitter.com/intent/tweet?text={{ socialNetworksVm.postDetails.title + ' ' + socialNetworksVm.postDetails.link}}"
+            target="_blank">
+            <button class="button icon ion-social-twitter social-modal__btn social-modal__btn-custom"></button>
+          </a>
+        </div>
+        <div data-ng-if="socialNetworksVm.hasGoogle">
+          <a data-ng-href="https://plus.google.com/share?url={{socialNetworksVm.postDetails.link}}" target="_blank">
+            <button class="button icon ion-social-googleplus social-modal__btn social-modal__btn-custom"></button>
+          </a>
+        </div>
+      </div>
+    </ion-content>
+  </ion-view>
+</ion-modal-view>
