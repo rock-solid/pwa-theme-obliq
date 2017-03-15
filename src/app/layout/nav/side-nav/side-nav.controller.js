@@ -1,6 +1,7 @@
 class SideNav {
   constructor(AppticlesAPI, AppticlesValidation, $q, $log, $window, $translate, configuration) {
     this.allPages = [];
+    this.allCategories = [];
 
     this.websiteUrl = configuration.websiteUrl;
     this.openDesktopWebsite = openDesktopWebsite;
