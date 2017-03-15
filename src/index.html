@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Appticles Sample</title>
 
-    <!-- compiled css output -->
-    <link href="assets/sass/ionic.app.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Appticles Sample</title>
+  <!-- compiled css output -->
+  <link href="assets/sass/ionic.app.css" rel="stylesheet">
   <link href="assets/sass/main.css" rel="stylesheet">
   <link href="assets/sass/customizable.css" rel="stylesheet">
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- angular-translate -->
+  <script src="lib/angular-translate/angular-translate.js"></script>
+  <!-- angular-dfp -->
+  <script src="lib/ngDfp/angular-dfp.min.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+  <script type="text/javascript">
+    window.__APPTICLES_BOOTSTRAP_DATA__ = {
+      CONFIG_PATH: '/app/config.json'
+    };
 
-    <!-- angular-translate -->
-    <script src="lib/angular-translate/angular-translate.js"></script>
-
-    <!-- angular-dfp -->
-    <script src="lib/ngDfp/angular-dfp.min.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <script type="text/javascript">
-      window.__APPTICLES_BOOTSTRAP_DATA__ = {
-        CONFIG_PATH: '/app/config.json'
-      };
-    </script>
-
-    <!-- build:js -->
-
-    <!-- core/config -->
-    <script src="app/core/config/config.module.js" charset="utf-8"></script>
-    <script src="app/core/config/config.provider.js" charset="utf-8"></script>
-
-    <!-- core/appticles-api -->
-    <script src="app/core/appticles-api/api.module.js" charset="utf-8"></script>
-    <script src="app/core/appticles-api/api.service.js" charset="utf-8"></script>
-
-    <!-- core/appticles-validation -->
-    <script src="app/core/appticles-validation/validation.module.js" charset="utf-8"></script>
-    <script src="app/core/appticles-validation/validation.service.js" charset="utf-8"></script>
-
-    <!-- core/appticles-canonical -->
-    <script src="app/core/appticles-canonical/canonical.module.js" charset="utf-8"></script>
-    <script src="app/core/appticles-canonical/canonical.service.js" charset="utf-8"></script>
-
-    <!-- core/appticles-i18n -->
-    <script src="app/core/appticles-i18n/i18n.module.js" charset="utf-8"></script>
-    <script src="app/core/appticles-i18n/i18n.service.js" charset="utf-8"></script>
-
-    <!-- core/appticles-ads -->
-    <script src="app/core/appticles-ads/ads.module.js" charset="utf-8"></script>
-    <script src="app/core/appticles-ads/ads.config.js" charset="utf-8"></script>
-    <script src="app/core/appticles-ads/ads.directive.js" charset="utf-8"></script>
-
-    <!-- core/filters -->
-    <script src="app/core/trust-html.filter.js" charset="utf-8"></script>
-    <!-- posts -->
-    <script src="app/posts/posts.module.js" charset="utf-8"></script>
-    <script src="app/posts/latest/latest.controller.js" charset="utf-8"></script>
-    <script src="app/posts/category/post-list.controller.js" charset="utf-8"></script>
-    <script src="app/posts/details/post-details.controller.js" charset="utf-8"></script>
-    <script src="app/posts/details/social/appticles-social.directive.js" charset="utf-8"></script>
-    <script src="app/posts/comments/comment-list.controller.js" charset="utf-8"></script>
-
-    <!-- pages -->
-    <script src="app/pages/pages.module.js" charset="utf-8"></script>
-    <script src="app/pages/list/page-list.controller.js" charset="utf-8"></script>
-    <script src="app/pages/list/nested-pages.directive.js" charset="utf-8"></script>
-    <script src="app/pages/details/page-details.controller.js" charset="utf-8"></script>
-
-    <!-- base -->
-    <script src="app/layout/shell/shell.module.js" charset="utf-8"></script>
-    <script src="app/layout/nav/nav.module.js" charset="utf-8"></script>
+  </script>
+  <!-- build:js -->
+  <!-- core/config -->
+  <script src="app/core/config/config.module.js" charset="utf-8"></script>
+  <script src="app/core/config/config.provider.js" charset="utf-8"></script>
+  <!-- core/appticles-api -->
+  <script src="app/core/appticles-api/api.module.js" charset="utf-8"></script>
+  <script src="app/core/appticles-api/api.service.js" charset="utf-8"></script>
+  <!-- core/appticles-validation -->
+  <script src="app/core/appticles-validation/validation.module.js" charset="utf-8"></script>
+  <script src="app/core/appticles-validation/validation.service.js" charset="utf-8"></script>
+  <!-- core/appticles-canonical -->
+  <script src="app/core/appticles-canonical/canonical.module.js" charset="utf-8"></script>
+  <script src="app/core/appticles-canonical/canonical.service.js" charset="utf-8"></script>
+  <!-- core/appticles-i18n -->
+  <script src="app/core/appticles-i18n/i18n.module.js" charset="utf-8"></script>
+  <script src="app/core/appticles-i18n/i18n.service.js" charset="utf-8"></script>
+  <!-- core/appticles-ads -->
+  <script src="app/core/appticles-ads/ads.module.js" charset="utf-8"></script>
+  <script src="app/core/appticles-ads/ads.config.js" charset="utf-8"></script>
+  <script src="app/core/appticles-ads/ads.directive.js" charset="utf-8"></script>
+  <!-- core/filters -->
+  <script src="app/core/trust-html.filter.js" charset="utf-8"></script>
+  <!-- posts -->
+  <script src="app/posts/posts.module.js" charset="utf-8"></script>
+  <script src="app/posts/latest/latest.controller.js" charset="utf-8"></script>
+  <script src="app/posts/category/post-list.controller.js" charset="utf-8"></script>
+  <script src="app/posts/details/post-details.controller.js" charset="utf-8"></script>
+  <script src="app/posts/details/social/appticles-social.directive.js" charset="utf-8"></script>
+  <script src="app/posts/comments/comment-list.controller.js" charset="utf-8"></script>
+  <!-- pages -->
+  <script src="app/pages/pages.module.js" charset="utf-8"></script>
+  <script src="app/pages/list/page-list.controller.js" charset="utf-8"></script>
+  <script src="app/pages/details/page-details.controller.js" charset="utf-8"></script>
+  <!-- base -->
+  <script src="app/layout/shell/shell.module.js" charset="utf-8"></script>
+  <script src="app/layout/nav/nav.module.js" charset="utf-8"></script>
   <script src="app/layout/nav/side-nav/side-nav.controller.js" charset="utf-8"></script>
   <script src="app/layout/nav/side-nav/pages/nested-pages.directive.js" charset="utf-8"></script>
   <script src="app/layout/nav/side-nav/categories/nested-categories.directive.js" charset="utf-8"></script>
-    <!-- app -->
-    <script src="app/app.module.js"></script>
-    <script src="app/main.js" charset="utf-8"></script>
+  <!-- app -->
+  <script src="app/app.module.js"></script>
+  <script src="app/main.js" charset="utf-8"></script>
+  <!-- endbuild -->
+</head>
 
-    <!-- endbuild -->
+<body>
+  <ion-nav-view></ion-nav-view>
+</body>
 
-  </head>
-  <body>
-    <ion-nav-view></ion-nav-view>
-  </body>
 </html>
