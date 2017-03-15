@@ -18,11 +18,13 @@
 @import
 "../../app/posts/latest/latest-custom",
 "../../app/posts/category/post-list-custom",
-"../../app/posts/comments/comment-list-custom",
-"../../app/posts/details/post-details-custom",
+
+
+//"../../app/posts/comments/comment-list-custom",
+//"../../app/posts/details/post-details-custom",
 //"../../app/posts/add-comment/add-comment-custom",
 
-"../../app/pages/details/page-details-custom",
-"../../app/pages/list/page-list-custom",
-
-"../../app/categories/list/category-list-custom";
+//"../../app/pages/details/page-details-custom",
+"../../app/layout/side-nav/side-nav-custom",
+"../../app/layout/side-nav/categories/nested-categories-custom",
+"../../app/layout/side-nav/pages/nested-pages-custom";

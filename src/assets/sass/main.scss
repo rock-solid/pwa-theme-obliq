@@ -14,13 +14,15 @@
 
 // MODULES
 @import
-  "../../app/posts/latest/latest",
-  "../../app/posts/category/post-list",
-  "../../app/posts/details/post-details",
-  "../../app/posts/comments/comment-list",
-  //"../../app/posts/add-comment/add-comment",
+"../../app/posts/latest/latest",
+"../../app/posts/category/post-list",
 
-  "../../app/pages/details/page-details",
-  "../../app/pages/list/page-list",
 
-  "../../app/categories/list/category-list";
+//"../../app/posts/comments/comment-list",
+//"../../app/posts/details/post-details",
+//"../../app/posts/add-comment/add-comment",
+
+//"../../app/pages/details/page-details,
+"../../app/layout/side-nav/side-nav",
+"../../app/layout/side-nav/categories/nested-categories",
+"../../app/layout/side-nav/pages/nested-pages";

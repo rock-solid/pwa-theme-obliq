@@ -10,6 +10,21 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+.vertical-align {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}
+
+// used with display: flex
+.space-between {
+  justify-content: space-between;
+}
 // display
 .d-block {
   display: block !important;
@@ -22,6 +37,9 @@
 }
 .d-inline {
   display: inline !important;
+}
+.d-flex {
+  display: flex !important;
 }
 
 //overflow
@@ -68,8 +86,17 @@
 .w-100 {
   width: 100%;
 }
+.w-90 {
+  width: 90%;
+}
 .w-75 {
   width: 75%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-65 {
+  width: 65%;
 }
 .w-50 {
   width: 50%;
@@ -162,6 +189,12 @@ $spacers: (
 .text-center {
   text-align: center;
 }
+.text-right {
+  text-align: right;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
 .text-heading-style {
   font-family: $headings-font-family !important;
 }
@@ -170,10 +203,9 @@ $spacers: (
 }
 .text-ellipsis {
   display: block;
-  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 .text-justify {
   text-align: justify;
@@ -184,10 +216,26 @@ $spacers: (
 .link-unstyled {
   text-decoration: none;
 }
+.f-left {
+  float: left !important;
+}
+.f-right {
+  float: right !important;
+}
 
 //background
 .bg-cover {
   background-position: 50% 50% !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+}
+
+.max-width-md {
+  max-width: 16rem;
+}
+.index-2 {
+  z-index: 2;
+}
+.index-3 {
+  z-index: 3;
 }
