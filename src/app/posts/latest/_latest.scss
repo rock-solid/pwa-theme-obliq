@@ -1,0 +1,21 @@
+.latest {
+  &__button-more {
+    color: $btn-color !important;
+    background: $btn-bg !important;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-right: $base-margin-sm;
+    margin-top: $base-margin-sm;
+
+    &::before {
+      font-size: 24px !important;
+      line-height: 30px !important;
+    }
+  }
+}
+
+.latest-ctx {
+
+
+}

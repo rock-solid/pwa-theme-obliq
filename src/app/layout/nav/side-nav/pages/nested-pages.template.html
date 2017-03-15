@@ -1,11 +1,17 @@
-<div class="animate-repeat">
-  <a data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)" class="button icon-left ion-chevron-left button-clear button-dark "></a>
-</div>
-<div class="page-item animate-repeat" ng-repeat="page in nestedPagesVm.currentPages">
-  <ion-item class="item-complex">
-    <h4 class="item-content" data-ng-bind-html="page.title | TrustHtmlFilter" ng-click="nestedPagesVm.openContent(page)"></h4>
-    <i
-    class="icon button-icon"
-    ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)" ng-class="{'ion-ios-arrow-down': !page.active, 'ion-ios-arrow-up': page.active}"></i>
-  </ion-item>
+<div class="nested-pages-ctx">
+
+  <div class="animate-repeat">
+    <a data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)" class="button icon-left ion-chevron-left button-clear button-dark nested-pages__button-back nested-pages-custom__button-back-custom">
+      <h4 class="nested-pages__nested-pages-title nested-pages-custom__nested-pages-title-custom m-a-0" translate="LINKS.GO_TO"></h4>
+    </a>
+  </div>
+  <div class="page-item animate-repeat" ng-repeat="page in nestedPagesVm.currentPages">
+    <ion-item class="item-complex">
+      <h4 class="item-content" data-ng-bind-html="page.title | TrustHtmlFilter" ng-click="nestedPagesVm.openContent(page)"></h4>
+      <i
+      class="icon button-icon"
+      ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)" ng-class="{'ion-ios-arrow-down': !page.active, 'ion-ios-arrow-up': page.active}"></i>
+    </ion-item>
+  </div>
+
 </div>

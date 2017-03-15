@@ -1,0 +1,22 @@
+.nested-categories-ctx {
+
+  .nested-categories {
+
+    ion-item {
+      border: none !important;
+      height: 100% !important;
+    }
+    &__item-wrap {
+      height: 85px;
+    }
+    &__img-placeholder {
+      background: $overlay-bg;
+    }
+    &__item-content {
+      padding: $base-padding;
+    }
+    &__item-title, &__item-icon {
+      color: $text-color;
+    }
+  }
+}
