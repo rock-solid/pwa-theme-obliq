@@ -1,9 +1,8 @@
 <div class="nested-categories-ctx">
   <div class="animate-repeat">
-    <div class="nested-categories__title-container w-100">
-      <a data-ng-click="nestedCategoriesVm.goBackTo(nestedCategoriesVm.currentParentId)" class="w-100 button icon-left ion-chevron-left button-clear button-dark nested-categories__button-back nested-categories-custom__button-back-custom">
-        <h4 class="nested-categories__nested-pages-title nested-categories-custom__nested-pages-title-custom m-a-0" translate="LINKS.CATEGORIES"></h4>
-      </a>
+    <div class="nested-categories__title-container w-100 d-flex vertical-align" data-ng-click="nestedCategoriesVm.goBackTo(nestedCategoriesVm.currentParentId)">
+      <i class="button icon-left ion-chevron-left button-clear button-dark nested-categories__button-back nested-categories-custom__button-back-custom"></i>
+      <h4 class="nested-categories__page-title nested-categories-custom__page-title-custom m-a-0 d-inline-block" translate="LINKS.CATEGORIES"></h4>
     </div>
   </div>
   <div class="page-item animate-repeat nested-categories__item-wrap" ng-repeat="page in nestedCategoriesVm.currentCategories">
@@ -12,6 +11,7 @@
         <h6 class="nested-categories__item-title nested-categories-custom__item-title-custom text-ellipsis text-uppercase" data-ng-bind-html="page.name | TrustHtmlFilter" ng-click="nestedCategoriesVm.openContent(page)"></h6>
         <i class="icon button-icon nested-categories-custom__item-icon nested-categories__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedCategoriesVm.openChildCategories(page.id)" ng-class="{'ion-ios-arrow-down': !page.active, 'ion-ios-arrow-up': page.active}"></i>
       </div>
+      <div data-ng-if="page.image" class="nested-categories__img-overlay bg-cover position-absolute w-100 h-100 index-2"></div>
       <div data-ng-if="page.image" data-ng-style=" {'background-image':'url({{page.image.src}})'}"  class="nested-categories__img bg-cover position-absolute w-100 h-100"></div>
       <div data-ng-if="!page.image" class="nested-categories__img-placeholder nested-categories-custom__img-placeholder-custom h-100"></div>
     </ion-item>
