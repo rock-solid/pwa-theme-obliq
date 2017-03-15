@@ -1,0 +1,30 @@
+.nested-pages-ctx {
+
+  .nested-pages {
+
+    ion-item {
+      border-color: $border-color !important;
+      height: 100% !important;
+      background: transparent !important;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    &__img-placeholder {
+      background: $overlay-bg;
+    }
+    &__page-title, &__button-back {
+      color: $side-nav-color;
+    }
+    &__item-content {
+      padding: $base-padding;
+    }
+    &__title-container {
+      padding: 0 $base-padding 0 0;
+    }
+    &__item-title, &__item-icon {
+      color: $side-nav-color;
+    }
+  }
+}

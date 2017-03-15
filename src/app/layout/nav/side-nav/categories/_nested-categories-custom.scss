@@ -1,0 +1,18 @@
+.nested-categories-ctx {
+
+  .nested-categories-custom {
+
+    &__img-placeholder-custom {
+      background: $overlay-bg;
+    }
+    &__img-overlay-custom {
+      background: rgba($overlay-bg, 0.5);
+    }
+    &__page-title-custom, &__button-back-custom {
+      color: $side-nav-color;
+    }
+    &__item-title-custom, &__item-icon-custom {
+      color: $text-color;
+    }
+  }
+}

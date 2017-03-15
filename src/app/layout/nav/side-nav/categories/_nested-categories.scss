@@ -12,8 +12,17 @@
     &__img-placeholder {
       background: $overlay-bg;
     }
+    &__img-overlay {
+      background: rgba($overlay-bg, 0.5);
+    }
+    &__page-title, &__button-back {
+      color: $side-nav-color;
+    }
     &__item-content {
       padding: $base-padding;
+    }
+    &__title-container {
+      padding: 0 $base-padding 0 0;
     }
     &__item-title, &__item-icon {
       color: $text-color;
