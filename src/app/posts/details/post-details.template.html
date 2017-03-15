@@ -1,0 +1,39 @@
+<ion-view cache-view="false" data-ng-show="postDetailsVm.contentLoaded" class="post-ctx">
+  <ion-nav-buttons side="left">
+    <button
+    style="width: 42px !important; height: 50px !important; border-radius: 75%; background-color: red; transition: all 0.5s ease-in-out"
+    ng-class="{'slide-up': !postDetailsVm.itemIsShown, 'slide-down': postDetailsVm.itemIsShown}"
+    class="button button-icon ion-ios-arrow-back button-clear button-dark post-detail-page__button-back post-detail-page-custom__button-back-custom"
+      data-ng-click="postDetailsVm.goBack()"></button>
+  </ion-nav-buttons>
+  <ion-content data-ng-show="postDetailsVm.contentLoaded" style="top: 0;"
+  scroll-event-interval="50"
+  has-bouncing="false"
+  on-tap="postDetailsVm.handleOnTap()"
+  on-scroll="postDetailsVm.handleOnScroll()">
+    <!-- hero pic -->
+    <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
+    <div data-ng-class="{'has-extra-top': !postDetailsVm.postDetails.image.src, 'has-another-top': postDetailsVm.directiveApi.isShown}"
+      class="post__content-container post-custom__content-container-custom">
+      <h1 class="h3 post__title post-custom__title-custom text-heading-style" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
+      </h1>
+      <h6 class="post__category post-custom__category-custom" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
+      <span class="post__author post-custom__author-custom text-body-style">Author: {{ postDetailsVm.postDetails.author }} &bull; </span>
+      <span class="post__date post-custom__date-custom text-body-style">Date: {{ postDetailsVm.postDetails.date }}</span>
+      <!-- content -->
+      <div class="post__content post-custom__content-custom">
+        <appticles-ads ng-if="postDetailsVm.postDetails.content" content="postDetailsVm.postDetails.content"></appticles-ads>
+      </div>
+    </div>
+  </ion-content>
+  <div side="right" class="bar bar-footer bar-clear ex-bar-footer ex-bar-footer-custom">
+    <div ng-if="postDetailsVm.hasSocialNetworks || postDetailsVm.directiveApi.hasComments">
+      <button class="button icon ion-share ex-social-btn ex-social-btn-custom"
+      style="background-color:red;transition: all 0.5s ease-in-out"
+      ng-class="{'footer-slide-down': !postDetailsVm.itemIsShown || postDetailsVm.directiveApi.modalTriggered}"
+      data-ng-if="postDetailsVm.directiveApi.props !== '' "
+        appticles-social data-ng-click="postDetailsVm.directiveApi.triggerModal()" directive-api="postDetailsVm.directiveApi"></button>
+    </div>
+  </div>
+</ion-view>
+

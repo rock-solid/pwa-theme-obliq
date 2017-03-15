@@ -1,0 +1,26 @@
+
+// overwrites ionic modal css to show backdrop on all screens not only larger ones
+@media screen {
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+  .active .modal-backdrop-bg {
+    opacity: 0.5;
+  }
+}
+
+.social-modal__view {
+  background: transparent;
+  height: 150px;
+  min-height: 150px;
+  top: initial;
+  bottom: 0;
+  .pane {
+    background: transparent;
+  }
+}
+
+
