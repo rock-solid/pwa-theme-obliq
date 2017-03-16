@@ -7,20 +7,9 @@
     <!-- if articles -->
     <!-- first elem -->
     <appticles-slides
+    type="latest"
     data-ng-if="::(latestVm.posts && latestVm.categories)"
     posts="latestVm.posts" categories="latestVm.categories"></appticles-slides>
-    <!--<ion-slides options="latestVm.sliderOptions" slider="latestVm.slider">
-      <ion-slide-page data-ng-repeat="page in latestVm.posts">
-        <div style="display: flex; flex-direction: column; height: 100%">
-          <div data-ng-repeat="post in page"
-          data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
-          style="display: flex; flex-direction:column; align-items: center; justify-content: center;flex: 1 0 auto;border: 1px solid red; background-image: url('https://source.unsplash.com/random');background-size: cover; background-repeat: no-repeat;">
-            <div class="h4" style="color:azure" data-ng-bind-html="post.title | TrustHtmlFilter"></div>
-            <div class="h3" style="color:azure">{{post.id}}</div>
-          </div>
-        </div>
-      </ion-slide-page>
-    </ion-slides>-->
     <!-- end list -->
   </ion-content>
 </ion-view>
