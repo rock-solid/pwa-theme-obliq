@@ -1,0 +1,10 @@
+<ion-slides options="slidesVm.sliderOptions" slider="slidesVm.slider">
+  <ion-slide-page data-ng-repeat="page in slidesVm.posts">
+    <div style="display: flex; flex-direction: column; height: 100%">
+      <div data-ui-sref="app.nav.post({categorySlugId: slidesVm.category.id, postId: post.id})" data-ng-repeat="post in page" style="display: flex; flex-direction:column; align-items: center; justify-content: center;flex: 1 0 auto;border: 1px solid red; background-image: url('https://source.unsplash.com/random');background-size: cover; background-repeat: no-repeat;">
+        <div class="h4" style="color:azure" data-ng-bind-html="post.title | TrustHtmlFilter"></div>
+        <div class="h3" style="color:azure">{{post.id}}</div>
+      </div>
+    </div>
+  </ion-slide-page>
+</ion-slides>

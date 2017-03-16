@@ -41,7 +41,7 @@ class SlidesController {
     $ionicLoading) {
 
     const articlesPerCard = configuration.articlesPerCard || 'auto';
-    this.categories = this.buildCategoriesList(this.categories);
+    this.categories = this.categories.length > 1 ? this.buildCategoriesList(this.categories) : this.categories;
     this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
 
     this.loadMorePosts = loadMorePosts;
