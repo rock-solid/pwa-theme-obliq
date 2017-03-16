@@ -1,8 +1,12 @@
 <ion-slides options="slidesVm.sliderOptions" slider="slidesVm.slider">
-  <ion-slide-page data-ng-repeat="page in slidesVm.posts">
+  <ion-slide-page data-index="{{$index}}" data-ng-repeat="page in slidesVm.posts">
     <div style="display: flex; flex-direction: column; height: 100%">
-      <div data-ng-repeat="post in page" data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
+      <div data-ng-repeat="post in page"
+      data-index="{{$index}}"
+      data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
         style="display: flex; flex-direction:column; align-items: center; justify-content: center;flex: 1 0 auto;border: 1px solid red; background-image: url('https://source.unsplash.com/random');background-size: cover; background-repeat: no-repeat;">
+        <p style="color:azure">this is the index for the post in the page: {{$index}}</p>
+        <p style="color:azure">You will might to bind to the view: post.image, post.description, post.date, categories.name</p>
         <div class="h4" style="color:azure" data-ng-bind-html="post.title | TrustHtmlFilter"></div>
         <div class="h3" style="color:azure">{{post.id}}</div>
       </div>

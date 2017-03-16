@@ -14,16 +14,12 @@ function AppticlesSlides() {
     },
     controller: SlidesController,
     templateUrl: (tElem, tAttrs) => {
-      switch(tAttrs && tAttrs.type){
 
-      case 'latest':
-        return 'app/posts/appticles-slides/appticles-slides.template.html';
-
-      case 'posts':
-        return 'app/posts/appticles-slides/appticles-slides.template.html';
-
-      default:
-        return 'app/posts/appticles-slides/appticles-slides.template.html';
+      if(tAttrs && tAttrs.type) {
+        return 'app/posts/' + tAttrs.type + '/appticles-slides-' + tAttrs.type + '.template.html';
+      }
+      else {
+        return 'app/posts/latests/appticles-slides-latest.template.html';
       }
     },
     controllerAs: 'slidesVm',
