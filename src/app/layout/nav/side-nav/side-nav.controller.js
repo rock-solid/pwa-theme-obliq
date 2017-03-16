@@ -58,6 +58,7 @@ class SideNav {
 
     function loadPages() {
 
+      // if we haven't already loaded the pages
       if(!this.pageContentLoaded) {
         AppticlesAPI
           .findPages()
@@ -69,6 +70,11 @@ class SideNav {
             this.directiveApi.pagesVisible = true;
           })
           .catch($log.error);
+      }
+      else {
+        this.pageContentLoaded = true;
+        this.directiveApi.isRoot = false;
+        this.directiveApi.pagesVisible = true;
       }
     }
 
@@ -113,16 +119,23 @@ class SideNav {
 
     function loadCategories() {
 
-      AppticlesAPI
-        .findCategories({ withArticles: 0 })
-        .then(validateCategories)
-        .then(populateCategoryList)
-        .then(() => {
-          this.categoryContentLoaded = true;
-          this.directiveApi.isRoot = false;
-          this.directiveApi.categoriesVisible = true;
-        })
-        .catch($log.error);
+      if(!this.categoryContentLoaded) {
+        AppticlesAPI
+          .findCategories({ withArticles: 0 })
+          .then(validateCategories)
+          .then(populateCategoryList)
+          .then(() => {
+            this.categoryContentLoaded = true;
+            this.directiveApi.isRoot = false;
+            this.directiveApi.categoriesVisible = true;
+          })
+          .catch($log.error);
+      }
+      else {
+        this.categoryContentLoaded = true;
+        this.directiveApi.isRoot = false;
+        this.directiveApi.categoriesVisible = true;
+      }
     }
 
 
