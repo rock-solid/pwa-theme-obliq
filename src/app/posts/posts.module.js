@@ -58,26 +58,7 @@ function postsModule($stateProvider, $urlRouterProvider) {
           templateUrl: 'app/posts/details/post-details.template.html',
         }
       }
-    })
-    .state('app.nav.post.comments', {
-      url: '/comments',
-      views: {
-        'postList@app.nav': {
-          controller: 'CommentsController as commentsVm',
-          templateUrl: 'app/posts/comments/comment-list.template.html',
-        }
-      }
-    })
-    // .state('app.nav.post.add-comment', {
-    //   url: '/add-comment',
-    //   views: {
-    //     'postList@app.nav': {
-    //       controller: 'AddCommentController as addCommentVm',
-    //       templateUrl: 'app/posts/add-comment/add-comment.template.html',
-    //     }
-    //   }
-    // })
-    ;
+    });
 
 
   $urlRouterProvider.otherwise('/');
