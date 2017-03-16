@@ -9,3 +9,117 @@
 .footer-slide-down {
   transform: translateY(150%);
 }
+.post__button-back, .post__ex-social-btn {
+  color: $btn-color !important;
+  background: $btn-bg !important;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  margin-left: $base-margin-sm;
+  margin-top: $base-margin-sm;
+  transition: all 0.5s ease-in-out;
+
+  &::before {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+}
+.post__ex-social-btn {
+  bottom: $base-padding;
+  right: $base-padding;
+}
+
+.post-ctx {
+
+  .post {
+
+    &__cover {
+      height: 280px;
+    }
+    &__cover-noimg {
+      height: 180px;
+    }
+    &__meta-container {
+      background: rgba($post-bg,0.7);
+      padding: $base-padding;
+      background: -webkit-linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* Standard syntax */
+    }
+    &__category {
+      color: $text-color;
+      background-color: $label-bg;
+      padding: $base-margin-xs;
+    }
+    &__title, &__author, &__date {
+      color: $post-text-color;
+    }
+    &__content-container {
+      color: $post-text-color;
+      background: $post-bg;
+      padding: $base-padding;
+
+      p, li, span {
+        color: $post-text-color;
+      }
+
+      p {
+        /*refers to embeddable objects that come from the wordpress dashboard*/
+        embed, iframe, object, video {
+            max-width: 100%;
+        }
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        color: $post-text-color;
+        margin-bottom: $base-margin-sm;
+        margin-top: $base-margin-sm;
+      }
+      ol {
+        list-style: decimal;
+        padding-left: $base-padding;
+      }
+      ul {
+        list-style: disc;
+        padding-left: $base-padding;
+      }
+      iframe {
+        max-width: 100%;
+      }
+      img, video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: $base-margin-sm 0;
+      }
+      a {
+        color: $link-color;
+      }
+      div {
+        max-width: 100% !important;
+      }
+      .dfp-ad {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: $base-margin-lg 0;
+      }
+      span {
+        display: block;
+        font-style: italic;
+      }
+    }
+    &__triangle {
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 100vw solid transparent;
+      border-bottom: 20px solid rgba($post-bg,0.7);
+      border-top: 20px solid transparent;
+    }
+  }
+
+
+}
