@@ -9,10 +9,23 @@ function AppticlesSlides() {
     restrict: 'AE',
     scope: {
       posts: '=',
-      categories: '='
+      categories: '=',
+      type: '='
     },
     controller: SlidesController,
-    templateUrl: 'app/posts/appticles-slides/appticles-slides.template.html',
+    templateUrl: (tElem, tAttrs) => {
+      switch(tAttrs && tAttrs.type){
+
+      case 'latest':
+        return 'app/posts/appticles-slides/appticles-slides.template.html';
+
+      case 'posts':
+        return 'app/posts/appticles-slides/appticles-slides.template.html';
+
+      default:
+        return 'app/posts/appticles-slides/appticles-slides.template.html';
+      }
+    },
     controllerAs: 'slidesVm',
     bindToController: true,
   };
@@ -42,11 +55,9 @@ class SlidesController {
     $scope.$on('$ionicSlides.sliderInitialized', (event, data) => {
       this.slider = data.slider;
       this.slider.on('slideChangeStart', () => {
-        $log.info(this.slider.activeIndex);
         let canLoadMorePosts = this.slider.activeIndex == this.posts.length - 2 && this.morePostsAvailable;
         if (canLoadMorePosts) {
           this.loadMorePosts();
-          $log.info('loading more posts');
         }
       });
     });
@@ -73,8 +84,7 @@ class SlidesController {
 
     const buildMorePosts = (result) => {
       if (result.length > 0) {
-        this.posts = this.posts.concat(combineIntoGroupsOf(articlesPerCard, result));
-        $log.info(this.posts);
+        this.posts = this.posts.concat(this.combineIntoGroupsOf(articlesPerCard, result));
       } else {
         this.morePostsAvailable = false;
       }
