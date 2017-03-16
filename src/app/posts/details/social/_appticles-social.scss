@@ -8,19 +8,44 @@
     opacity: 0;
   }
   .active .modal-backdrop-bg {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 
-.social-modal__view {
-  background: transparent;
-  height: 150px;
-  min-height: 150px;
-  top: initial;
-  bottom: 0;
-  .pane {
+.social-modal {
+
+  &__content {
+    justify-content: space-around;
+  }
+
+  &__btn-fb, &__btn-tw, &__btn-gplus, &__btn-comm {
+    color: $btn-color;
+    border-radius: 50%;
+    min-height: 52px;
+  }
+  &__btn-fb {
+    background-color: $facebook;
+  }
+  &__btn-tw {
+    background-color: $twitter;
+  }
+  &__btn-gplus {
+    background-color: $google;
+  }
+  &__btn-comm {
+    background-color: $btn-bg;
+    border: 1px solid $btn-color;
+  }
+
+  &__view {
     background: transparent;
+    height: 80px;
+    justify-content: space-around;
+    min-height: 80px;
+    top: initial;
+    bottom: 0;
+    .pane {
+      background: transparent;
+    }
   }
 }
-
-
