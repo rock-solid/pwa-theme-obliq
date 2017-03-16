@@ -2,8 +2,16 @@
 
   .nested-categories-custom {
 
+    &__item-wrap-custom {
+      border-bottom: 1px solid $border-color;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+
     &__img-placeholder-custom {
-      background: $overlay-bg;
+      background: linear-gradient(rgba($side-nav-color, 0.7) 0%, rgba($side-nav-color, 1) 95%);
     }
     &__img-overlay-custom {
       background: rgba($overlay-bg, 0.5);

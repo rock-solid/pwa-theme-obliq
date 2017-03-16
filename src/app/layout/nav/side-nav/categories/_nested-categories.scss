@@ -8,9 +8,14 @@
     }
     &__item-wrap {
       height: 85px;
+      border-bottom: 1px solid $border-color;
+      &:last-child {
+        border-bottom: none;
+      }
     }
     &__img-placeholder {
-      background: $overlay-bg;
+      background: linear-gradient(rgba($side-nav-color, 0.7) 0%, rgba($side-nav-color, 1) 95%);
+      /* Standard syntax */
     }
     &__img-overlay {
       background: rgba($overlay-bg, 0.5);
