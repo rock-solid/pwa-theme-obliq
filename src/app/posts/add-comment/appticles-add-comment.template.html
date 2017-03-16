@@ -1,5 +1,8 @@
+<div class="add-comment-ctx">
+
+
 <form ng-model-options="{ updateOn: 'blur', debounce: { 'default': 300, 'blur': 0 } }" name="addCommentVm.commentForm" novalidate
-  data-ng-submit="addCommentVm.postComment()">
+  data-ng-submit="addCommentVm.postComment()" class="w-vw">
   <div class="list list-inset">
     <label data-ng-class="{'error': addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid }" class="item item-custom item-input">
       <input type="text" name="author" data-ng-model="addCommentVm.author" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}">
@@ -51,3 +54,5 @@
         </button>
   </div>
 </form>
+
+</div>
