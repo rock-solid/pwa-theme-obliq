@@ -1,0 +1,75 @@
+.add-comment-ctx {
+
+  form {
+    padding-right: $base-padding-sm;
+  }
+
+
+  ion-content {
+    background-color: $post-bg;
+  }
+
+  .list-inset {
+    background-color: transparent !important;
+    margin-top: $base-margin;
+    margin-bottom: 0;
+  }
+  .add-comment {
+
+    &__input {
+      border: none;
+      color: $post-text-color !important;
+      background: transparent;
+
+      input {
+        color: $post-text-color !important;
+        display: inline-block;
+        width: 90%;
+        background: transparent !important;
+      }
+      textarea {
+        color: $post-text-color !important;
+        background-color: transparent;
+        font-size: 14px;
+        min-height: 132px;
+      }
+    }
+    &__error-message {
+      color: $error-color;
+      margin-top: $base-margin-sm;
+    }
+    &__error-icon {
+      color: $error-color;
+      float: right;
+      padding-right: $base-padding-sm;
+    }
+    &__send-btn {
+      background-color: $label-bg;
+      color: $text-color;
+      border: none;
+      border-radius: $base-margin-sm !important;
+      min-height: 44px !important;
+    }
+
+  }
+}
+.popup {
+  background-color: rgba($post-bg, 1) !important;
+  span, p {
+    color: $post-text-color;
+  }
+
+  .popup-head, .popup-body {
+    border: none;
+    text-align: center !important;
+  }
+  .popup-buttons {
+    .button {
+      color: $text-color;
+      background-color: $label-bg;
+      border-radius: $base-margin-sm !important;
+      border: none;
+    }
+  }
+
+}

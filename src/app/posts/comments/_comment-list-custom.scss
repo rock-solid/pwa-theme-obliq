@@ -1,0 +1,41 @@
+.comments-custom__ex-close-btn-custom {
+  color: $btn-color !important;
+  background: $btn-bg !important;
+}
+
+.comments-ctx {
+
+  .comments-custom {
+
+    &__no-comments-title-custom {
+      color: $post-text-color;
+    }
+    &__title-custom {
+      color: $post-text-color;
+    }
+
+    &__comment-container-custom {
+      background: $post-bg;
+    }
+    &__comment-author-custom {
+      color: $post-text-color;
+    }
+    &__comment-date-custom {
+      color: $post-text-color;
+    }
+    &__comment-content-custom {
+      color: $post-text-color;
+
+      p, li {
+        color: $post-text-color;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: $post-text-color;
+      }
+      a {
+        color: $link-color;
+      }
+    }
+
+  }
+}
