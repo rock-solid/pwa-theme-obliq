@@ -12,5 +12,17 @@
     &__item-title-custom, &__item-icon-custom {
       color: $side-nav-color;
     }
+
+    &__item-container-custom {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &__title-container-custom {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &__item-title-custom, &__item-icon-custom {
+      color: $side-nav-color;
+    }
   }
 }

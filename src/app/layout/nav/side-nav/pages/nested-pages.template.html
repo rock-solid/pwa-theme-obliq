@@ -1,21 +1,15 @@
 <div class="nested-pages-ctx">
-  <div class="animate-repeat">
-    <div class="nested-pages__title-container w-100 d-flex vertical-align"
-    data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)">
-      <i class="button icon-left ion-chevron-left button-clear button-dark nested-pages__button-back nested-pages-custom__button-back-custom"></i>
-      <h4 class="nested-pages__page-title nested-pages-custom__page-title-custom m-a-0 d-inline-block" translate="LINKS.GO_TO"></h4>
-    </div>
+  <div class="nested-pages__title-container w-100 d-flex vertical-align p-a-1 animate-repeat" data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)">
+    <i class="icon button-icon ion-ios-arrow-left m-r-1 nested-pages__button-back nested-pages-custom__button-back-custom"></i>
+    <h4 class="nested-pages__page-title nested-pages-custom__page-title-custom m-a-0 d-inline-block" translate="LINKS.GO_TO"></h4>
   </div>
-  <div class="page-item animate-repeat" ng-repeat="page in nestedPagesVm.currentPages">
-    <ion-item class="item-complex">
-      <div class="nested-pages__item-content d-flex space-between w-100 index-3 b-0">
-        <h6 class="nested-pages__item-title nested-pages-custom__item-title-custom text-ellipsis text-uppercase"
-        data-ng-bind-html="page.title | TrustHtmlFilter" ng-click="nestedPagesVm.openContent(page)"></h6>
-        <i
-        class="icon button-icon"
-        ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)" ng-class="{'ion-ios-arrow-down': !page.active, 'ion-ios-arrow-up': page.active}"></i>
-      </div>
-    </ion-item>
+  <div class="page-item animate-repeat nested-pages__item-container
+  nested-pages-custom__item-container-custom" ng-repeat="page in nestedPagesVm.currentPages">
+    <div class="nested-pages__item-content d-flex space-between vertical-align w-100 index-3 b-0">
+      <h6 class="nested-pages__item-title nested-pages-custom__item-title-custom text-ellipsis text-uppercase" data-ng-bind-html="page.title | TrustHtmlFilter"
+        ng-click="nestedPagesVm.openContent(page)"></h6>
+      <i class="icon button-icon ion-ios-arrow-right nested-pages-custom__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)"></i>
+    </div>
   </div>
 
 </div>

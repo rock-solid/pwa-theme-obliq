@@ -6,19 +6,22 @@
       border-color: $border-color !important;
       height: 100% !important;
       background: transparent !important;
-
-      &:last-child {
-        border-bottom: none;
-      }
     }
     &__page-title, &__button-back {
       color: $side-nav-color;
+    }
+
+    &__item-container {
+      &:last-child {
+        border-bottom: none;
+      }
+      border-bottom: 1px solid $border-color;
     }
     &__item-content {
       padding: $base-padding;
     }
     &__title-container {
-      padding: 0 $base-padding 0 0;
+      border-bottom: 1px solid $border-color;
     }
     &__item-title, &__item-icon {
       color: $side-nav-color;
