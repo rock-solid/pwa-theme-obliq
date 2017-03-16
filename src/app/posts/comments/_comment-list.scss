@@ -18,8 +18,9 @@
 
   .comments {
 
-    height: 60vh;
-
+    &__comm-content, &__add-comm {
+      height: 50vh;
+    }
     &__no-comments {
       background: transparent;
       border: none;
