@@ -6,8 +6,10 @@
   <ion-content scroll="false" style="top: 0 !important;">
     <!-- if articles -->
     <!-- first elem -->
-
-    <ion-slides options="latestVm.sliderOptions" slider="latestVm.slider">
+    <appticles-slides
+    data-ng-if="::(latestVm.posts && latestVm.categories)"
+    posts="latestVm.posts" categories="latestVm.categories"></appticles-slides>
+    <!--<ion-slides options="latestVm.sliderOptions" slider="latestVm.slider">
       <ion-slide-page data-ng-repeat="page in latestVm.posts">
         <div style="display: flex; flex-direction: column; height: 100%">
           <div data-ng-repeat="post in page"
@@ -18,7 +20,7 @@
           </div>
         </div>
       </ion-slide-page>
-    </ion-slides>
+    </ion-slides>-->
     <!-- end list -->
   </ion-content>
 </ion-view>
