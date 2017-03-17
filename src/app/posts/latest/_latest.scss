@@ -17,5 +17,43 @@
 
 .latest-ctx {
 
+  .latest {
 
+    &__wrapper {
+      flex-direction: column;
+    }
+    &__post-item {
+      flex-direction:column;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
+    }
+    &__cover, &__cover-noimg {
+      height: 200px;
+    }
+    &__meta-container {
+      background: rgba($post-bg,0.7);
+      padding: $base-padding;
+    }
+    &__category {
+      color: $label-bg;
+    }
+    &__title, &__date {
+      color: $post-text-color;
+    }
+    &__triangle {
+      width: 0;
+      height: 0;
+      border-left: 0px solid transparent;
+      border-right: 100vw solid transparent;
+      border-bottom: 20px solid rgba($post-bg,0.7);
+      border-top: 20px solid transparent;
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+    }
+  }
 }
