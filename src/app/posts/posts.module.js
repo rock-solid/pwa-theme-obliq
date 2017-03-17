@@ -1,5 +1,6 @@
 angular.module('appticles.posts', [
   'ui.router',
+  'ionic-pullup',
   'appticles.api',
   'appticles.validation',
   'appticles.configuration',
