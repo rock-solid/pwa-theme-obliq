@@ -20,6 +20,7 @@ module.exports = function(config) {
       'www/lib/angular-mocks/angular-mocks.js',
       'www/lib/angular-translate/angular-translate.js',
       'www/lib/ngDfp/angular-dfp.min.js',
+      'www/lib/ionic-pullup/dist/ion-pullup.min.js',
 
       // 'src/app/main.js',
       'src/app/app.module.js',
