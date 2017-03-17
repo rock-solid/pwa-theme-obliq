@@ -10,7 +10,7 @@ function AppticlesSlides() {
     scope: {
       posts: '=',
       categories: '=',
-      type: '='
+      type: '@'
     },
     controller: SlidesController,
     templateUrl: (tElem, tAttrs) => {
@@ -43,6 +43,12 @@ class SlidesController {
     const articlesPerCard = configuration.articlesPerCard || 'auto';
     this.categories = this.categories.length > 1 ? this.buildCategoriesList(this.categories) : this.categories;
     this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
+
+    let appCover = configuration.defaultCover;
+    let appLogo = configuration.logo || '';
+    let hasCover = this.type && this.type == 'latest' ? true : false;
+    this.coverPost = this.initializeCoverPost(this.posts, hasCover, {appCover, appLogo});
+
 
     this.loadMorePosts = loadMorePosts;
     this.morePostsAvailable = true;
@@ -85,6 +91,23 @@ class SlidesController {
         this.morePostsAvailable = false;
       }
     };
+  }
+
+  initializeCoverPost(posts, hasCover, options) {
+    let coverPost;
+    if(hasCover) {
+      coverPost = posts.slice(0,1)
+        .reduce((a,b) => a.concat(b))[0];
+      posts.splice(0, 1); // this modifies the existing array of posts
+      if(Object.keys(options).length > 0) {
+        for(var key in options) {
+          if(options.hasOwnProperty(key)) {
+            coverPost[key] = options[key];
+          }
+        }
+      }
+    }
+    return coverPost;
   }
 
   /**

@@ -20,6 +20,35 @@
 }
 
 .latest-ctx {
+  .hero {
+
+    &__container {
+      padding: $base-padding;
+    }
+
+    &__title, &__date {
+      color: rgba($post-bg, 1);
+    }
+
+    &__top-inner {
+      flex: 1 0 auto;
+    }
+  }
+
+  .side-nav__logo-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: $base-padding * 5;
+    padding: $base-padding-sm;
+    img {
+      margin: 0 auto;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 
   .latest {
 
@@ -41,6 +70,12 @@
     }
     &__title, &__date {
       color: $post-text-color;
+    }
+
+    &__top-inner {
+      &.has-border {
+        border-top: 1px solid $border-color;
+      }
     }
 
     &__triangle {
