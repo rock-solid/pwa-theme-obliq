@@ -243,6 +243,14 @@ $spacers: (
     @include line-clamp(3);
   }
 
+  &-4-lines {
+    @include line-clamp(4);
+  }
+
+  &-8-lines {
+    @include line-clamp(8);
+  }
+
   &-1-line {
     @include line-clamp(1);
   }

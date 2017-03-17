@@ -55,6 +55,10 @@
 
     &__wrapper {
       flex-direction: column;
+
+      @media screen and (orientation:landscape) {
+        flex-direction: row;
+      }
     }
     &__post-item {
       flex-direction:column;
@@ -71,9 +75,11 @@
     }
     &__title, &__date {
       color: $post-text-color;
+      padding-right: 25px; // not to overlap the menu button;
     }
 
     &__top-inner {
+      flex: 1 0 auto;
       &.has-border {
         border-top: 1px solid $border-color;
       }

@@ -31,18 +31,16 @@
   <ion-slide-page data-ng-repeat="page in slidesVm.posts">
     <div class="latest__wrapper d-flex h-100">
       <div data-ng-repeat="post in page"
-      data-index="{{$index}}"
-      data-length="{{page.length}}"
       data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
       class="latest__post-item d-flex position-relative">
         <div class="latest__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
           <div class="latest__top-inner latest__top-inner-custom b-0" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : ($index === 1 && page.length === 2)}">
             <div class="latest__meta-container latest__meta-container-custom">
-              <h3 class="h3 latest__title latest__title-custom text-heading-style m-y-0" data-ng-bind-html="post.title | TrustHtmlFilter">
+              <h3 class="h3 latest__title latest__title-custom text-heading-style m-y-0 text-clamped" data-ng-bind-html="post.title | TrustHtmlFilter">
               </h3>
               <h6 class="latest__date latest__date-custom text-body-style d-inline-block m-y-0">{{ post.date }}</h6>
               <div class="latest__description latest-custom__description-custom text-body-style m-a-0"
-              data-ng-class="{'text-clamped-3-lines' : post.image.src, 'm-t-2' : !post.image.src}"
+              data-ng-class="{'text-clamped-1-line' : post.image.src, 'm-t-2' : !post.image.src, 'text-clamped-4-lines' : (page.length === 2 && !post.image.src), 'text-clamped-8-lines' : (page.length == 1 && !post.image.src)}"
               data-ng-bind-html="post.description | TrustHtmlFilter"></div>
             </div>
           </div>
