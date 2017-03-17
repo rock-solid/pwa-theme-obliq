@@ -1,26 +1,44 @@
 .add-comment-ctx {
-
-  form {
-    padding-right: $base-padding-sm;
-  }
-
+  background-color: $post-bg;
+  border-top: solid 1px $btn-bg;
 
   ion-content {
     background-color: $post-bg;
   }
 
+  .pull-up__handle {
+    border-radius: 25px 25px 0 0;
+    border-top: solid 1px $secondary-bg;
+    color: $btn-color;
+    background-color: $btn-bg !important;
+  }
+
   .list-inset {
-    background-color: transparent !important;
-    margin-top: $base-margin;
+    margin-top: 0;
     margin-bottom: 0;
   }
   .add-comment {
-
+    &__cover {
+      width: 100vw;
+      height: 50vh;
+      background-position: 50% 50% !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+    }
+    &__form {
+      padding: 0 16px;
+    }
+    &__label {
+      color: $post-text-color;
+      width: 100%;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
     &__input {
       border: none;
+      border-bottom: 1px solid $post-text-color;
       color: $post-text-color !important;
-      background: transparent;
-
+      padding-left: 0;
       input {
         color: $post-text-color !important;
         display: inline-block;
@@ -29,7 +47,7 @@
       }
       textarea {
         color: $post-text-color !important;
-        background-color: transparent;
+        background-color: $post-bg;
         font-size: 14px;
         min-height: 132px;
       }
@@ -41,35 +59,37 @@
     &__error-icon {
       color: $error-color;
       float: right;
-      padding-right: $base-padding-sm;
     }
     &__send-btn {
-      background-color: $label-bg;
       color: $text-color;
       border: none;
-      border-radius: $base-margin-sm !important;
-      min-height: 44px !important;
+      background-color: $btn-bg;
+      padding: 0 12px !important;
+      min-width: 52px !important;
+      min-height: 47px !important;
+      font-size: 16px !important;
     }
-
   }
 }
+
 .popup {
   background-color: rgba($post-bg, 1) !important;
-  span, p {
+  span,
+  p {
     color: $post-text-color;
   }
-
-  .popup-head, .popup-body {
+  .popup-head,
+  .popup-body {
     border: none;
     text-align: center !important;
   }
   .popup-buttons {
     .button {
       color: $text-color;
-      background-color: $label-bg;
-      border-radius: $base-margin-sm !important;
       border: none;
+      background-color: $btn-bg !important;
+      border-radius: 4px;
     }
   }
-
 }
+

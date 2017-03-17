@@ -1,0 +1,60 @@
+.add-comment-ctx {
+  background-color: $post-bg;
+  border-top: solid 1px $btn-bg;
+
+  ion-content {
+    background-color: $post-bg;
+  }
+
+  .pull-up__handle-custom {
+    border-top: solid 1px $secondary-bg;
+    color: $btn-color;
+    background-color: $btn-bg !important;
+  }
+
+    .add-comment-custom {
+    &__label-custom {
+      color: $post-text-color;
+    }
+    &__input-custom {
+      border-bottom: 1px solid $post-text-color;
+      background-color: $post-bg;
+      input {
+        color: $post-text-color !important;
+      }
+      textarea {
+        color: $post-text-color !important;
+        background-color: $post-bg;
+      }
+    }
+    &__error-message-custom {
+      color: $error-color;
+    }
+    &__error-icon-custom {
+      color: $error-color;
+    }
+    &__send-btn-custom {
+      color: $text-color;
+      background-color: $btn-bg;
+    }
+  }
+
+}
+
+.popup {
+  background-color: rgba($post-bg, 1) !important;
+  span,
+  p {
+    color: $post-text-color;
+  }
+  .popup-head {
+    border: none;
+  }
+  .popup-buttons {
+    .button {
+      color: $text-color;
+      background-color: $btn-bg;
+    }
+  }
+}
+

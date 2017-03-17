@@ -61,15 +61,32 @@ class AddCommentController {
 
 
     const showPopup = (result) => {
+
       let response = result.data;
-      let userFeedback = response.status !== 0 ? $filter('translate')('FORMS.AWAITING_MODERATION') : response.message;
+      let userFeedback;
+      let serverResponse;
+      let genericSubmissionError;
+
+      if (response.status !== 0) {
+        userFeedback = $filter('translate')('FORMS.AWAITING_MODERATION');
+      }
+      else {
+        serverResponse = response.message;
+        genericSubmissionError = $filter('translate')('FORMS.SUBMIT_ERROR');
+
+        userFeedback =
+          `<div>
+            <p>${genericSubmissionError}</p>
+            <p>${serverResponse}</p>
+          </div>`;
+      }
 
       let promises = {
         'popup': $ionicPopup.alert({
           okText: 'OK',
           template: userFeedback,
-          cssClass: 'ex-popup__container ex-popup__container-custom',
-          okType: 'popup-button ex-popup__button ex-popup__button-custom'
+          cssClass: 'popup-text',
+          okType: 'popup-button button-custom'
         }),
         'status': response.status
       };
