@@ -3,27 +3,24 @@
     <div class="latest__wrapper d-flex h-100">
       <div data-ng-repeat="post in page"
       data-index="{{$index}}"
+      data-length="{{page.length}}"
       data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
-      class="latest__post-item d-flex">
-
-        <div class="latest__top-container position-absolute t-0">
-          <div class="latest__top-inner b-0">
+      class="latest__post-item d-flex position-relative">
+        <div class="latest__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
+          <div class="latest__top-inner b-0" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2)}">
             <div class="latest__meta-container">
-              <h1 class="h3 latest__title latest-custom__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="post.title | TrustHtmlFilter">{{ post.title | TrustHtmlFilter}}
-              </h1>
-              <h6 class="latest__date latest-custom__date-custom text-body-style d-inline-block">{{ post.date }}</h6>
-              <h6 class="latest__category latest-custom__category-custom m-a-0">{{ post.category.name}}</h6>
-              <h5 class="latest__description latest-custom__description-custom m-a-0 text-clamped" data-ng-bind-html="post.description | TrustHtmlFilter"></h5>
+              <h3 class="h3 latest__title latest-custom__title-custom text-heading-style m-y-0" data-ng-bind-html="post.title | TrustHtmlFilter">
+              </h3>
+              <h6 class="latest__date latest-custom__date-custom text-body-style d-inline-block m-y-0">{{ post.date }}</h6>
+              <div class="latest__description latest-custom__description-custom text-body-style m-a-0 text-clamped-3-lines" data-ng-bind-html="post.description | TrustHtmlFilter"></div>
             </div>
-            <div class="latest__triangle latest-custom__triangle-custom"></div>
           </div>
-
-          <div class="latest__img-wrap">
-            <div data-ng-if="post.image.src" class="latest__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
-            <div data-ng-if="!post.image.src" class="latest__cover-noimg w-100 bg-cover" data-ng-style=" {'background':'url(https://source.unsplash.com/random)'}"></div>
+          <div class="latest__img-wrap position-relative h-75" ng-class="{'flex-order-0' : page.length === 1 || ($index === 1 && page.length === 2)}">
+            <div data-ng-if="post.image.src" class="latest__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
+            <div data-ng-if="!post.image.src" class="latest__cover-noimg w-100 h-100 bg-cover" data-ng-style=" {'background':'url(https://source.unsplash.com/random)'}"></div>
+            <div class="latest-custom__triangle-custom position-absolute"
+            ng-class="{'b-0 latest__triangle--bottom-to-right' : page.length === 1 || ($index === 1 && page.length === 2), 't-0 latest__triangle' : $index === 0 && page.length === 2}"></div>
           </div>
-
-
         </div>
       </div>
     </div>

@@ -25,6 +25,28 @@
 .space-between {
   justify-content: space-between;
 }
+.justify-flex-end {
+  justify-content: flex-end;
+}
+.justify-flex-start {
+  justify-content: flex-start;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-order {
+  &-1 {
+    order: 1;
+  }
+
+  &-0 {
+    order: 0;
+  }
+}
+
+
 // display
 .d-block {
   display: block !important;
@@ -212,7 +234,17 @@ $spacers: (
 }
 .text-clamped {
   @include line-clamp(2);
+
+  &-3-lines {
+    @include line-clamp(3);
+  }
+
+  &-1-line {
+    @include line-clamp(1);
+  }
 }
+
+
 .link-unstyled {
   text-decoration: none;
 }

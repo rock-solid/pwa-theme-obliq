@@ -15,6 +15,10 @@
   }
 }
 
+.swiper-pagination {
+  display: none !important;
+}
+
 .latest-ctx {
 
   .latest {
@@ -28,9 +32,6 @@
       justify-content: center;
       flex: 1 0 auto;
     }
-    &__cover, &__cover-noimg {
-      height: 200px;
-    }
     &__meta-container {
       background: rgba($post-bg,0.7);
       padding: $base-padding;
@@ -41,19 +42,40 @@
     &__title, &__date {
       color: $post-text-color;
     }
+
     &__triangle {
       width: 0;
       height: 0;
-      border-left: 0px solid transparent;
-      border-right: 100vw solid transparent;
-      border-bottom: 20px solid rgba($post-bg,0.7);
-      border-top: 20px solid transparent;
+      border-left: 100vw solid transparent;
+      border-right: 0px solid transparent;
+      border-top: 20px solid rgba($post-bg, 1);
       -moz-transform: scaleX(-1);
       -o-transform: scaleX(-1);
       -webkit-transform: scaleX(-1);
       transform: scaleX(-1);
       filter: FlipH;
       -ms-filter: "FlipH";
+
+      &--inverse {
+        border-right: 0px solid transparent;
+        border-left: 100vw solid transparent;
+        border-bottom: 20px solid rgba($post-bg, 1);
+        border-top: 20px solid transparent;
+      }
+
+      &--bottom-to-right {
+        border-right: 100vw solid transparent;
+        border-left: 0px solid transparent;
+        border-bottom: 20px solid rgba($post-bg, 1);
+      }
+
+    }
+
+
+    &__description {
+      p {
+        margin-bottom: 0;
+      }
     }
   }
 }
