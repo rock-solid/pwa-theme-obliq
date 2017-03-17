@@ -20,22 +20,26 @@ function AppticlesNestedCategories($log, $state, $ionicScrollDelegate, $ionicSid
 
 
 class NestedCategoriesController {
-  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state) {
+  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state, $filter) {
     this.openContent = openContent;
     this.openChildCategories = openChildCategories;
     this.goBackTo = goBackTo;
 
     let initialCategories = this.categories;
     this.currentCategories = this.buildNestedTree(this.categories, 0);
-
+    let previousBackButtonTitle = '';
+    this.backButtonTitle = $filter('translate')('LINKS.CATEGORIES');
 
     function openChildCategories(parentPageId) {
       // prevent scrolling issues by scrolling to top before updating the pageList
       $ionicScrollDelegate.scrollTop();
+      previousBackButtonTitle = this.backButtonTitle;
 
       let parentPage = this.currentCategories.filter((page) => page.id === parentPageId);
+      this.backButtonTitle = parentPage[0].name;
       this.currentCategories = parentPage[0].children;
       this.currentParentId = this.currentCategories[0].parent_id;
+
     }
 
     function goBackTo(parentCategoryId = 0) {
@@ -50,6 +54,8 @@ class NestedCategoriesController {
 
         this.currentCategories = listAtParentPageLevel;
         this.currentParentId = parentPageItem.parent_id;
+        let parentOfIncomingList = initialPagelist.filter((page) => page.id === this.currentParentId)[0];
+        this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.CATEGORIES') : parentOfIncomingList.name;
       }
     }
 
@@ -84,4 +90,4 @@ class NestedCategoriesController {
   }
 };
 
-NestedCategoriesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state'];
+NestedCategoriesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state', '$filter'];

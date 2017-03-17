@@ -20,19 +20,23 @@ function AppticlesNestedPages($log, $state, $ionicScrollDelegate, $ionicSideMenu
 
 
 class NestedPagesController {
-  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state) {
+  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state, $filter) {
     this.openContent = openContent;
     this.goBackTo = goBackTo;
 
     let initialPagelist = this.pages;
     this.currentPages = this.buildNestedTree(this.pages, 0);
 
+    let previousBackButtonTitle = '';
+    this.backButtonTitle = $filter('translate')('LINKS.GO_TO');
 
     const openChildPages = (parentPageId) => {
       // prevent scrolling issues by scrolling to top before updating the pageList
       $ionicScrollDelegate.scrollTop();
+      previousBackButtonTitle = this.backButtonTitle;
 
       let parentPage = this.currentPages.filter((page) => page.id === parentPageId);
+      this.backButtonTitle = parentPage[0].title;
       this.currentPages = parentPage[0].children;
       this.currentParentId = this.currentPages[0].parent_id;
     };
@@ -50,6 +54,8 @@ class NestedPagesController {
 
         this.currentPages = listAtParentPageLevel;
         this.currentParentId = parentPageItem.parent_id;
+        let parentOfIncomingList = initialPagelist.filter((page) => page.id === this.currentParentId)[0];
+        this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.GO_TO') : parentOfIncomingList.title;
       }
     }
 
@@ -89,4 +95,4 @@ class NestedPagesController {
   }
 };
 
-NestedPagesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state'];
+NestedPagesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state', '$filter'];
