@@ -3,9 +3,9 @@
 
 <ion-modal-view class="comments__view comments__view-custom">
   <ion-view>
-    <ion-header-bar class="bar bar-clear">
-      <h3 class="h3 comments__title comments-custom__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.LEAVE_COMMENTS"></h3>
-      <button class="button icon ion-close comments__ex-close-btn comments-custom__ex-close-btn-custom" data-ng-click="commentsVm.closeModal()"></button>
+    <ion-header-bar class="bar bar-clear bar-comments bar-comments-custom">
+      <h4 class="h4 title comments__title comments-custom__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.COMMENTS"></h4>
+      <button class="button icon ion-close comments__ex-close-btn comments-custom__ex-close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
     </ion-header-bar>
 
     <ion-content class="comments__comm-content">
@@ -31,9 +31,7 @@
       </div>
       <div>{{commentsVm.postDetails.commentStatus}}</div>
     </ion-content>
-    <ion-footer-bar class="comments__add-comm">
-      <appticles-add-comment data-ng-if="commentsVm.postDetails['comment_status'] == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
-    </ion-footer-bar>
+  <appticles-add-comment data-ng-if="commentsVm.postDetails['comment_status'] == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
   </ion-view>
 </ion-modal-view>
 

@@ -5,13 +5,17 @@
 
 .comments-ctx {
 
+  .bar-comments-custom {
+    background-color: $secondary-bg;
+  }
+
   .comments-custom {
 
     &__no-comments-title-custom {
       color: $post-text-color;
     }
     &__title-custom {
-      color: $post-text-color;
+      color: $post-text-color !important;
     }
 
     &__comment-container-custom {

@@ -4,8 +4,9 @@
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  right: $base-padding-sm;
-  top: $base-padding-sm;
+  padding: 0!important;
+  right: 10px;
+  top: 10px;
   transition: all 0.5s ease-in-out;
 
   &::before {
@@ -16,11 +17,12 @@
 
 .comments-ctx {
 
+  .bar-comments {
+    background-color: $secondary-bg;
+  }
+
   .comments {
 
-    &__comm-content, &__add-comm {
-      height: 50vh;
-    }
     &__no-comments {
       background: transparent;
       border: none;
@@ -31,9 +33,7 @@
       padding-top: $base-padding;
     }
     &__title {
-      color: $post-text-color;
-      padding-left: $base-padding-sm;
-      padding-top: $base-padding-sm;
+      color: $post-text-color !important;
     }
 
     &__comment-list {
@@ -105,6 +105,5 @@
         color: $link-color;
       }
     }
-
   }
 }
