@@ -1,14 +1,30 @@
 <ion-slides options="slidesVm.sliderOptions" slider="slidesVm.slider">
   <ion-slide-page data-index="{{$index}}" data-ng-repeat="page in slidesVm.posts">
-    <div style="display: flex; flex-direction: column; height: 100%">
+    <div class="latest__wrapper d-flex h-100">
       <div data-ng-repeat="post in page"
       data-index="{{$index}}"
       data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
-        style="display: flex; flex-direction:column; align-items: center; justify-content: center;flex: 1 0 auto;border: 1px solid red; background-image: url('https://source.unsplash.com/random');background-size: cover; background-repeat: no-repeat;">
-        <p style="color:azure">this is the index for the post in the page: {{$index}}</p>
-        <p style="color:azure">You will might to bind to the view: post.image, post.description, post.date, categories.name</p>
-        <div class="h4" style="color:azure" data-ng-bind-html="post.title | TrustHtmlFilter"></div>
-        <div class="h3" style="color:azure">{{post.id}}</div>
+      class="latest__post-item d-flex">
+
+        <div class="latest__top-container position-absolute t-0">
+          <div class="latest__top-inner b-0">
+            <div class="latest__meta-container">
+              <h1 class="h3 latest__title latest-custom__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="post.title | TrustHtmlFilter">{{ post.title | TrustHtmlFilter}}
+              </h1>
+              <h6 class="latest__date latest-custom__date-custom text-body-style d-inline-block">{{ post.date }}</h6>
+              <h6 class="latest__category latest-custom__category-custom m-a-0">{{ post.category.name}}</h6>
+              <h5 class="latest__description latest-custom__description-custom m-a-0 text-clamped" data-ng-bind-html="post.description | TrustHtmlFilter"></h5>
+            </div>
+            <div class="latest__triangle latest-custom__triangle-custom"></div>
+          </div>
+
+          <div class="latest__img-wrap">
+            <div data-ng-if="post.image.src" class="latest__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
+            <div data-ng-if="!post.image.src" class="latest__cover-noimg w-100 bg-cover" data-ng-style=" {'background':'url(https://source.unsplash.com/random)'}"></div>
+          </div>
+
+
+        </div>
       </div>
     </div>
   </ion-slide-page>
