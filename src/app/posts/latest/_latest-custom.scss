@@ -1,0 +1,53 @@
+.latest {
+  &__button-more-custom {
+    color: $btn-color !important;
+    background: $btn-bg !important;
+  }
+}
+
+
+.latest-ctx {
+  .hero {
+    &__title-custom, &__date-custom {
+            color: rgba($post-bg, 1);
+    }
+  }
+
+  .latest {
+    &__meta-container-custom {
+      background: rgba($post-bg,0.7);
+    }
+
+    &__category-custom {
+      color: $label-bg;
+    }
+    &__title-custom, &__date-custom {
+      color: $post-text-color;
+    }
+
+    &__top-inner-custom {
+      &.has-border {
+        border-top: 1px solid $border-color;
+      }
+    }
+
+    &__triangle-custom {
+      border-left: 100vw solid transparent;
+      border-right: 0px solid transparent;
+      border-top: 20px solid rgba($post-bg, 1);
+
+      &--inverse {
+        border-right: 0px solid transparent;
+        border-left: 100vw solid transparent;
+        border-bottom: 20px solid rgba($post-bg, 1);
+        border-top: 20px solid transparent;
+      }
+
+      &--bottom-to-right {
+        border-right: 100vw solid transparent;
+        border-left: 0px solid transparent;
+        border-bottom: 20px solid rgba($post-bg, 1);
+      }
+    }
+  }
+}
