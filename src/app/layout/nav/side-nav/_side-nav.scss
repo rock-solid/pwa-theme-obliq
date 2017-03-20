@@ -56,7 +56,6 @@
     &__categories-container, &__static-pages-container, &__go-to-container  {
       padding: $base-padding;
       background: transparent;
-      border-bottom: 1px solid $border-color;
       font-size: $base-font-size;
       height: $ionic-bar-height * 1.5;
 
@@ -68,6 +67,11 @@
         font-size: 100%
       }
     }
+
+    &__go-to-container {
+      border: none;
+    }
+
     &__categories-title, &__static-pages-title, &__go-to-title, &__icon {
       color: $side-nav-color;
     }

@@ -1,10 +1,10 @@
 .side-nav-ctx {
-  .side-nav-custom {
+  .side-nav {
 
     &__container-custom {
       background: $side-nav-bg;
     }
-    &__categories-container-custom, &__static-pages-container-custom, &__go-to-container-custom  {
+    &__categories-container-custom, &__static-pages-container-custom  {
       border-bottom: 1px solid $border-color;
     }
     &__categories-title-custom, &__static-pages-title-custom, &__go-to-title-custom, &__icon-custom {
