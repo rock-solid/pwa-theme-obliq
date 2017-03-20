@@ -49,5 +49,9 @@
         border-bottom: 20px solid rgba($post-bg, 1);
       }
     }
+
+    &__overlay-custom {
+      background-color: rgba($overlay-bg, 0.5);
+    }
   }
 }
