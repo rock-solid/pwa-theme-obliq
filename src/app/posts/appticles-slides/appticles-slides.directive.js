@@ -27,7 +27,6 @@ function AppticlesSlides() {
   };
 }
 
-///
 class SlidesController {
   constructor(AppticlesAPI,
     AppticlesValidation,
