@@ -5,7 +5,11 @@
 
 .post-ctx {
 
-  .post-custom {
+  .post {
+
+    &__cover-noimg-custom {
+      background-color: $post-bg;
+    }
 
     &__meta-container-custom {
       background: rgba($post-bg,0.7);

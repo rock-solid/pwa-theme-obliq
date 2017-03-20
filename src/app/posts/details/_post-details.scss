@@ -42,6 +42,7 @@
     }
     &__cover-noimg {
       height: 180px;
+      background-color: $post-bg;
     }
     &__meta-container {
       background: rgba($post-bg,0.7);

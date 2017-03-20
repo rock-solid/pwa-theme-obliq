@@ -17,6 +17,7 @@
   .list-inset {
     margin-top: 0;
     margin-bottom: 0;
+    background-color: $post-bg;
   }
   .add-comment {
     &__cover {
@@ -88,7 +89,7 @@
     .button {
       color: $text-color;
       border: none;
-      background-color: $btn-bg !important;
+      background-color: $btn-bg;
       border-radius: 4px;
     }
   }

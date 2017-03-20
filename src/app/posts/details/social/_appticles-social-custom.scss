@@ -1,4 +1,4 @@
-.social-modal-custom {
+.social-modal {
 
   &__content {
     justify-content: space-around;
@@ -7,7 +7,7 @@
   &__btn-comm-custom {
     color: $btn-color;
     background-color: $btn-bg;
-    border: 1px solid $btn-color; 
+    border: 1px solid $btn-color;
   }
 
 }

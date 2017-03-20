@@ -21,6 +21,10 @@
     background-color: $secondary-bg;
   }
 
+  ion-content {
+    background-color: $post-bg;
+  }
+
   .comments {
 
     &__no-comments {
