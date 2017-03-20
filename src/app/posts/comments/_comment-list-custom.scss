@@ -1,4 +1,4 @@
-.comments-custom__ex-close-btn-custom {
+.comments__close-btn-custom {
   color: $btn-color !important;
   background: $btn-bg !important;
 }
@@ -9,7 +9,7 @@
     background-color: $secondary-bg;
   }
 
-  .comments-custom {
+  .comments {
 
     &__no-comments-title-custom {
       color: $post-text-color;

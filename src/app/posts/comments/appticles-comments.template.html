@@ -4,17 +4,17 @@
 <ion-modal-view class="comments__view comments__view-custom">
   <ion-view>
     <ion-header-bar class="bar bar-clear bar-comments bar-comments-custom">
-      <h4 class="h4 title comments__title comments-custom__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.COMMENTS"></h4>
-      <button class="button icon ion-close comments__ex-close-btn comments-custom__ex-close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
+      <h4 class="h4 title comments__title comments__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.COMMENTS"></h4>
+      <button class="button icon ion-close comments__close-btn comments__close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
     </ion-header-bar>
 
     <ion-content class="comments__comm-content">
       <!-- if there are no comments-->
       <div class="comments__no-comments" data-ng-if="commentsVm.commentList.length == 0">
-        <h4 class="comments__no-comments-title comments-custom__no-comments-title-custom p-x-1" translate="TEXTS.NO_COMMENTS"></h4>
+        <h4 class="comments__no-comments-title comments__no-comments-title-custom p-x-1" translate="TEXTS.NO_COMMENTS"></h4>
       </div>
-      <div class="comments__comment-list comments-custom__comment-list-custom">
-        <div class="comments__comment-container comments-custom__comment-container-custom" data-ng-if="commentsVm.commentList.length !== 0" data-ng-repeat="comment in commentsVm.commentList">
+      <div class="comments__comment-list comments__comment-list-custom">
+        <div class="comments__comment-container comments__comment-container-custom" data-ng-if="commentsVm.commentList.length !== 0" data-ng-repeat="comment in commentsVm.commentList">
           <a data-ng-href="{{comment.author_url}}">
             <div data-ng-if="comment.avatar" class="comments__comment-avatar">
               <img data-ng-src="{{comment.avatar}}">

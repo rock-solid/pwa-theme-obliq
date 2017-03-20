@@ -4,7 +4,7 @@
     class="button button-icon ion-ios-arrow-back button-clear button-dark post__button-back post-custom__button-back-custom"
       data-ng-click="postDetailsVm.goBack()"></button>
   </ion-nav-buttons>
-  <ion-content data-ng-show="postDetailsVm.contentLoaded" style="top: 0;"
+  <ion-content data-ng-show="postDetailsVm.contentLoaded"
   scroll-event-interval="50"
   has-bouncing="false"
   on-tap="postDetailsVm.handleOnTap()"
@@ -30,7 +30,7 @@
 
     </div>
     <!-- content -->
-    <div data-ng-class="{'has-extra-top': !postDetailsVm.postDetails.image.src, 'has-another-top': postDetailsVm.directiveApi.isShown}"
+    <div
       class="post__content-container post-custom__content-container-custom">
       <div class="post__content post-custom__content-custom">
         <appticles-ads ng-if="postDetailsVm.postDetails.content" content="postDetailsVm.postDetails.content"></appticles-ads>

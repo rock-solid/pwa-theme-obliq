@@ -31,6 +31,10 @@
 
 .post-ctx {
 
+  ion-content {
+    top: 0 !important;
+  }
+
   .post {
 
     &__cover {

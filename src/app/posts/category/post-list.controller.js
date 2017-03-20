@@ -12,7 +12,6 @@ class PostList {
 
     this.postList = [];
     this.contentLoaded = false;
-    this.appCover = configuration.defaultCover || '';
 
     const categoryId = $stateParams.categoryId;
 
