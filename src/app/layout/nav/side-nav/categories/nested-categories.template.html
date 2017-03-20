@@ -1,19 +1,19 @@
 <div class="nested-categories-ctx">
   <div class="animate-repeat">
-    <div class="nested-categories__title-container w-100 d-flex vertical-align" data-ng-click="nestedCategoriesVm.goBackTo(nestedCategoriesVm.currentParentId)">
-      <i class="button icon-left ion-ios-arrow-left button-clear button-dark nested-categories__button-back nested-categories-custom__button-back-custom"></i>
-      <h4 class="nested-categories__page-title nested-categories-custom__page-title-custom m-a-0 d-inline-block">{{nestedCategoriesVm.backButtonTitle}}</h4>
+    <div class="nested-categories__title-container nested-categories__title-container-custom w-100 d-flex vertical-align" data-ng-click="nestedCategoriesVm.goBackTo(nestedCategoriesVm.currentParentId)">
+      <i class="button icon-left ion-ios-arrow-left button-clear button-dark nested-categories__button-back nested-categories__button-back-custom"></i>
+      <h4 class="nested-categories__page-title nested-categories__page-title-custom m-a-0 d-inline-block">{{nestedCategoriesVm.backButtonTitle}}</h4>
     </div>
   </div>
-  <div class="page-item animate-repeat nested-categories__item-wrap nested-categories-custom__item-wrap-custom" ng-repeat="page in nestedCategoriesVm.currentCategories">
+  <div class="page-item animate-repeat nested-categories__item-wrap nested-categories__item-wrap-custom" ng-repeat="page in nestedCategoriesVm.currentCategories">
     <div class="nested-categories__item-container h-100 position-relative">
       <div class="nested-categories__item-content position-absolute d-flex space-between vertical-align h-100 w-100 index-3 b-0">
-        <h6 class="nested-categories__item-title nested-categories-custom__item-title-custom text-ellipsis text-uppercase" data-ng-bind-html="page.name | TrustHtmlFilter" ng-click="nestedCategoriesVm.openContent(page)"></h6>
-        <i class="icon button-icon ion-ios-arrow-right nested-categories__item-icon nested-categories-custom__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedCategoriesVm.openChildCategories(page.id)"></i>
+        <h6 class="nested-categories__item-title nested-categories__item-title-custom text-ellipsis text-uppercase" data-ng-bind-html="page.name | TrustHtmlFilter" ng-click="nestedCategoriesVm.openContent(page)"></h6>
+        <i class="icon button-icon ion-ios-arrow-right nested-categories__item-icon nested-categories__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedCategoriesVm.openChildCategories(page.id)"></i>
       </div>
-      <div data-ng-if="page.image" class="nested-categories__img-overlay bg-cover position-absolute w-100 h-100 index-2"></div>
+      <div data-ng-if="page.image" class="nested-categories__img-overlay nested-categories__img-overlay-custom bg-cover position-absolute w-100 h-100 index-2"></div>
       <div data-ng-if="page.image" data-ng-style=" {'background-image':'url({{page.image.src}})'}"  class="nested-categories__img bg-cover position-absolute w-100 h-100"></div>
-      <div data-ng-if="!page.image" class="nested-categories__img-placeholder nested-categories-custom__img-placeholder-custom h-100"></div>
+      <div data-ng-if="!page.image" class="nested-categories__img-placeholder nested-categories__img-placeholder-custom h-100"></div>
     </div>
   </div>
 </div>

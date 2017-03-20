@@ -1,12 +1,16 @@
 .nested-categories-ctx {
 
-  .nested-categories-custom {
+  .nested-categories {
 
     &__item-wrap-custom {
       border-bottom: 1px solid $border-color;
       &:last-child {
         border-bottom: none;
       }
+    }
+
+    &__title-container-custom {
+      border-bottom: 1px solid $border-color;
     }
 
 
@@ -17,7 +21,7 @@
       background: rgba($overlay-bg, 0.5);
     }
     &__page-title-custom, &__button-back-custom {
-      color: $side-nav-color;
+      color: $side-nav-color !important;
     }
     &__item-title-custom, &__item-icon-custom {
       color: $text-color;

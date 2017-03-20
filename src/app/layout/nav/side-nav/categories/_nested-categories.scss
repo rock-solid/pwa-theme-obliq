@@ -20,7 +20,7 @@
       background: rgba($overlay-bg, 0.5);
     }
     &__page-title, &__button-back {
-      color: $side-nav-color;
+      color: $side-nav-color !important;
       font-size: $base-font-size;
 
       h4 {
