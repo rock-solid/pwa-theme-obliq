@@ -16,7 +16,11 @@
     background-color: $btn-bg !important;
   }
 
-    .add-comment-custom {
+  .add-comment {
+    &__page-title {
+      color: $post-text-color;
+    }
+
     &__label-custom {
       color: $post-text-color;
     }

@@ -20,6 +20,9 @@
     background-color: $post-bg;
   }
   .add-comment {
+    &__page-title {
+      color: $post-text-color;
+    }
     &__cover {
       width: 100vw;
       height: 50vh;

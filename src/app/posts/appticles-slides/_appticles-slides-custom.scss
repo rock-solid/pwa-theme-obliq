@@ -24,6 +24,12 @@
     &__date-custom {
       color: $post-text-color;
     }
+    &__description-custom {
+      color: $post-text-color;
+      a {
+        color: $link-color;
+      }
+    }
     &__top-inner-custom {
       &.has-border {
         border-top: 1px solid $border-color;

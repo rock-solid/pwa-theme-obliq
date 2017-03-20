@@ -10,7 +10,7 @@
             </h3>
             <h6 class="slide__date slide__date-custom text-body-style d-inline-block m-y-0">{{ post.date }}</h6>
             <h6 class="slide__label slide__label-custom text-body-style m-t-half">{{ slidesVm.categories.name }}</h6>
-            <div class="slide__description slide-custom__description-custom text-body-style m-a-0" data-ng-class="{'text-clamped-1-line' : post.image.src, 'm-t-2' : !post.image.src, 'text-clamped-4-lines' : (page.length === 2 && !post.image.src), 'text-clamped-8-lines' : (page.length == 1 && !post.image.src)}"
+            <div class="slide__description slide__description-custom text-body-style m-a-0" data-ng-class="{'text-clamped-1-line' : post.image.src, 'm-t-2' : !post.image.src, 'text-clamped-4-lines' : (page.length === 2 && !post.image.src), 'text-clamped-8-lines' : (page.length == 1 && !post.image.src)}"
               data-ng-bind-html="post.description | TrustHtmlFilter"></div>
           </div>
         </div>

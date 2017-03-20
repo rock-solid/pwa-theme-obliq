@@ -95,6 +95,11 @@
       background-color: rgba($overlay-bg, 0.5);
     }
     &__description {
+      color: $post-text-color;
+
+      a {
+        color: $link-color;
+      }
       p {
         margin-bottom: 0;
       }
