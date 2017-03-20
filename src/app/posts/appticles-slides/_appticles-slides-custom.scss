@@ -8,7 +8,10 @@
   .slide {
     &__label-custom {
       color: $label-bg;
-      background-color: $text-color;
+    }
+
+    &__post-item-custom {
+      background-color: $post-bg;
     }
 
     &__meta-container-custom {

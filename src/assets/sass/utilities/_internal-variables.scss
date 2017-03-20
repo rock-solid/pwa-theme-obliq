@@ -10,6 +10,8 @@ $base-margin-xs: 4px !default;
 $base-margin-md: 24px !default;
 $base-margin-lg: 32px !default;
 
+$ionic-bar-height: 44px;
+
 // used for vertical rhythm in text
 $line-height-base: 1.6 !default;
 $line-height-computed: decimal-round($base-font-size * $line-height-base, 2, 'floor') !default;

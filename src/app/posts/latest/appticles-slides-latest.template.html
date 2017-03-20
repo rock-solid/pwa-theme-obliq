@@ -3,7 +3,7 @@
   <ion-slide-page>
     <div class="slide__wrapper d-flex h-100">
       <div data-ui-sref="app.nav.postFromHome({categorySlugId: slidesVm.coverPost.categories[0], postId: slidesVm.coverPost.id, latest: 1 })"
-        class="slide__post-item d-flex position-relative">
+        class="slide__post-item slide__post-item-custom d-flex position-relative">
         <div class="slide__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
           <div class="slide__img-wrap position-relative h-100">
             <div class="d-flex flex-column position-absolute h-100 w-100">
@@ -33,7 +33,7 @@
     <div class="slide__wrapper d-flex h-100">
       <div data-ng-repeat="post in page"
       data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
-      class="slide__post-item d-flex position-relative">
+      class="slide__post-item slide__post-item-custom d-flex position-relative">
         <div class="slide__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
           <div class="slide__top-inner slide__top-inner-custom b-0" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : ($index === 1 && page.length === 2)}">
             <div class="slide__meta-container slide__meta-container-custom">

@@ -10,7 +10,6 @@
 
     &__label {
       color: $label-bg !important;
-      background-color: $text-color;
     }
 
     &__title,
@@ -48,6 +47,7 @@
       justify-content: center;
       flex: 1 0 auto;
       overflow: hidden;
+      background-color: $post-bg;
     }
     &__meta-container {
       background: rgba($post-bg, 0.7);
