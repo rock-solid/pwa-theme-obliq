@@ -6,16 +6,16 @@
           translate="LINKS.HOME"></h4>
       </div>
 
-      <!-- category list -->
       <div data-ng-click="navSideVm.loadCategories()" data-ng-if="navSideVm.hasCategories" class="side-nav__categories-container d-flex space-between vertical-align">
         <h4 class="side-nav__categories-title side-nav-custom__categories-title-custom m-a-0" translate="LINKS.CATEGORIES"></h4>
         <i ng-class="{'icon  button-icon side-nav__icon ion-ios-arrow-right side-nav-custom__icon-custom': !navSideVm.categoryMenuOpen, 'icon  button-icon side-nav__icon ion-ios-arrow-up side-nav-custom__icon-custom': navSideVm.categoryMenuOpen}"></i>
       </div>
 
-      <!-- static pages list -->
       <div data-ng-click="navSideVm.loadPages()" data-ng-if="navSideVm.hasPages" class="side-nav__static-pages-container d-flex space-between vertical-align">
         <h4 class="side-nav__static-pages-title side-nav-custom__static-pages-title-custom m-a-0" translate="LINKS.GO_TO"></h4>
-        <i ng-class="{'icon  button-icon side-nav__icon ion-ios-arrow-right side-nav-custom__icon-custom': !navSideVm.pageMenuOpen, 'icon  button-icon side-nav__icon ion-ios-arrow-up side-nav-custom__icon-custom': navSideVm.pageMenuOpen}"></i>
+        <i
+        class="icon button-icon side-nav__icon side-nav-custom__icon-custom"
+        ng-class="{'ion-ios-arrow-right': !navSideVm.pageMenuOpen, 'ion-ios-arrow-up': navSideVm.pageMenuOpen}"></i>
       </div>
 
       <!-- link to website -->
@@ -23,11 +23,16 @@
         <h4 class="side-nav__go-to-title side-nav-custom__go-to-title-custom" translate="LINKS.VISIT_WEBSITE"></h4>
       </div>
     </div>
+
+    <!-- static pages list -->
     <div data-ng-if="navSideVm.directiveApi.pagesVisible && navSideVm.pageContentLoaded" class="side-nav__static-pages-list animate-repeat">
       <appticles-nested-pages directive-api="navSideVm.directiveApi" pages="navSideVm.allPages"></appticles-nested-pages>
     </div>
+
+    <!-- category list -->
     <div data-ng-if="navSideVm.directiveApi.categoriesVisible && navSideVm.categoryContentLoaded" class="side-nav__static-pages-list animate-repeat">
       <appticles-nested-categories directive-api="navSideVm.directiveApi" categories="navSideVm.allCategories"></appticles-nested-categories>
     </div>
+
   </ion-content>
 </ion-view>

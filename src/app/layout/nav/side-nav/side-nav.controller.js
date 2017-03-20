@@ -137,8 +137,6 @@ class SideNav {
         this.directiveApi.categoriesVisible = true;
       }
     }
-
-
   }
 }
 

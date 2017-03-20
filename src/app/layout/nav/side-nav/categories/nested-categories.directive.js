@@ -54,7 +54,7 @@ class NestedCategoriesController {
 
         this.currentCategories = listAtParentPageLevel;
         this.currentParentId = parentPageItem.parent_id;
-        let parentOfIncomingList = initialPagelist.filter((page) => page.id === this.currentParentId)[0];
+        let parentOfIncomingList = initialCategories.filter((page) => page.id === this.currentParentId)[0];
         this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.CATEGORIES') : parentOfIncomingList.name;
       }
     }
