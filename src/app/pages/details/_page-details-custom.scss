@@ -4,6 +4,10 @@
 }
 .page-ctx {
 
+  ion-content {
+    background-color: $post-bg;
+  }
+
   .page-custom {
 
     &__title-custom {
