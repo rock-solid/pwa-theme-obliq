@@ -1,26 +1,33 @@
-.page__ex-close-btn {
+.page__close-btn {
   color: $btn-color !important;
   background: $btn-bg !important;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  right: $base-padding;
-  top: $base-padding-sm;
+  padding: 0!important;
+  right: 10px;
+  top: 3px;
   transition: all 0.5s ease-in-out;
-
   &::before {
     font-size: 24px !important;
     line-height: 30px !important;
   }
 }
+
 .page-ctx {
+
+  ion-content {
+    top: 0 !important;
+  }
 
   .page {
 
     &__title {
-      color: $post-text-color;
+      color: $post-text-color !important;
       margin-left: $base-padding;
-      margin-top: $base-padding;
+      top: 3px !important;
+      margin-top: $base-margin !important;
+      margin-bottom: $base-margin-sm !important;
     }
 
     &__content {
@@ -28,6 +35,7 @@
       background: $post-bg;
       border-top: 1px solid $border-color;
       margin: $base-margin;
+      margin-top: 0;
       padding-top: $base-padding;
 
       p, li, span {
