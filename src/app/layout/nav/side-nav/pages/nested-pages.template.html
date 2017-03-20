@@ -1,7 +1,7 @@
 <div class="nested-pages-ctx">
   <div class="nested-pages__title-container w-100 d-flex vertical-align p-a-1 animate-repeat" data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)">
     <i class="icon button-icon ion-ios-arrow-left m-r-1 nested-pages__button-back nested-pages-custom__button-back-custom"></i>
-    <h4 class="nested-pages__page-title nested-pages-custom__page-title-custom m-a-0 d-inline-block">{{nestedPagesVm.backButtonTitle}}</h4>
+    <h4 class="nested-pages__page-title nested-pages-custom__page-title-custom m-a-0 d-inline-block text-ellipsis">{{nestedPagesVm.backButtonTitle}}</h4>
   </div>
   <div class="page-item animate-repeat nested-pages__item-container
   nested-pages-custom__item-container-custom" ng-repeat="page in nestedPagesVm.currentPages">

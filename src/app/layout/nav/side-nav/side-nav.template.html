@@ -1,18 +1,18 @@
 <ion-view cache-view="false" class="side-nav-ctx">
   <ion-content data-ng-show="navSideVm.currentPages !== '' " class="side-nav__container side-nav-custom__container-custom">
     <div data-ng-if="navSideVm.directiveApi.isRoot" class="animate-repeat">
-      <div class="side-nav__categories-container">
+      <div class="side-nav__categories-container d-flex vertical-align">
         <h4 menu-close class="side-nav__categories-title side-nav-custom__categories-title-custom m-a-0" data-ui-sref="app.nav.latest"
           translate="LINKS.HOME"></h4>
       </div>
 
       <div data-ng-click="navSideVm.loadCategories()" data-ng-if="navSideVm.hasCategories" class="side-nav__categories-container d-flex space-between vertical-align">
-        <h4 class="side-nav__categories-title side-nav-custom__categories-title-custom m-a-0" translate="LINKS.CATEGORIES"></h4>
+        <h4 class="side-nav__categories-title side-nav-custom__categories-title-custom text-ellipsis m-a-0" translate="LINKS.CATEGORIES"></h4>
         <i ng-class="{'icon  button-icon side-nav__icon ion-ios-arrow-right side-nav-custom__icon-custom': !navSideVm.categoryMenuOpen, 'icon  button-icon side-nav__icon ion-ios-arrow-up side-nav-custom__icon-custom': navSideVm.categoryMenuOpen}"></i>
       </div>
 
       <div data-ng-click="navSideVm.loadPages()" data-ng-if="navSideVm.hasPages" class="side-nav__static-pages-container d-flex space-between vertical-align">
-        <h4 class="side-nav__static-pages-title side-nav-custom__static-pages-title-custom m-a-0" translate="LINKS.GO_TO"></h4>
+        <h4 class="side-nav__static-pages-title side-nav-custom__static-pages-title-custom text-ellipsis m-a-0" translate="LINKS.GO_TO"></h4>
         <i
         class="icon button-icon side-nav__icon side-nav-custom__icon-custom"
         ng-class="{'ion-ios-arrow-right': !navSideVm.pageMenuOpen, 'ion-ios-arrow-up': navSideVm.pageMenuOpen}"></i>
@@ -20,7 +20,7 @@
 
       <!-- link to website -->
       <div class="side-nav__go-to-container side-nav-custom__go-to-container-custom" ng-if="navSideVm.websiteUrl" data-ng-click="navSideVm.openDesktopWebsite()">
-        <h4 class="side-nav__go-to-title side-nav-custom__go-to-title-custom" translate="LINKS.VISIT_WEBSITE"></h4>
+        <h4 class="side-nav__go-to-title side-nav-custom__go-to-title-custom text-ellipsis" translate="LINKS.VISIT_WEBSITE"></h4>
       </div>
     </div>
 

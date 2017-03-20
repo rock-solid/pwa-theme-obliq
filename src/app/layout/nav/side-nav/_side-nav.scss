@@ -57,6 +57,16 @@
       padding: $base-padding;
       background: transparent;
       border-bottom: 1px solid $border-color;
+      font-size: $base-font-size;
+      height: $ionic-bar-height * 1.5;
+
+      h4 {
+        font-size: $base-font-size;
+      }
+
+      .icon {
+        font-size: 100%
+      }
     }
     &__categories-title, &__static-pages-title, &__go-to-title, &__icon {
       color: $side-nav-color;

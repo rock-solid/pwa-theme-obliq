@@ -19,9 +19,28 @@
     }
     &__item-content {
       padding: $base-padding;
+      font-size: $base-font-size;
+
+      h6 {
+        font-size: $base-font-size / mpow($multiplying-factor, 1);
+      }
+
+      .icon {
+        font-size: 100%
+      }
     }
+
     &__title-container {
       border-bottom: 1px solid $border-color;
+      font-size: $base-font-size;
+
+      h4 {
+        font-size: $base-font-size;
+      }
+
+      .icon {
+        font-size: 100%
+      }
     }
     &__item-title, &__item-icon {
       color: $side-nav-color;
