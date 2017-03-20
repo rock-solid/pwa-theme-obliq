@@ -5,7 +5,13 @@
         <div ng-if="socialNetworksVm.directiveApi.hasComments">
           <a>
             <button data-ng-if="socialNetworksVm.directiveApi.props !== '' " appticles-comments data-ng-click="socialNetworksVm.directiveApi.triggerCommentsModal()"
-              directive-api="socialNetworksVm.directiveApi" class="button icon ion-ios-chatboxes-outline social-modal__btn-comm social-modal__btn-comm-custom"></button>
+              directive-api="socialNetworksVm.directiveApi" class="button icon ion-ios-chatboxes-outline social-modal__btn-comm social-modal__btn-comm-custom position-relative">
+                <div
+                data-ng-if="socialNetworksVm.postDetails.no_comments > 0"
+                class="social-modal__label social-modal__label-custom text-ellipsis position-absolute">
+                  {{socialNetworksVm.postDetails.no_comments}}
+                </div>
+              </button>
           </a>
         </div>
         <div data-ng-if="socialNetworksVm.hasFacebook">

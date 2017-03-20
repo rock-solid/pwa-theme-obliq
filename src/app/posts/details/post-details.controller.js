@@ -104,6 +104,7 @@ class PostDetails {
         'id': this.postDetails.id,
         'title': $window.encodeURIComponent(this.postDetails.title),
         'link': this.postDetails.link,
+        'no_comments': this.postDetails.no_comments,
         'comment_status': this.postDetails['comment_status'] || 'disabled',
         'require_name_email': this.postDetails['require_name_email'] || '0'
       };

@@ -10,4 +10,9 @@
     border: 1px solid $btn-color;
   }
 
+    &__label-custom {
+    background-color: $label-bg;
+    color: $text-color;
+  }
+
 }

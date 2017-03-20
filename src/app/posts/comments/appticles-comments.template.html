@@ -5,7 +5,7 @@
   <ion-view>
     <ion-header-bar class="bar bar-clear bar-comments bar-comments-custom">
       <h4 class="h4 title comments__title comments__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.COMMENTS"></h4>
-      <button class="button icon ion-close comments__close-btn comments__close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
+      <button class="button icon ion-android-close comments__close-btn comments__close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
     </ion-header-bar>
 
     <ion-content class="comments__comm-content">
@@ -22,8 +22,8 @@
           </a>
           <div class="comments__comment-content-container">
             <div class="comments__comment-details w-100">
-              <h5 class="comments__comment-author comments__comment-author-custom m-t-0"> {{comment.author}} </h5>
-              <h6 class="comments__comment-author comments__comment-author-custom m-t-0 m-b-2"> {{comment.date}} </h6>
+              <h5 class="comments__comment-author comments__comment-author-custom text-right m-t-0"> {{comment.author}} </h5>
+              <h6 class="comments__comment-author comments__comment-author-custom text-right m-t-0 m-b-2"> {{comment.date}} </h6>
             </div>
             <div class="comments__content comments__content-custom" data-ng-bind-html="comment.content | TrustHtmlFilter"></div>
           </div>

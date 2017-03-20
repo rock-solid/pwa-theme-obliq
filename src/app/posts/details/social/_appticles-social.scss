@@ -15,7 +15,19 @@
 .social-modal {
 
   &__content {
+    margin-top: $ionic-bar-height;
     justify-content: space-around;
+  }
+
+  &__label {
+    top: -$ionic-bar-height/2;
+    background-color: $label-bg;
+    color: $text-color;
+    padding: 4px 12px;
+    border-radius: 50px;
+    right: -$ionic-bar-height/4;
+    max-width: $ionic-bar-height * 1.5;
+    font-size: $base-font-size / mpow($multiplying-factor,1);
   }
 
   &__btn-fb, &__btn-tw, &__btn-gplus, &__btn-comm {
@@ -39,9 +51,9 @@
 
   &__view {
     background: transparent;
-    height: 80px;
+    height: $ionic-bar-height * 3;
     justify-content: space-around;
-    min-height: 80px;
+    min-height: $ionic-bar-height * 3;
     top: initial;
     bottom: 0;
     .pane {
