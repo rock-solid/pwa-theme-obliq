@@ -6,6 +6,11 @@
     }
   }
   .slide {
+    &__label-custom {
+      color: $label-bg;
+      background-color: $text-color;
+    }
+
     &__meta-container-custom {
       background: rgba($post-bg, 0.7);
     }

@@ -7,6 +7,12 @@
     &__container {
       padding: $base-padding;
     }
+
+    &__label {
+      color: $label-bg !important;
+      background-color: $text-color;
+    }
+
     &__title,
     &__date {
       color: rgba($post-bg, 1);
