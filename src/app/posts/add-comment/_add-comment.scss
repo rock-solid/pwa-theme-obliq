@@ -11,6 +11,7 @@
     border-top: solid 1px $secondary-bg;
     color: $btn-color;
     background-color: $btn-bg !important;
+    font-size: $base-font-size / mpow($multiplying-factor,1);
   }
 
   .list-inset {

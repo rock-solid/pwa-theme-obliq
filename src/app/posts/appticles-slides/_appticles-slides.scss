@@ -47,6 +47,7 @@
       align-items: center;
       justify-content: center;
       flex: 1 0 auto;
+      overflow: hidden;
     }
     &__meta-container {
       background: rgba($post-bg, 0.7);

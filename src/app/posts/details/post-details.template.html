@@ -9,29 +9,27 @@
   has-bouncing="false"
   on-tap="postDetailsVm.handleOnTap()"
   on-scroll="postDetailsVm.handleOnScroll()">
-
     <div class="post__top-container position-relative">
-      <div class="post__top-inner position-absolute b-0">
-        <div class="post__triangle post-custom__triangle-custom"></div>
-        <div class="post__meta-container">
-          <h6 class="post__category post-custom__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
-          <h1 class="h3 post__title post-custom__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
-          </h1>
-          <h6 class="post__author post-custom__author-custom text-body-style d-inline-block" translate="TEXTS.AUTHOR"></h6><h6 class="post__author post-custom__author-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
-          <h6 class="post__date post-custom__date-custom text-body-style d-inline-block" translate="TEXTS.DATE"></h6><h6 class="post__date post-custom__date-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.date }}</h6>
-        </div>
-      </div>
-
-      <div class="post__img-wrap">
-        <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
-        <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__cover-noimg w-100"></div>
-      </div>
-
-
+  <div class="post__top-inner position-absolute b-0">
+    <div class="post__triangle post-custom__triangle-custom"></div>
+    <div class="post__meta-container">
+      <h6 class="post__category post-custom__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
+      <h1 class="h3 post__title post-custom__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
+      </h1>
+      <h6 class="post__author post-custom__author-custom text-body-style d-inline-block" translate="TEXTS.AUTHOR"></h6><h6 class="post__author post-custom__author-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
+      <h6 class="post__date post-custom__date-custom text-body-style d-inline-block" translate="TEXTS.DATE"></h6><h6 class="post__date post-custom__date-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.date }}</h6>
     </div>
+  </div>
+
+  <div class="post__img-wrap">
+    <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
+    <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__cover-noimg w-100"></div>
+  </div>
+
+
+</div>
     <!-- content -->
-    <div
-      class="post__content-container post-custom__content-container-custom">
+    <div class="post__content-container post-custom__content-container-custom p-t-0">
       <div class="post__content post-custom__content-custom">
         <appticles-ads ng-if="postDetailsVm.postDetails.content" content="postDetailsVm.postDetails.content"></appticles-ads>
       </div>
