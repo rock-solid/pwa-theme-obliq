@@ -36,6 +36,14 @@
   flex-direction: column;
 }
 
+.flex-fill {
+  flex: 1 0 auto;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-order {
   &-1 {
     order: 1;

@@ -16,8 +16,14 @@
       <h6 class="post__category post__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
       <h1 class="h3 post__title post__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
       </h1>
-      <h6 class="post__author post__author-custom text-body-style d-inline-block" translate="TEXTS.AUTHOR"></h6><h6 class="post__author post__author-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
-      <h6 class="post__date post__date-custom text-body-style d-inline-block" translate="TEXTS.DATE"></h6><h6 class="post__date post__date-custom text-body-style d-inline-block">: {{ postDetailsVm.postDetails.date }}</h6>
+      <div class="d-flex flex-wrap">
+        <div class="flex-fill d-flex">
+          <h6 class="post__author post__author-custom text-body-style m-y-0" translate="TEXTS.AUTHOR"></h6><h6 class="post__author post__author-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
+        </div>
+        <div class="flex-fill d-flex">
+          <h6 class="post__date post__date-custom text-body-style m-y-0" translate="TEXTS.DATE"></h6><h6 class="post__date post__date-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.date }}</h6>
+        </div>
+      </div>
     </div>
   </div>
 
