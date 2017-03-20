@@ -1,14 +1,13 @@
-.page-custom__ex-close-btn-custom {
+.page__close-btn-custom {
   color: $btn-color !important;
   background: $btn-bg !important;
-
 }
 .page-ctx {
 
   .page-custom {
 
     &__title-custom {
-      color: $post-text-color;
+      color: $post-text-color !important;
     }
 
     &__content-custom {

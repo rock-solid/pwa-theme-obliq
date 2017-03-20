@@ -1,9 +1,9 @@
 <ion-view cache-view="false" class="page-ctx">
-  <h1 class="h3 page__title page-custom__title-custom bar-title text-ellipsis w-80" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
   <ion-nav-buttons side="right">
-    <button class="button icon ion-close page__ex-close-btn page-custom__ex-close-btn-custom position-absolute m-a-0"  data-ui-sref="app.nav.latest"></button>
+    <button class="button icon ion-close page__close-btn page__close-btn-custom position-absolute m-a-0"  data-ui-sref="app.nav.latest"></button>
   </ion-nav-buttons>
   <ion-content data-ng-show="pageVm.contentLoaded">
+    <h1 class="h4 title page__title page-custom__title-custom bar-title text-left text-ellipsis w-80 m-y-0" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
     <div ng-if="pageVm.image && pageVm.image.src" class="page__cover" data-ng-style=" {'background':'url( {{ pageVm.image.src }} )'}"></div>
 
     <!-- content -->
