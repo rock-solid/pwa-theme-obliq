@@ -2,7 +2,7 @@
 
 let SideNav = require('./nav.po');
 
-fdescribe('Nav categories', () => {
+describe('Nav categories', () => {
 
   let nav;
 
