@@ -18,15 +18,18 @@
       border-bottom: 1px solid $border-color;
     }
     &__item-content {
-      padding: $base-padding;
       font-size: $base-font-size;
 
       h6 {
+        padding: $base-padding;
         font-size: $base-font-size / mpow($multiplying-factor, 1);
+        flex: 1 0 auto;
+        max-width: 100%;
       }
 
       .icon {
-        font-size: 100%
+        font-size: 100%;
+        margin-right: $base-margin;
       }
     }
 
