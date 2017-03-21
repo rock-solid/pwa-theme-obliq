@@ -7,6 +7,7 @@ exports.config = {
   },
   suites:  {
     all:          ['test/end-to-end/**/*.po.js', 'test/end-to-end/**/*-spec.js'],
+    latest:       ['test/end-to-end/posts/latest/*.po.js', 'test/end-to-end/posts/latest/*-spec.js'],
     nav:          ['test/end-to-end/layout/*.po.js', 'test/end-to-end/layout/*-spec.js'],
     pagedetails:  ['test/end-to-end/pages/*.po.js', 'test/end-to-end/pages/details/*-spec.js'],
   },
