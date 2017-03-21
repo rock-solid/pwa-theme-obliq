@@ -2,7 +2,7 @@
 
 let Homepage = require('./home.po');
 
-fdescribe('home page', () => {
+describe('home page', () => {
 
   let homepage;
 

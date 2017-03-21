@@ -7,7 +7,7 @@ class Homepage {
   }
 
   getFirstPost() {
-    return element(by.css('.hero__top-inner'));
+    return element.all(by.css('.slide__post-item')).get(0);
   }
 
   getPosts() {

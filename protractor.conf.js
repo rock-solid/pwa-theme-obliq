@@ -9,6 +9,7 @@ exports.config = {
     all:          ['test/end-to-end/**/*.po.js', 'test/end-to-end/**/*-spec.js'],
     latest:       ['test/end-to-end/posts/latest/*.po.js', 'test/end-to-end/posts/latest/*-spec.js'],
     nav:          ['test/end-to-end/layout/*.po.js', 'test/end-to-end/layout/*-spec.js'],
+    postdetails:  ['test/end-to-end/posts/details/*.po.js', 'test/end-to-end/posts/details/*-spec.js'],
     pagedetails:  ['test/end-to-end/pages/*.po.js', 'test/end-to-end/pages/details/*-spec.js'],
   },
   baseUrl: 'http://localhost:8100/',
