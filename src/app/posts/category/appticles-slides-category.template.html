@@ -17,7 +17,7 @@
         <div
         data-ng-if="post.image.src"
         class="slide__img-wrap position-relative h-75" ng-class="{'flex-order-0' : page.length === 1 || ($index === 1 && page.length === 2)}">
-          <div data-ng-if="post.image.src" class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
+          <div data-ng-if="post.image.src" class="slide__cover w-100 h-100 bg-cover position-absolute" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
           <div class="position-absolute" ng-class="{'b-0 slide__triangle--bottom-to-right slide__triangle-custom--bottom-to-right' : page.length === 1 || ($index === 1 && page.length === 2), 't-0 slide__triangle slide__triangle-custom' : $index === 0 && page.length === 2}"></div>
         </div>
       </div>

@@ -35,7 +35,7 @@
       data-ui-sref="app.nav.postFromHome({categorySlugId: post.categories[0], postId: post.id, latest: 1 })"
       class="slide__post-item slide__post-item-custom d-flex position-relative">
         <div class="slide__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
-          <div class="slide__top-inner slide__top-inner-custom b-0" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : ($index === 1 && page.length === 2)}">
+          <div class="slide__top-inner slide__top-inner-custom b-0" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : (!post.image.src && $index === 1 && page.length === 2)}">
             <div class="slide__meta-container slide__meta-container-custom">
               <h3 class="h3 slide__title slide__title-custom text-heading-style m-y-0 text-clamped" data-ng-bind-html="post.title | TrustHtmlFilter">
               </h3>
@@ -48,7 +48,7 @@
           <div
           data-ng-if="post.image.src"
           class="slide__img-wrap position-relative h-75" ng-class="{'flex-order-0' : page.length === 1 || ($index === 1 && page.length === 2)}">
-            <div data-ng-if="post.image.src" class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
+            <div data-ng-if="post.image.src" class="slide__cover w-100 h-100 bg-cover position-absolute" data-ng-style=" {'background':'url( {{ post.image.src }} )'}"></div>
             <div class="position-absolute"
             ng-class="{'b-0 slide__triangle--bottom-to-right slide__triangle-custom--bottom-to-right' : page.length === 1 || ($index === 1 && page.length === 2), 't-0 slide__triangle slide__triangle-custom' : $index === 0 && page.length === 2}"></div>
           </div>

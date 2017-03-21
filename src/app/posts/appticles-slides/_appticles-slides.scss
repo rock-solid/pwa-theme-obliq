@@ -35,6 +35,11 @@
     }
   }
   .slide {
+
+    &__img-wrap {
+      overflow:hidden;
+    }
+
     &__wrapper {
       flex-direction: column;
       @media screen and (orientation: landscape) {
@@ -65,6 +70,10 @@
       flex: 1 0 auto;
       &.has-border {
         border-top: 1px solid $border-color;
+
+        @media screen and (orientation:landscape) {
+          border-color: transparent;
+        }
       }
     }
     &__triangle {
