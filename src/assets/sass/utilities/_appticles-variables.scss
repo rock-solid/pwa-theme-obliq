@@ -6,20 +6,94 @@ $base-font-family: "Roboto", sans-serif;
 $headings-font-family: "Roboto", sans-serif;
 
 
-//BACK TO BLACK
+// Oldie but oldie
+/*
+- side-menu-categories text-color
+- side-menu-categories arrow-color,
+- text-color label in post-details
+- sendBtn text color, confirmationAlertButton text color
+*/
 $text-color: #ffffff;
-$overlay-bg: #000000;
-$btn-color: #ffffff;
-$btn-bg: #444;
 
+/*
+- home cover image overlay
+- sideNav categoriesMenu image overlay for category with image
+*/
+$overlay-bg: #000000;
+
+/*
+buttonIcon color for:
+- menuBtn,
+- closeViewBtn for pages and for comments,
+- openCommentFormBtn
+- backBtn for postDetails
+- socialOptionsBtn
+- openCommentListBtn
+*/
+$btn-color: #ffffff;
+
+/*
+BtnBg color for:
+- CloseBtn for pageDetails
+- BackBtn for postDetails
+- socialOptionsBtn
+- openCommentListBtn
+- openCommentFormBtn and the views borderTop
+- sendBtn and confirmationAlertButton
+*/
+$btn-bg: #37454c;
+
+
+/*
+ - labelBg in postDetails
+ - label textColor in categoryPostList
+*/
 $label-bg: #63a9dd;
 
-$side-nav-bg: #ffffff;
-$border-color: #f0f0f0;
-$side-nav-color: #444;
+/*
+ - sideMenuBg
+ - gradientTop value of sideMenu categoryItems with noImage
+*/
+$side-nav-bg: #f0f0f0;
 
+/*
+ - sideMenu textColor for items and iconColor
+ - sideMenu gradientBottom value of sideMenu categoryItems with noImage
+*/
+$side-nav-color: #2f2f2f;
+
+/*
+borderColor for:
+ - in between sideMenu items
+ - in between content items in a page within a slide.
+ - pageTitle
+*/
+$border-color: #ccc;
+
+/*
+- textColor for heroPost in latest articles
+- bgColor for pageDetails
+- bgColor for posts in slides latest articles or in articles from category
+- bgColor for postDetails, for commentList, for addCommentForm, confirmationAlert bodyText
+*/
 $post-bg: #ffffff;
+
+/*
+- commentList headerBg
+- addComment pullUp handle borderTop
+*/
 $secondary-bg: #ddd;
+
+/*
+- textColor on elements in the slides for title, date, postDescription
+- textColor on postDetails for title, author, date and content
+- textColor on commentList for commentPageTitle, comment author, date and content
+- textColor on addCommentView for pageTitle, commentFieldLabels and borderBottom
+- textColor on pageDetailsView
+*/
 $post-text-color: #000;
 
+/*
+- color for links in text
+*/
 $link-color: purple;
