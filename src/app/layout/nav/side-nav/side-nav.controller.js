@@ -121,7 +121,7 @@ class SideNav {
 
       if(!this.categoryContentLoaded) {
         AppticlesAPI
-          .findCategories({ withArticles: 0 })
+          .findCategories({ withArticles: 1, limit: 1 })
           .then(validateCategories)
           .then(populateCategoryList)
           .then(() => {
