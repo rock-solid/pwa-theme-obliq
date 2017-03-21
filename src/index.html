@@ -5,10 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>Appticles Sample</title>
+
+  <!-- build:css -->
   <!-- compiled css output -->
-  <link href="assets/sass/ionic.app.css" rel="stylesheet">
-  <link href="assets/sass/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sass/ionic.app.css" >
+  <link rel="stylesheet" href="assets/sass/main.css">
+  <!-- endbuild -->
   <link href="assets/sass/customizable.css" rel="stylesheet">
+
+  <script type="text/javascript">
+    window.__APPTICLES_BOOTSTRAP_DATA__ = {
+      CONFIG_PATH: '/app/config.json'
+    };
+
+  </script>
+  <!-- build:js -->
+
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
   <!-- angular-translate -->
@@ -19,13 +32,7 @@
   <script src="lib/ionic-pullup/dist/ion-pullup.min.js"></script>
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
-  <script type="text/javascript">
-    window.__APPTICLES_BOOTSTRAP_DATA__ = {
-      CONFIG_PATH: '/app/config.json'
-    };
 
-  </script>
-  <!-- build:js -->
   <!-- core/config -->
   <script src="app/core/config/config.module.js" charset="utf-8"></script>
   <script src="app/core/config/config.provider.js" charset="utf-8"></script>
