@@ -1,13 +1,4 @@
 .side-nav-ctx {
-  .animate-repeat.ng-enter {
-    animation: 0.375s enter-animation;
-    animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
-  }
-
-  .animate-repeat.ng-leave {
-    animation: 1.2s leave-animation;
-    animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
-  }
 
   @keyframes leave-animation {
     0% {
@@ -47,8 +38,6 @@
     }
   }
 
-
-
   .side-nav {
     &__container {
       background: $side-nav-bg;
@@ -74,6 +63,20 @@
 
     &__categories-title, &__static-pages-title, &__go-to-title, &__icon {
       color: $side-nav-color;
+    }
+  }
+}
+
+body:not(.platform-ios) {
+  .side-nav-ctx {
+    .animate-repeat.ng-enter {
+      animation: 0.375s enter-animation;
+      animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+    }
+
+    .animate-repeat.ng-leave {
+      animation: 1.2s leave-animation;
+      animation-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
     }
   }
 }
