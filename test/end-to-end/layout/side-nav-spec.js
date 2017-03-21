@@ -34,7 +34,6 @@ fdescribe('Nav categories', () => {
 
   it('should open a submenu if an arrow is clicked', () => {
     let categoriesButton = nav.getCategoriesButton();
-    // categoriesButton.getAttribute('innerHTML').then(res => console.log(res));
     categoriesButton.click().then(() => {
       let submenuIcon = nav.getCategorySubmenuIcons().first();
 
