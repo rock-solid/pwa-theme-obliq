@@ -94,7 +94,7 @@ class SlidesController {
 
   initializeCoverPost(posts, hasCover, options) {
     let coverPost;
-    if(hasCover) {
+    if(hasCover && posts.length > 0) {
       coverPost = posts.slice(0,1)
         .reduce((a,b) => a.concat(b))[0];
       posts.splice(0, 1); // this modifies the existing array of posts

@@ -4,9 +4,7 @@
   </ion-nav-buttons>
   <ion-content data-ng-show="pageVm.contentLoaded">
     <div ng-if="pageVm.image && pageVm.image.src" class="page__cover h-50vh bg-cover" data-ng-style=" {'background':'url( {{ pageVm.image.src }} )'}"></div>
-    <h1 class="h4 title page__title page-custom__title-custom bar-title text-left text-ellipsis w-80 m-y-0" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
-
-
+    <h1 class="h4 title page__title page-custom__title-custom bar-title text-left w-80 m-y-0 m-r-5" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
     <!-- content -->
     <div class="page__content page-custom__content-custom">
       <div data-ng-bind-html="pageVm.content | TrustHtmlFilter"></div>

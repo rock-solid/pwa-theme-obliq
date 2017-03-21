@@ -41,7 +41,7 @@
       height: 280px;
     }
     &__cover-noimg {
-      height: 180px;
+      min-height: $ionic-bar-height * 7/2;
       background-color: $post-bg;
     }
     &__meta-container {

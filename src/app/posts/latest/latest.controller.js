@@ -49,6 +49,7 @@ class Latest {
     const populatePostList = (result) => {
       this.categories = result.categories;
       this.posts = result.posts;
+      this.hasArticles = angular.copy(result.posts).length > 0 ? true : false;
     };
 
     AppticlesCanonical.set();

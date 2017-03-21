@@ -1,53 +1,64 @@
 <ion-view cache-view="false" data-ng-show="postDetailsVm.contentLoaded" class="post-ctx">
   <ion-nav-buttons side="left">
-    <button ng-class="{'slide-up': !postDetailsVm.itemIsShown, 'slide-down': postDetailsVm.itemIsShown}"
-    class="button button-icon ion-ios-arrow-back button-clear button-dark post__button-back post__button-back-custom"
+    <button ng-class="{'slide-up': !postDetailsVm.itemIsShown, 'slide-down': postDetailsVm.itemIsShown}" class="button button-icon ion-ios-arrow-back button-clear button-dark post__button-back post__button-back-custom"
       data-ng-click="postDetailsVm.goBack()"></button>
   </ion-nav-buttons>
-  <ion-content data-ng-show="postDetailsVm.contentLoaded"
-  scroll-event-interval="50"
-  has-bouncing="false"
-  on-tap="postDetailsVm.handleOnTap()"
-  on-scroll="postDetailsVm.handleOnScroll()">
-    <div class="post__top-container position-relative">
-  <div class="post__top-inner position-absolute b-0">
-    <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__triangle post__triangle-custom"></div>
-    <div class="post__meta-container post__meta-container-custom">
+  <ion-content data-ng-show="postDetailsVm.contentLoaded" scroll-event-interval="50" has-bouncing="false" on-tap="postDetailsVm.handleOnTap()"
+    on-scroll="postDetailsVm.handleOnScroll()">
+
+    <!-- if the post does have an image -->
+    <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__top-container position-relative">
+      <div class="post__top-inner position-absolute b-0">
+        <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__triangle post__triangle-custom"></div>
+        <div class="post__meta-container post__meta-container-custom">
+          <h6 class="post__category post__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
+          <h1 class="h3 post__title post__title-custom text-heading-style text-clamped-3-lines m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
+          </h1>
+          <div class="d-flex flex-wrap">
+            <div class="d-flex">
+              <h6 class="post__author post__author-custom text-body-style m-y-0" translate="TEXTS.AUTHOR"></h6>
+              <h6 class="post__author post__author-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
+            </div>
+            <div class="d-flex">
+              <h6 class="post__date post__date-custom text-body-style m-y-0" translate="TEXTS.DATE"></h6>
+              <h6 class="post__date post__date-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.date }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post__img-wrap">
+        <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
+        <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__cover-noimg post__cover-noimg-custom w-100"></div>
+      </div>
+    </div>
+
+    <!-- if the post doesn't have an image-->
+    <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__meta-container post__meta-container-custom m-t-3">
       <h6 class="post__category post__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
       <h1 class="h3 post__title post__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
       </h1>
       <div class="d-flex flex-wrap">
         <div class="d-flex">
-          <h6 class="post__author post__author-custom text-body-style m-y-0" translate="TEXTS.AUTHOR"></h6><h6 class="post__author post__author-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
+          <h6 class="post__author post__author-custom text-body-style m-y-0" translate="TEXTS.AUTHOR"></h6>
+          <h6 class="post__author post__author-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.author }}, &nbsp; </h6>
         </div>
         <div class="d-flex">
-          <h6 class="post__date post__date-custom text-body-style m-y-0" translate="TEXTS.DATE"></h6><h6 class="post__date post__date-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.date }}</h6>
+          <h6 class="post__date post__date-custom text-body-style m-y-0" translate="TEXTS.DATE"></h6>
+          <h6 class="post__date post__date-custom text-body-style m-y-0">: {{ postDetailsVm.postDetails.date }}</h6>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="post__img-wrap">
-    <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
-    <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__cover-noimg post__cover-noimg-custom w-100"></div>
-  </div>
-
-
-</div>
     <!-- content -->
     <div class="post__content-container post__content-container-custom p-t-0">
       <div class="post__content post__content-custom">
         <appticles-ads ng-if="postDetailsVm.postDetails.content" content="postDetailsVm.postDetails.content"></appticles-ads>
       </div>
     </div>
-
-
   </ion-content>
   <div side="right" class="bar bar-footer bar-clear ex-bar-footer ex-bar-footer-custom">
     <div ng-if="postDetailsVm.hasSocialNetworks || postDetailsVm.directiveApi.hasComments">
       <button class="button button-icon button-clear ion-android-share-alt post__ex-social-btn post__ex-social-btn-custom position-absolute m-a-0"
-      ng-class="{'footer-slide-down': !postDetailsVm.itemIsShown || postDetailsVm.directiveApi.modalTriggered}"
-      data-ng-if="postDetailsVm.directiveApi.props !== '' "
+        ng-class="{'footer-slide-down': !postDetailsVm.itemIsShown || postDetailsVm.directiveApi.modalTriggered}" data-ng-if="postDetailsVm.directiveApi.props !== '' "
         appticles-social data-ng-click="postDetailsVm.directiveApi.triggerModal()" directive-api="postDetailsVm.directiveApi"></button>
     </div>
   </div>

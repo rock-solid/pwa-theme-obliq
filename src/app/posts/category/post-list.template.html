@@ -3,7 +3,9 @@
   <button class="button button-icon button-clear button-dark ion-navicon latest__button-more latest__button-more-custom"
     menu-toggle="right"></button>
 </ion-nav-buttons>
-<ion-content scroll="false">
+<ion-content scroll="false" data-ng-show="listVm.contentLoaded">
+  <!-- if articles -->
+    <div class="posts-categ__no-articles posts-categ__no-articles-custom text-center m-t-2 text-body-style" translate="TEXTS.NO_ARTICLES" data-ng-if="!listVm.hasArticles"></div>
   <!-- first elem -->
-  <appticles-slides type="category" data-ng-if="::(listVm.postList && listVm.category)" posts="listVm.postList" categories="listVm.category"></appticles-slides>
+  <appticles-slides type="category" data-ng-if="::(listVm.postList && listVm.hasArticles && listVm.category)" posts="listVm.postList" categories="listVm.category"></appticles-slides>
 </ion-view>

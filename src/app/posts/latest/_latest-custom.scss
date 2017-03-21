@@ -3,4 +3,8 @@
     color: $btn-color !important;
     background: $btn-bg !important;
   }
+
+  &__no-articles-custom {
+    color: $post-text-color;
+  }
 }

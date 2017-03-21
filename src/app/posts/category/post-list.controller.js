@@ -32,6 +32,7 @@ class PostList {
 
     const populateData = (result) => {
       this.postList = result.validatedPosts;
+      this.hasArticles = angular.copy(result.validatedPosts).length > 0 ? true : false;
       this.category = result.validatedCategory;
 
       setCanonical(result.validatedCategory);
