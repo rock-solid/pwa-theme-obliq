@@ -6,7 +6,8 @@ exports.config = {
     browserName: 'chrome'
   },
   suites:  {
-    all: 'test/end-to-end/**/*-spec.js',
+    all:          ['test/end-to-end/**/*.po.js', 'test/end-to-end/**/*-spec.js'],
+    nav:          ['test/end-to-end/layout/*.po.js', 'test/end-to-end/layout/*-spec.js'],
   },
   baseUrl: 'http://localhost:8100/',
   jasmineNodeOpts : {
