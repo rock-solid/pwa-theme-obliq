@@ -1,14 +1,11 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Appticles Ionic Starter Kit
+# Theme Obliq
 
 
 ## About
 
-This repository hosts the assets necessary to develop Ionic 1 applications for the
-Appticles platform.
-Whenever a new application is created, this repository should be used as a standard
-template.
+This repository hosts the assets for the Obliq theme, developed by Appticles.
 
 ## Regulatory Information
 
