@@ -30,7 +30,7 @@ class PageDetails {
       let validPageDetails = AppticlesValidation.validateOnePages(result);
 
       if (validPageDetails.error) {
-        $state.go('app.nav.pages');
+        $state.go('app.nav.latest');
         return $q.reject('error fetching page details');
       }
 
