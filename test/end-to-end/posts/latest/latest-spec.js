@@ -40,27 +40,25 @@ describe('home page', () => {
   });
 
 
-  xit('should load more posts', () => {
+  it('should load more posts', () => {
 
     let allPosts = homepage.getPosts();
-    let article = allPosts.get(2);
+    let coverPage = homepage.getFirstPost();
+    let secondSwipeArticle = allPosts.get(0);
     let noPosts = allPosts.count();
 
-    article.getAttribute('innerHTML').then(res => console.log(res));
-
-    browser
-      .actions()
-      .mouseDown(article)
-      .mouseMove({ x: -50, y: 0 }) // try different value of x
-      .mouseUp()
-      .perform()
-      .then(function () {
-
-        browser.sleep(25000).then(() => {
-          let noPostsNew = homepage.getPosts().count();
-          expect(noPostsNew).toBeGreaterThan(noPosts);
-        });
-
+    browser.sleep(2000);
+    homepage
+      .swipeOn(coverPage)
+      .then(() => {
+        homepage
+          .swipeOn(secondSwipeArticle)
+          .then(() => {
+            browser.sleep(5000).then(() => {
+              let noPostsNew = homepage.getPosts().count();
+              expect(noPostsNew).toBeGreaterThan(noPosts);
+            });
+          });
       });
   });
 
