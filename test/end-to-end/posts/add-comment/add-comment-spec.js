@@ -3,7 +3,7 @@
 let Homepage = require('./../latest/home.po');
 let PostDetails = require('./../details/post-details.po');
 
-fdescribe('add comment', () => {
+describe('add comment', () => {
 
   let articleId;
   let postDetails;
