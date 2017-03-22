@@ -51,6 +51,10 @@
       background: -o-linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* For Opera 11.1 to 12.0 */
       background: -moz-linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* For Firefox 3.6 to 15 */
       background: linear-gradient(rgba($post-bg, 0.7) 0%, rgba($post-bg, 1) 95%); /* Standard syntax */
+
+      &--no-img {
+        background: rgba($post-bg, 1);
+      }
     }
     &__category {
       color: $text-color;

@@ -33,7 +33,7 @@
     </div>
 
     <!-- if the post doesn't have an image-->
-    <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__meta-container post__meta-container-custom m-t-3">
+    <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__meta-container post__meta-container-custom--no-img p-t-5">
       <h6 class="post__category post__category-custom d-inline-block m-a-0" data-ng-bind-html="postDetailsVm.category.name | TrustHtmlFilter"></h6>
       <h1 class="h3 post__title post__title-custom text-heading-style m-b-0 m-t-1" data-ng-bind-html="postDetailsVm.postDetails.title | TrustHtmlFilter">{{postDetailsVm.postDetails.title | TrustHtmlFilter}}
       </h1>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <!-- content -->
-    <div class="post__content-container post__content-container-custom p-t-0">
+    <div class="post__content-container post__content-container-custom">
       <div class="post__content post__content-custom">
         <appticles-ads ng-if="postDetailsVm.postDetails.content" content="postDetailsVm.postDetails.content"></appticles-ads>
       </div>
