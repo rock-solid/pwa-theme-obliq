@@ -11,6 +11,8 @@ exports.config = {
     nav:          ['test/end-to-end/layout/*.po.js', 'test/end-to-end/layout/*-spec.js'],
     postdetails:  ['test/end-to-end/posts/details/*.po.js', 'test/end-to-end/posts/details/*-spec.js'],
     pagedetails:  ['test/end-to-end/pages/*.po.js', 'test/end-to-end/pages/details/*-spec.js'],
+    comments:     'test/end-to-end/posts/comments/*-spec.js',
+    addcomment:   'test/end-to-end/posts/add-comment/*-spec.js',
   },
   baseUrl: 'http://localhost:8100/',
   jasmineNodeOpts : {
