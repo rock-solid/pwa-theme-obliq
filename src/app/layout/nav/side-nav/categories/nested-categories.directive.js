@@ -20,26 +20,67 @@ function AppticlesNestedCategories($log, $state, $ionicScrollDelegate, $ionicSid
 
 
 class NestedCategoriesController {
-  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $state, $filter) {
-    this.openContent = openContent;
-    this.openChildCategories = openChildCategories;
+  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $scope, $state, $filter, $q, AppticlesAPI, AppticlesValidation) {
+
+    // this.openChildCategories = openChildCategories;
+    //let previousBackButtonTitle = '';
+    //this.currentCategories = this.buildNestedTree(this.categories, 0);
+    //let initialCategories = this.categories;
+
     this.goBackTo = goBackTo;
-
-    let initialCategories = this.categories;
-    this.currentCategories = this.buildNestedTree(this.categories, 0);
-    let previousBackButtonTitle = '';
+    this.openContent = openContent;
     this.backButtonTitle = $filter('translate')('LINKS.CATEGORIES');
+    this.loadMoreCategories = loadMoreCategories;
 
-    function openChildCategories(parentPageId) {
-      // prevent scrolling issues by scrolling to top before updating the pageList
-      $ionicScrollDelegate.scrollTop();
-      previousBackButtonTitle = this.backButtonTitle;
+    const rows = 10;
 
-      let parentPage = this.currentCategories.filter((page) => page.id === parentPageId);
-      this.backButtonTitle = parentPage[0].name;
-      this.currentCategories = parentPage[0].children;
-      this.currentParentId = this.currentCategories[0].parent_id;
+    const validateCategories = (result) => {
 
+      let validCategories = AppticlesValidation.validateCategories(result);
+
+      if (angular.isDefined(validCategories.error)) {
+        $state.go('app.latest');
+        return $q.reject('error fetching category list');
+      }
+
+      let data = {
+        categories: validCategories,
+        pagination: result.data.page
+      };
+
+      return $q.when(data);
+    };
+
+    const populateCategoryList = (result) => {
+
+      this.categories = result.categories;
+
+      // check page from response to see if the API supports paginating
+      if (!result.pagination)
+        this.moreCategoriesAvailable = false;
+    };
+
+    function loadMoreCategories() {
+      if (this.categories.length > 0) {
+        this.directiveApi.currentPaginationForCategories++;
+        AppticlesAPI.findCategories({ withArticles: 0, page: this.directiveApi.currentPaginationForCategories, rows: rows })
+          .then(validateCategories)
+          .then(buildMoreCategories);
+      }
+    };
+
+    const buildMoreCategories = (result) => {
+      if (result.categories && result.categories.length > 0) {
+        this.categories = this.categories.concat(result.categories);
+      } else {
+        this.directiveApi.moreCategoriesAvailable = false;
+      }
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
+
+    function openContent(category) {
+      $ionicSideMenuDelegate.toggleRight(false);
+      $state.go('app.nav.category', { categorySlug: category.name_slug, categoryId: category.id });
     }
 
     function goBackTo(parentCategoryId = 0) {
@@ -48,22 +89,32 @@ class NestedCategoriesController {
         this.directiveApi.categoriesVisible = false;
         this.shouldAnimate = false;
       }
-      else {
-        let parentPageItem = initialCategories.filter((page) => page.id === parentCategoryId)[0];
-        let listAtParentPageLevel = initialCategories.filter((page) => page.parent_id === parentPageItem.parent_id);
+      // else {
+      //   let parentPageItem = initialCategories.filter((page) => page.id === parentCategoryId)[0];
+      //   let listAtParentPageLevel = initialCategories.filter((page) => page.parent_id === parentPageItem.parent_id);
 
-        this.currentCategories = listAtParentPageLevel;
-        this.currentParentId = parentPageItem.parent_id;
-        let parentOfIncomingList = initialCategories.filter((page) => page.id === this.currentParentId)[0];
-        this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.CATEGORIES') : parentOfIncomingList.name;
-      }
-    }
-
-    function openContent(category) {
-      $ionicSideMenuDelegate.toggleRight(false);
-      $state.go('app.nav.category', { categorySlug: category.name_slug, categoryId: category.id });
+      //   this.currentCategories = listAtParentPageLevel;
+      //   this.currentParentId = parentPageItem.parent_id;
+      //   let parentOfIncomingList = initialCategories.filter((page) => page.id === this.currentParentId)[0];
+      //   this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.CATEGORIES') : parentOfIncomingList.name;
+      // }
     }
   }
+    // TODO enable after dashboard modifications are made
+
+    // function openChildCategories(parentPageId) {
+    //   // prevent scrolling issues by scrolling to top before updating the pageList
+    //   $ionicScrollDelegate.scrollTop();
+    //   previousBackButtonTitle = this.backButtonTitle;
+
+    //   let parentPage = this.currentCategories.filter((page) => page.id === parentPageId);
+    //   this.backButtonTitle = parentPage[0].name;
+    //   this.currentCategories = parentPage[0].children;
+    //   this.currentParentId = this.currentCategories[0].parent_id;
+
+    // }
+
+
 
   /**
    * Build tree with the pages/categories.
@@ -90,4 +141,4 @@ class NestedCategoriesController {
   }
 };
 
-NestedCategoriesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state', '$filter'];
+NestedCategoriesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$scope', '$state', '$filter', '$q', 'AppticlesAPI' , 'AppticlesValidation'];

@@ -18,7 +18,9 @@ class SideNav {
     this.directiveApi = {
       isRoot: true,
       pagesVisible: false,
-      categoriesVisible: false
+      categoriesVisible: false,
+      currentPaginationForCategories: 1,
+      moreCategoriesAvailable: true
     };
 
     this.loadPages = loadPages;
@@ -118,10 +120,11 @@ class SideNav {
     };
 
     function loadCategories() {
+      const countOfCategories = 10;
 
       if(!this.categoryContentLoaded) {
         AppticlesAPI
-          .findCategories({ withArticles: 1, limit: 1 })
+          .findCategories({ withArticles: 1, limit: 1, page: this.directiveApi.currentPaginationForCategories, rows: countOfCategories })
           .then(validateCategories)
           .then(populateCategoryList)
           .then(() => {
