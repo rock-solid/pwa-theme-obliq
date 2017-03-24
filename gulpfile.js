@@ -64,6 +64,7 @@ gulp.task('uglify', ['prepare-templates'], (callback) => {
       'www/lib/ionic/js/ionic.bundle.js',
       'www/lib/angular-translate/angular-translate.js',
       'www/lib/ngDfp/angular-dfp.js',
+      'www/lib/ionic-pullup/dist/ion-pullup.js',
       // and any other third-party modules
 
       'www/app/app.module.js',

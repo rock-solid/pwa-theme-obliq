@@ -1,0 +1,29 @@
+{
+  "paths": [
+    "src/assets/sass/utilities/_functions.scss",
+    "src/assets/sass/utilities/_appticles-variables.scss",
+    "src/assets/sass/utilities/_internal-variables.scss",
+    "src/assets/sass/utilities/_mixins.scss",
+    "src/assets/sass/utilities/_helpers.scss",
+    "src/assets/sass/utilities/_typography.scss",
+
+    "src/assets/sass/customs/_item-custom.scss",
+    "src/assets/sass/customs/_icon-custom.scss",
+    "src/assets/sass/customs/_typography-custom.scss",
+
+    "src/app/posts/latest/_latest-custom.scss",
+    "src/app/posts/category/_post-list-custom.scss",
+    "src/app/posts/appticles-slides/_appticles-slides-custom.scss",
+
+    "src/app/posts/comments/_comment-list-custom.scss",
+    "src/app/posts/details/_post-details-custom.scss",
+    "src/app/posts/details/social/_appticles-social-custom.scss",
+    "src/app/posts/add-comment/_add-comment-custom.scss",
+
+    "src/app/pages/details/_page-details-custom.scss",
+    "src/app/layout/nav/side-nav/_side-nav-custom.scss",
+    "src/app/layout/nav/side-nav/categories/_nested-categories-cutom.scss",
+    "src/app/layout/nav/side-nav/pages_nested-pages-cutom.scss"
+
+  ]
+}
