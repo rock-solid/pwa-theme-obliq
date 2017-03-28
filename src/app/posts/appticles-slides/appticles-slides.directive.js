@@ -93,19 +93,24 @@ class SlidesController {
   }
 
   initializeCoverPost(posts, hasCover, options) {
-    let coverPost;
+    let coverPost = {};
+
+    // if there are posts separate the first post as coverPost
     if(hasCover && posts.length > 0) {
       coverPost = posts.slice(0,1)
         .reduce((a,b) => a.concat(b))[0];
       posts.splice(0, 1); // this modifies the existing array of posts
-      if(Object.keys(options).length > 0) {
-        for(var key in options) {
-          if(options.hasOwnProperty(key)) {
-            coverPost[key] = options[key];
-          }
+    }
+
+    //otherwise just attach the options to an object so we have a visible cover and a logo
+    if (Object.keys(options).length > 0) {
+      for (var key in options) {
+        if (options.hasOwnProperty(key)) {
+          coverPost[key] = options[key];
         }
       }
     }
+
     return coverPost;
   }
 

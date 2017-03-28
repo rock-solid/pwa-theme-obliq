@@ -49,7 +49,6 @@ class Latest {
     const populatePostList = (result) => {
       this.categories = result.categories;
       this.posts = result.posts;
-      this.hasArticles = angular.copy(result.posts).length > 0 ? true : false;
     };
 
     AppticlesCanonical.set();
@@ -58,6 +57,9 @@ class Latest {
     getCategoriesPosts()
       .then(validateData)
       .then(populatePostList)
+      .then(() => {
+        this.contentLoaded = true;
+      })
       .finally(hideLoader)
       .catch($log.error);
   }

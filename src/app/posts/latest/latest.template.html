@@ -4,12 +4,10 @@
       menu-toggle="right"></button>
   </ion-nav-buttons>
   <ion-content scroll="false" data-ng-show="latestVm.contentLoaded">
-    <!-- if articles -->
-    <div class="latest__no-articles latest__no-articles-custom text-center m-t-2 text-body-style" translate="TEXTS.NO_ARTICLES" data-ng-if="!latestVm.hasArticles"></div>
     <!-- first elem -->
     <appticles-slides
     type="latest"
-    data-ng-if="::(latestVm.posts && latestVm.hasArticles && latestVm.categories)"
+    data-ng-if="::(latestVm.contentLoaded)"
     posts="latestVm.posts" categories="latestVm.categories"></appticles-slides>
     <!-- end list -->
   </ion-content>
