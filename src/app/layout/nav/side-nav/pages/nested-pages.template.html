@@ -6,7 +6,7 @@
   <div class="page-item animate-repeat nested-pages__item-container
   nested-pages__item-container-custom" ng-repeat="page in nestedPagesVm.currentPages">
     <div class="nested-pages__item-content d-flex space-between vertical-align w-100 index-3 b-0">
-      <h6 class="nested-pages__item-title nested-pages__item-title-custom text-ellipsis text-uppercase" data-ng-bind-html="page.title | TrustHtmlFilter"
+      <h6 class="nested-pages__item-title nested-pages__item-title-custom text-ellipsis" data-ng-bind-html="page.title | TrustHtmlFilter"
         ng-click="nestedPagesVm.openContent(page)"></h6>
       <i class="icon button-icon ion-ios-arrow-right nested-pages__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)"></i>
     </div>
