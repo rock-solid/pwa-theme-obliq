@@ -31,9 +31,11 @@
   }
 
   &__btn-fb, &__btn-tw, &__btn-gplus, &__btn-comm {
-    color: $btn-color;
     border-radius: 50%;
     min-height: 52px;
+  }
+  &__btn-fb, &__btn-tw, &__btn-gplus, {
+    color: #fff;
   }
   &__btn-fb {
     background-color: $facebook;
@@ -47,6 +49,8 @@
   &__btn-comm {
     background-color: $btn-bg;
     border: 1px solid $btn-color;
+    color: $btn-color;
+
   }
 
   &__view {
