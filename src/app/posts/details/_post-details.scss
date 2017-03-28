@@ -60,6 +60,7 @@
       color: $text-color;
       background-color: $label-bg;
       padding: $base-margin-xs;
+      word-break: break-word;
     }
     &__title, &__author, &__date {
       color: $post-text-color;
