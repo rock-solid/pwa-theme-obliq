@@ -41,12 +41,16 @@ class SlidesController {
 
     const articlesPerCard = configuration.articlesPerCard || 'auto';
     this.categories = this.categories.length > 1 ? this.buildCategoriesList(this.categories) : this.categories;
-    this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
 
     let appCover = configuration.defaultCover;
     let appLogo = configuration.logo || '';
     let hasCover = this.type && this.type == 'latest' ? true : false;
+
+    // initialize coverPost first as this mutates the posts array
     this.coverPost = this.initializeCoverPost(this.posts, hasCover, {appCover, appLogo});
+
+    // then combine posts in to array of pages to display them
+    this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
 
 
     this.loadMorePosts = loadMorePosts;
@@ -97,9 +101,7 @@ class SlidesController {
 
     // if there are posts separate the first post as coverPost
     if(hasCover && posts.length > 0) {
-      coverPost = posts.slice(0,1)
-        .reduce((a,b) => a.concat(b))[0];
-      posts.splice(0, 1); // this modifies the existing array of posts
+      coverPost = posts.splice(0, 1)[0]; // this modifies the existing array of posts to take out first article
     }
 
     //otherwise just attach the options to an object so we have a visible cover and a logo
@@ -167,8 +169,8 @@ class SlidesController {
         }
       }
     }
-    // push the remaining articles, if there are any into a group of items of their own
-    itemsToGroup.length > 0 && results.push(itemsToGroup);
+    // push the array of remaining articles in reverse order in the results array
+    itemsToGroup.length > 0 && results.push(itemsToGroup.reverse());
 
     return results;
   };
