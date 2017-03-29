@@ -169,7 +169,7 @@ class SlidesController {
         }
       }
     }
-    // push the array of remaining articles in reverse order in the results array
+    // push the array of remaining articles in reverse order in the results array so chronological order is kept
     itemsToGroup.length > 0 && results.push(itemsToGroup.reverse());
 
     return results;
