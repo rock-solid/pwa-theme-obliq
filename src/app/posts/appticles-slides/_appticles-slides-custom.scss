@@ -1,6 +1,8 @@
 .slides-ctx {
   .hero {
-    &__title-custom,
+    &__title-custom {
+      color: $cover-text-color;
+    }
     &__date-custom {
       color: rgba($post-bg, 1);
     }

@@ -12,7 +12,9 @@
       color: $label-bg !important;
     }
 
-    &__title,
+    &__title {
+      color: $cover-text-color;
+    }
     &__date {
       color: rgba($post-bg, 1);
     }
