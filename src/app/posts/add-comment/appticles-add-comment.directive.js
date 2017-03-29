@@ -22,7 +22,7 @@ class AddCommentController {
   constructor(AppticlesAPI, AppticlesValidation, $stateParams, $ionicPopup, configuration, $scope, $log, $q, $filter) {
 
     this.postId = this.directiveApi.props.id;
-    this.requireNameEmail = this.directiveApi.props['require_name_email'];
+    this.requireNameEmail = Number(this.directiveApi.props['require_name_email']);
     this.postComment = postComment;
     this.submitted = false;
 
