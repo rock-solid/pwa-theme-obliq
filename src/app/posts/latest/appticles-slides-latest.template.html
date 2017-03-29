@@ -7,11 +7,18 @@
         <div class="slide__top-container position-absolute d-flex flex-column justify-flex-start t-0 h-100 w-100">
           <div class="slide__img-wrap position-relative h-100">
             <div class="d-flex flex-column position-absolute h-100 w-100">
-              <div class="hero__top-inner h-75 index-2" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : ($index === 1 && page.length === 2)}">
+              <div class="hero__top-inner h-75 index-2 position-relative" ng-class="{'flex-order-1' : page.length === 1 || ($index === 1 && page.length === 2), 'has-border' : ($index === 1 && page.length === 2)}">
                 <div class="hero__container">
                   <h3 class="h2 hero__title hero__title-custom text-heading-style m-y-0 m-r-3" data-ng-bind-html="slidesVm.coverPost.title | TrustHtmlFilter">
                   </h3>
                   <h6 class="hero__date hero__date-custom text-body-style d-inline-block m-y-0">{{ slidesVm.coverPost.date }}</h6>
+                </div>
+                <div class="arrow-container position-absolute">
+                  <div>
+                    <span class="arrow-down arrow-down__first"></span>
+                    <span class="arrow-down arrow-down__second"></span>
+                    <span class="arrow-down arrow-down__third"></span>
+                  </div>
                 </div>
               </div>
               <div class="h-25 index-2">
