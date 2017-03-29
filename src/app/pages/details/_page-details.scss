@@ -86,3 +86,13 @@
   }
 
 }
+
+body.platform-ios {
+
+  .page-ctx ion-content {
+    // fixes scrolling over iframe issue on iOS only
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
