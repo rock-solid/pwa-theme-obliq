@@ -78,8 +78,8 @@ describe('post', () => {
 
       let postDetails = new PostDetails();
 
-      postDetails.open('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/latest/1');
-      expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/latest/1');
+      postDetails.open('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/1');
+      expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/1');
 
       // back button should go back to home page
       let closeButton = postDetails.getCloseButton();
