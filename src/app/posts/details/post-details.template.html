@@ -26,7 +26,9 @@
         </div>
       </div>
       <div class="post__img-wrap">
-        <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover" data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
+        <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__cover w-100 bg-cover"
+         data-ng-class="{'post__cover--portrait': (postDetailsVm.postDetails.image.height >= postDetailsVm.postDetails.image.width) }"
+         data-ng-style=" {'background':'url( {{ postDetailsVm.postDetails.image.src }} )'}"></div>
         <div data-ng-if="!postDetailsVm.postDetails.image.src" class="post__cover-noimg post__cover-noimg-custom w-100"></div>
       </div>
     </div>

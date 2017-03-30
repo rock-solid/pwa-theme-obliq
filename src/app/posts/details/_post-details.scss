@@ -39,6 +39,11 @@
 
     &__cover {
       height: 280px;
+
+      &--portrait {
+        height: 480px;
+        max-height: 80vh;
+      }
     }
     &__cover-noimg {
       min-height: $ionic-bar-height * 7/2;
