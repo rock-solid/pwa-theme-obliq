@@ -34,16 +34,7 @@ function postsModule($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.nav.post', {
-      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}',
-      views: {
-        'postList@app.nav': {
-          controller: 'PostDetailsController as postDetailsVm',
-          templateUrl: 'app/posts/details/post-details.template.html',
-        }
-      }
-    })
-    .state('app.nav.postFromHome', {
-      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}/latest/{latest:[0-1]}',
+      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}/{latest:[0-1]}',
       views: {
         'postList@app.nav': {
           controller: 'PostDetailsController as postDetailsVm',
@@ -57,6 +48,15 @@ function postsModule($stateProvider, $urlRouterProvider) {
         'postList@app.nav': {
           controller: 'PostDetailsController as postDetailsVm',
           templateUrl: 'app/posts/details/post-details.template.html',
+        }
+      }
+    })
+    .state('app.nav.post.comments', {
+      url: '/comments',
+      views: {
+        'postList@app.nav': {
+          controller: 'CommentsController as commentsVm',
+          templateUrl: 'app/posts/comments/appticles-comments.template.html',
         }
       }
     });

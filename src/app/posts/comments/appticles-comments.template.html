@@ -1,38 +1,35 @@
-<div class="comments-ctx">
+<ion-view class="comments-ctx">
+  <ion-header-bar
+   align-title="center"
+   class="bar bar-clear bar-comments bar-comments-custom">
+    <h4 class="h4 title comments__title comments__title-custom bar-title text-ellipsis w-80 m-b-0 m-x-5" translate="TEXTS.COMMENTS"></h4>
+  </ion-header-bar>
+  <ion-nav-buttons>
+    <button class="button icon ion-android-close comments__close-btn comments__close-btn-custom position-absolute" data-ui-sref="app.nav.post({postId:commentsVm.postId})"></button>
+  </ion-nav-buttons>
 
-
-<ion-modal-view class="comments__view comments__view-custom">
-  <ion-view>
-    <ion-header-bar class="bar bar-clear bar-comments bar-comments-custom">
-      <h4 class="h4 title comments__title comments__title-custom bar-title text-ellipsis w-80 m-b-0" translate="TEXTS.COMMENTS"></h4>
-      <button class="button icon ion-android-close comments__close-btn comments__close-btn-custom position-absolute" data-ng-click="commentsVm.closeModal()"></button>
-    </ion-header-bar>
-
-    <ion-content class="comments__comm-content">
-      <!-- if there are no comments-->
-      <div class="comments__no-comments" data-ng-if="commentsVm.commentList.length == 0">
-        <h4 class="comments__no-comments-title comments__no-comments-title-custom p-x-1" translate="TEXTS.NO_COMMENTS"></h4>
-      </div>
-      <div class="comments__comment-list comments__comment-list-custom">
-        <div class="comments__comment-container comments__comment-container-custom" data-ng-if="commentsVm.commentList.length !== 0" data-ng-repeat="comment in commentsVm.commentList">
-          <a data-ng-href="{{comment.author_url}}">
-            <div data-ng-if="comment.avatar" class="comments__comment-avatar">
-              <img data-ng-src="{{comment.avatar}}">
-            </div>
-          </a>
-          <div class="comments__comment-content-container">
-            <div class="comments__comment-details w-100">
-              <h5 class="comments__comment-author comments__comment-author-custom text-right m-t-0"> {{comment.author}} </h5>
-              <h6 class="comments__comment-author comments__comment-author-custom text-right m-t-0 m-b-2"> {{comment.date}} </h6>
-            </div>
-            <div class="comments__content comments__content-custom" data-ng-bind-html="comment.content | TrustHtmlFilter"></div>
+  <ion-content class="comments__comm-content">
+    <!-- if there are no comments-->
+    <div class="comments__no-comments" data-ng-if="commentsVm.comments.length == 0">
+      <h4 class="comments__no-comments-title comments__no-comments-title-custom p-x-1" translate="TEXTS.NO_COMMENTS"></h4>
+    </div>
+    <div class="comments__comment-list comments__comment-list-custom">
+      <div class="comments__comment-container comments__comment-container-custom" data-ng-if="commentsVm.comments.length !== 0"
+        data-ng-repeat="comment in commentsVm.comments">
+        <a data-ng-href="{{comment.author_url}}">
+          <div data-ng-if="comment.avatar" class="comments__comment-avatar">
+            <img data-ng-src="{{comment.avatar}}">
           </div>
+        </a>
+        <div class="comments__comment-content-container">
+          <div class="comments__comment-details w-100">
+            <h5 class="comments__comment-author comments__comment-author-custom text-right m-t-0"> {{comment.author}} </h5>
+            <h6 class="comments__comment-author comments__comment-author-custom text-right m-t-0 m-b-2"> {{comment.date}} </h6>
+          </div>
+          <div class="comments__content comments__content-custom" data-ng-bind-html="comment.content | TrustHtmlFilter"></div>
         </div>
       </div>
-      <div>{{commentsVm.postDetails.commentStatus}}</div>
-    </ion-content>
-  <appticles-add-comment data-ng-if="commentsVm.postDetails['comment_status'] == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
-  </ion-view>
-</ion-modal-view>
-
-</div>
+    </div>
+  </ion-content>
+  <appticles-add-comment data-ng-if="commentsVm.commentStatus == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
+</ion-view>

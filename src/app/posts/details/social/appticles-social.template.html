@@ -3,9 +3,9 @@
     <ion-content scroll="false" class="social-modal">
       <div class="row social-modal__content">
         <div ng-if="socialNetworksVm.directiveApi.hasComments">
-          <a>
-            <button data-ng-if="socialNetworksVm.directiveApi.props !== '' " appticles-comments data-ng-click="socialNetworksVm.directiveApi.triggerCommentsModal()"
-              directive-api="socialNetworksVm.directiveApi" class="button icon ion-ios-chatboxes-outline social-modal__btn-comm social-modal__btn-comm-custom position-relative">
+          <a data-ui-sref="app.nav.post.comments({categorySlugId: socialNetworksVm.postDetails.category_id, postId: socialNetworksVm.postDetails.id,
+          latest: socialNetworksVm.postDetails.from_latest })">
+            <button class="button icon ion-ios-chatboxes-outline social-modal__btn-comm social-modal__btn-comm-custom position-relative">
                 <div
                 data-ng-if="socialNetworksVm.postDetails.no_comments > 0"
                 class="social-modal__label social-modal__label-custom text-ellipsis position-absolute">

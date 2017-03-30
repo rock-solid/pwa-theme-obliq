@@ -106,7 +106,9 @@ class PostDetails {
         'link': this.postDetails.link,
         'no_comments': this.postDetails.no_comments,
         'comment_status': this.postDetails['comment_status'] || 'disabled',
-        'require_name_email': this.postDetails['require_name_email'] || 0
+        'require_name_email': this.postDetails['require_name_email'] || 0,
+        'from_latest': Number(this.fromLatest),
+        'category_id': this.category.id
       };
 
       if (this.postDetails.link) {
@@ -119,7 +121,7 @@ class PostDetails {
         return $state.go('app.nav.latest');
       }
 
-      return $state.go('app.nav.category', { categorySlug: this.category['name_slug'], categoryId: this.category.id });
+      return $state.go('app.nav.category', { categorySlug: this.category.name_slug, categoryId: this.category.id });
 
     };
 
