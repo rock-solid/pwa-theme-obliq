@@ -4,7 +4,7 @@
       data-ng-click="postDetailsVm.goBack()"></button>
   </ion-nav-buttons>
   <ion-content data-ng-show="postDetailsVm.contentLoaded" scroll-event-interval="50" has-bouncing="false" on-tap="postDetailsVm.handleOnTap()"
-    on-scroll="postDetailsVm.handleOnScroll()">
+    on-scroll="postDetailsVm.handleOnScroll()" overflow-scroll="true">
 
     <!-- if the post does have an image -->
     <div data-ng-if="postDetailsVm.postDetails.image.src" class="post__top-container position-relative">

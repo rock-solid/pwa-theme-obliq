@@ -2,7 +2,7 @@
   <ion-nav-buttons side="right">
     <button class="button icon ion-android-close page__close-btn page__close-btn-custom position-absolute m-a-0"  data-ui-sref="app.nav.latest"></button>
   </ion-nav-buttons>
-  <ion-content data-ng-show="pageVm.contentLoaded">
+  <ion-content data-ng-show="pageVm.contentLoaded" overflow-scroll="true">
     <div ng-if="pageVm.image && pageVm.image.src" class="page__cover h-50vh bg-cover" data-ng-style=" {'background':'url( {{ pageVm.image.src }} )'}"></div>
     <h1 class="h3 title page__title page-custom__title-custom bar-title text-left w-80 m-y-0 m-r-5" data-ng-bind-html="pageVm.title | TrustHtmlFilter"></h1>
     <!-- content -->
