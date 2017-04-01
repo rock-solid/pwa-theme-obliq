@@ -4,8 +4,11 @@
     menu-toggle="right"></button>
 </ion-nav-buttons>
 <ion-content scroll="false" data-ng-show="listVm.contentLoaded">
-  <!-- if articles -->
-    <div class="posts-categ__no-articles posts-categ__no-articles-custom text-center m-t-2 text-body-style" translate="TEXTS.NO_ARTICLES" data-ng-if="!listVm.hasArticles"></div>
-  <!-- first elem -->
-  <appticles-slides type="category" data-ng-if="::(listVm.postList && listVm.hasArticles && listVm.category)" posts="listVm.postList" categories="listVm.category"></appticles-slides>
+  <div class="posts-categ__no-articles posts-categ__no-articles-custom text-center m-t-2 text-body-style" translate="TEXTS.NO_ARTICLES" data-ng-if="!listVm.hasArticles"></div>
+  <appticles-slides
+    type="category"
+    data-ng-if="::(listVm.posts && listVm.hasArticles && listVm.category)"
+    posts="listVm.posts"
+    categories="listVm.category">
+  </appticles-slides>
 </ion-view>

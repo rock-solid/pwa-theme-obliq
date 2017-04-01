@@ -1,17 +1,22 @@
+/**
+ * @ngdoc controller
+ * @name appticles.posts.PostListController
+ *
+ * @description Responsible for loading a carousel with the posts from a category.
+ */
 class PostList {
-  constructor(AppticlesAPI,
+  constructor(
+    AppticlesAPI,
     AppticlesValidation,
     AppticlesCanonical,
-    configuration,
     $stateParams,
-    $log,
     $state,
     $q,
-    $scope,
-    $ionicLoading) {
+    $ionicLoading,
+    $log) {
 
-    this.postList = [];
-    this.contentLoaded = false;
+    this.posts = [];
+    this.category = null;
 
     const categoryId = $stateParams.categoryId;
 
@@ -21,66 +26,80 @@ class PostList {
       return;
     }
 
-    const showLoader = () => {
-      $ionicLoading.show();
-    };
-
-    const hideLoader = () => {
-      $ionicLoading.hide();
-      this.contentLoaded = true;
-    };
-
-    const populateData = (result) => {
-      this.postList = result.validatedPosts;
-      this.hasArticles = angular.copy(result.validatedPosts).length > 0 ? true : false;
-      this.category = result.validatedCategory;
-
-      setCanonical(result.validatedCategory);
-    };
-
-    const validateData = (result) => {
-
-      let validatedPosts = AppticlesValidation.validatePosts(result.posts);
-      let validatedCategory = AppticlesValidation.validateOneCategories(result.category);
-
-      if (validatedPosts.error || validatedCategory.error) {
-        $state.go('app.nav.latest');
-        return $q.reject('error fetching list of posts or category doesn\'t exist');
-      }
+    /**
+     * @ngdoc function
+     * @name appticles.posts.PostListController#getCategoryPosts
+     * @description Internal method, call API to load the first batch of posts and the category.
+     *
+     * @return {Promise} A promise object which resolves to an array with posts and a category.
+     */
+    const getCategoryPosts = () => {
 
       let promises = {
-        validatedPosts,
-        validatedCategory
-      };
-
-      return $q.all(promises);
-    };
-
-    // using es6 default value for params to save another if block
-    const setCanonical = (result = false) => {
-      AppticlesCanonical.set(result.link);
-    };
-
-    function getPosts() {
-      let promises = {
-        posts: AppticlesAPI.findPosts({ categoryId: categoryId }),
+        posts: AppticlesAPI.findPosts({ categoryId: categoryId, limit: 10 }),
         category: AppticlesAPI.findOneCategories({ categoryId: categoryId })
       };
 
       return $q.all(promises);
-    }
+    };
 
-    showLoader();
+    /**
+     * @ngdoc function
+     * @name appticles.posts.PostListController#validateData
+     * @description Internal method, validate posts and the category.
+     *
+     * @param {Promise} A promise object with an array of posts and the category, returned by the API.
+     *
+     * @return {Promise} A promise object with a validated array of posts and category or a reject promise.
+     */
+    const validateData = (result) => {
 
-    getPosts()
+      let validPosts = AppticlesValidation.validatePosts(result.posts);
+      let validCategory = AppticlesValidation.validateOneCategories(result.category);
+
+      if (validPosts.error || validCategory.error) {
+        $state.go('app.nav.latest');
+        return $q.reject('error fetching posts or category doesn\'t exist');
+      }
+
+      let promises = {
+        posts: validPosts,
+        category: validCategory
+      };
+
+      return $q.all(promises);
+    };
+
+    /**
+     * @ngdoc function
+     * @name appticles.posts.PostListController#populateData
+     * @description Internal method, bind results to the controller properties.
+     *
+     * @param {Promise} A promise object with a validated array of posts and category.
+     */
+    const populateData = (result) => {
+
+      this.posts = result.posts;
+      this.hasArticles = angular.copy(this.posts).length > 0;
+      this.category = result.category;
+
+      AppticlesCanonical.set(this.category.link);
+    };
+
+    $ionicLoading.show();
+
+    getCategoryPosts()
       .then(validateData)
       .then(populateData)
-      .finally(hideLoader)
+      .finally(() => {
+        $ionicLoading.hide();
+        this.contentLoaded = true;
+      })
       .catch($log.error);
   }
 }
 
-PostList.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', 'configuration', '$stateParams', '$log', '$state', '$q', '$scope', '$ionicLoading'];
+PostList.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', '$stateParams', '$state', '$q', '$ionicLoading', '$log'];
 
 angular.module('appticles.posts')
   .controller('PostListController', PostList);
