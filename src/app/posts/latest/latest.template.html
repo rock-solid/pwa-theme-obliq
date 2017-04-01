@@ -4,11 +4,11 @@
       menu-toggle="right"></button>
   </ion-nav-buttons>
   <ion-content scroll="false" data-ng-show="latestVm.contentLoaded">
-    <!-- first elem -->
     <appticles-slides
-    type="latest"
-    data-ng-if="::(latestVm.contentLoaded)"
-    posts="latestVm.posts" categories="latestVm.categories"></appticles-slides>
-    <!-- end list -->
+      type="latest"
+      data-ng-if="::(latestVm.contentLoaded)"
+      posts="latestVm.posts"
+      categories="latestVm.categories">
+    </appticles-slides>
   </ion-content>
 </ion-view>

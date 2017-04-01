@@ -1,35 +1,50 @@
+/**
+ * @ngdoc controller
+ * @name appticles.posts.LatestController
+ *
+ * @description Responsible for loading a carousel with the latest posts (home page).
+ */
 class Latest {
-  constructor(AppticlesAPI,
+  constructor(
+    AppticlesAPI,
     AppticlesValidation,
     AppticlesCanonical,
-    configuration,
-    $log,
     $q,
-    $ionicLoading) {
+    $ionicLoading,
+    $log) {
 
     this.posts = [];
-    this.appCover = configuration.defaultCover || '';
+    this.categories = [];
 
-    const showLoader = () => {
-      $ionicLoading.show();
-    };
-
-    const hideLoader = () => {
-      $ionicLoading.hide();
-      this.contentLoaded = true;
-    };
-
+    /**
+     * @ngdoc function
+     * @name appticles.posts.LatestController#getCategoriesPosts
+     * @description Internal method, call API to load the first batch of posts and all the categories.
+     *
+     * @return {Promise} A promise object which resolves to arrays with categories and posts.
+     */
     const getCategoriesPosts = () => {
+
       let promises = {
         categories: AppticlesAPI.findCategories({ withArticles: 0 }),
-        posts: AppticlesAPI.findPosts()
+        posts: AppticlesAPI.findPosts({ limit: 9 })
       };
 
       return $q.all(promises);
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.posts.LatestController#validateData
+     * @description Internal method, validate posts and categories.
+     *
+     * @param {Promise} A promise object with arrays of categories and posts returned by the API.
+     *
+     * @return {Promise} A promise object with validated arrays of categories and posts or a reject promise.
+     */
     const validateData = (result) => {
-      let validPosts, validFirstPost, validCategories;
+
+      let validPosts, validCategories;
 
       validPosts = AppticlesValidation.validatePosts(result.posts);
       validCategories = AppticlesValidation.validateCategories(result.categories);
@@ -46,26 +61,33 @@ class Latest {
       return $q.when(promise);
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.posts.LatestController#populatePostList
+     * @description Internal method, bind results to the controller properties.
+     *
+     * @param {Promise} A promise object with arrays of categories and posts.
+     */
     const populatePostList = (result) => {
-      this.categories = result.categories;
       this.posts = result.posts;
+      this.categories = result.categories;
     };
 
     AppticlesCanonical.set();
-    showLoader();
+    $ionicLoading.show();
 
     getCategoriesPosts()
       .then(validateData)
       .then(populatePostList)
       .then(() => {
+        $ionicLoading.hide();
         this.contentLoaded = true;
       })
-      .finally(hideLoader)
       .catch($log.error);
   }
 }
 
-Latest.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', 'configuration', '$log', '$q', '$ionicLoading'];
+Latest.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', '$q', '$ionicLoading', '$log'];
 
 angular.module('appticles.posts')
   .controller('LatestController', Latest);
