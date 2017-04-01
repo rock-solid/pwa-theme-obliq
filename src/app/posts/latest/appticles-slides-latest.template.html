@@ -22,13 +22,13 @@
                 </div>
               </div>
               <div class="h-25 index-2">
-                <div class="hero__logo-container">
-                  <img ng-src="{{slidesVm.coverPost.appLogo}}" alt="">
+                <div class="hero__logo-container" ng-if="slidesVm.appLogo">
+                  <img ng-src="{{ slidesVm.appLogo }}" alt="">
                 </div>
               </div>
               <div class="slide__overlay slide__overlay-custom w-100 h-100 position-absolute index-1 bg-cover"></div>
             </div>
-            <div class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( {{ slidesVm.coverPost.image.src || slidesVm.coverPost.appCover }} )'}"></div>
+            <div class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( ' + (slidesVm.coverPost.image.src || slidesVm.appCover) + ')'}"></div>
             <div class="slide__triangle-custom position-absolute"></div>
           </div>
         </div>

@@ -2,8 +2,12 @@ angular
   .module('appticles.posts')
   .directive('appticlesSlides', AppticlesSlides);
 
-AppticlesSlides.$inject = [];
-
+/**
+ * @ngdoc directive
+ * @name appticles.posts.appticlesSlides
+ *
+ * @description Render a slider with posts.
+ */
 function AppticlesSlides() {
   return {
     restrict: 'AE',
@@ -15,11 +19,11 @@ function AppticlesSlides() {
     controller: SlidesController,
     templateUrl: (tElem, tAttrs) => {
 
-      if(tAttrs && tAttrs.type) {
+      if (tAttrs && tAttrs.type && (tAttrs.type === 'latest' || tAttrs.type === 'category')) {
         return 'app/posts/' + tAttrs.type + '/appticles-slides-' + tAttrs.type + '.template.html';
       }
       else {
-        return 'app/posts/latests/appticles-slides-latest.template.html';
+        return 'app/posts/latest/appticles-slides-latest.template.html';
       }
     },
     controllerAs: 'slidesVm',
@@ -27,66 +31,102 @@ function AppticlesSlides() {
   };
 }
 
+/**
+ * @ngdoc controller
+ * @name appticles.posts.SlidesController
+ *
+ * @description Controller for the directive that renders a slider with posts.
+ */
 class SlidesController {
-  constructor(AppticlesAPI,
+  constructor(
+    AppticlesAPI,
     AppticlesValidation,
-    AppticlesCanonical,
     configuration,
-    $stateParams,
-    $log,
-    $state,
     $q,
     $scope,
-    $ionicLoading) {
+    $log) {
 
-    const articlesPerCard = configuration.articlesPerCard || 'auto';
-    this.categories = this.categories.length > 1 ? this.buildCategoriesList(this.categories) : this.categories;
-
-    let appCover = configuration.defaultCover;
-    let appLogo = configuration.logo || '';
-    let hasCover = this.type && this.type == 'latest' ? true : false;
-
-    // initialize coverPost first as this mutates the posts array
-    this.coverPost = this.initializeCoverPost(this.posts, hasCover, {appCover, appLogo});
-
-    // then combine posts in to array of pages to display them
-    this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
-
-
-    this.loadMorePosts = loadMorePosts;
-    this.morePostsAvailable = true;
-    this.$log = $log;
-
-    $scope.$on('$ionicSlides.sliderInitialized', (event, data) => {
-      this.slider = data.slider;
-      this.slider.on('slideChangeStart', () => {
-        let canLoadMorePosts = this.slider.activeIndex == this.posts.length - 2 && this.morePostsAvailable;
-        if (canLoadMorePosts) {
-          this.loadMorePosts();
-        }
-      });
-    });
-
+    /**
+     * Init slider
+     */
     this.sliderOptions = {
       initialSlide: 0,
       direction: 'horizontal',
       speed: 300
     };
 
+    /**
+     * Prepare cover and logo to be displayed
+     */
+    this.appCover = configuration.defaultCover || '';
+    this.appLogo = configuration.logo || '';
+    this.hasCover = this.type && this.type == 'latest';
+
+    /**
+     * Prepare categories and posts to be displayed
+     */
+    if (this.categories.constructor === Array && this.categories.length > 0) {
+      this.categories = this.buildCategoriesList(this.categories);
+    }
+
+    const articlesPerCard = configuration.articlesPerCard || 'auto';
+
+    // initialize cover post first, as this mutates the posts array
+    this.initializeCoverPost();
+
+    // then combine posts into an array of pages to display them
+    this.posts = this.combineIntoGroupsOf(articlesPerCard, this.posts);
+
+    this.morePostsAvailable = this.posts.length > 0;
+    this.loadMorePosts = loadMorePosts;
+
+    /**
+     * @ngdoc function
+     * @name appticles.posts.SlidesController#loadMorePosts
+     * @description Load more posts in the slider.
+     *
+     * @return {Promise} A promise object which resolves to an array with posts.
+     */
     function loadMorePosts() {
+
       if (this.posts.length > 0) {
+
         let lastPost = this.posts[this.posts.length - 1].slice(-1).pop();
-        AppticlesAPI.findPosts({ lastTimestamp: lastPost.timestamp })
+
+        AppticlesAPI.findPosts({ lastTimestamp: lastPost.timestamp, limit: articlesPerCard == 'auto' ? 9 : 10 })
           .then(validatePosts)
-          .then(buildMorePosts);
+          .then(buildMorePosts)
+          .catch($log.error);
       }
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.posts.SlidesController#validatePosts
+     * @description Internal method, validate posts.
+     *
+     * @param {Promise} A promise object with an array of posts returned by the API.
+     *
+     * @return {Promise} A promise object with a validated array of posts.
+     */
     const validatePosts = (result) => {
+
       let validPosts = AppticlesValidation.validatePosts(result);
+
+      if (validPosts.error) {
+        return $q.reject('error loading more posts');
+      }
+
       return $q.when(validPosts);
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.posts.SlidesController#buildMorePosts
+     * @description Internal method, add more posts groups in the slider.
+     *
+     * @param {Promise} A promise object with an array of validated posts.
+     */
     const buildMorePosts = (result) => {
       if (result.length > 0) {
         this.posts = this.posts.concat(this.combineIntoGroupsOf(articlesPerCard, result));
@@ -94,87 +134,76 @@ class SlidesController {
         this.morePostsAvailable = false;
       }
     };
-  }
 
-  initializeCoverPost(posts, hasCover, options) {
-    let coverPost = {};
+    /**
+     * Listener for the slider, load more posts when reaching the before last slide.
+     */
+    $scope.$on('$ionicSlides.sliderInitialized', (event, data) => {
 
-    // if there are posts separate the first post as coverPost
-    if(hasCover && posts.length > 0) {
-      coverPost = posts.splice(0, 1)[0]; // this modifies the existing array of posts to take out first article
-    }
+      this.slider = data.slider;
 
-    //otherwise just attach the options to an object so we have a visible cover and a logo
-    if (Object.keys(options).length > 0) {
-      for (var key in options) {
-        if (options.hasOwnProperty(key)) {
-          coverPost[key] = options[key];
+      this.slider.on('slideChangeStart', () => {
+        let canLoadMorePosts = this.slider.activeIndex == this.posts.length - 2 && this.morePostsAvailable;
+        if (canLoadMorePosts) {
+          this.loadMorePosts();
         }
-      }
-    }
-
-    return coverPost;
+      });
+    });
   }
 
   /**
    * @ngdoc function
-   * @name combineIntoGroupsOf
-   * @description Combines elements in a flat array into groups of perPageItemCount number of elements
-   *
-   * @return {Array} Nested Array, with each element an array of perPageItemCount of elements,
-   * and the final element an array of length the remaining number of items after the others have been grouped
-   *
-   *
+   * @name appticles.posts.SlidesController#initializeCoverPost
+   * @description Set the first post as a separate property, if we have a cover.
    */
-  combineIntoGroupsOf (perPageItemCount, itemsToGroup) {
-    itemsToGroup.reverse();
-    let itemsPerPage = perPageItemCount;
-    let results = [];
-    let arrayGroups = [];
+  initializeCoverPost(){
 
+    this.coverPost = {};
 
-    if (itemsPerPage === 'auto') {
-      let lastGroupCount;
-      // we always start with one article on the first page
-      perPageItemCount = 1;
-      // as long as there are more elements in the list than the number of elements we want per page
-      while (itemsToGroup.length > perPageItemCount) {
-        // we start with an empty array
-        arrayGroups = [];
-        // alternate between 1 or 2 items in the array group
-        perPageItemCount = lastGroupCount === 1 ? 2 : 1;
-        // as long as the array group is not the length we need
-        while (arrayGroups.length < perPageItemCount) {
-          // keep pushing elements in the array group
-          arrayGroups.push(itemsToGroup[itemsToGroup.length - 1]);
-          // remove them from the original array
-          itemsToGroup.pop();
-        }
-        // then push the array group in the results array
-        results.push(arrayGroups);
-        // remember the number of items in the previous iteration
-        lastGroupCount = arrayGroups.length;
+    // if there are posts separate the first post as coverPost
+    if (this.hasCover && this.posts.length > 0) {
+
+      // this modifies the existing array of posts to take out first article
+      this.coverPost = this.posts.splice(0, 1)[0];
+    }
+  }
+
+  /**
+   * @ngdoc function
+   * @name appticles.posts.SlidesController#combineIntoGroupsOf
+   * @description Split the posts lists into chunks that can be displayed on separate pages.
+   *
+   * @param {string} articlesPerCard Posts per card (1, 2 or auto - 2,1,2,1, ...)
+   * @param {Array} posts Array with posts
+   *
+   * @return {Array} Nested array, with each element an array of articlesPerCard of elements.
+   */
+  combineIntoGroupsOf(articlesPerCard, posts) {
+
+    let groups = [], i = 0;
+    let chunkSize = angular.isNumber(articlesPerCard) ? articlesPerCard : 2;
+
+    while (i < posts.length){
+
+      groups.push(posts.slice(i, i + chunkSize));
+
+      i += chunkSize;
+
+      if (articlesPerCard == 'auto'){
+        chunkSize = chunkSize == 1 ? 2 : 1;
       }
     }
-    // if we want a set number of articles per page
-    else {
-      if (angular.isNumber(perPageItemCount) && itemsToGroup.length > perPageItemCount) {
-        while (itemsToGroup.length > perPageItemCount) {
-          arrayGroups = [];
-          while (arrayGroups.length < perPageItemCount) {
-            arrayGroups.push(itemsToGroup[itemsToGroup.length - 1]);
-            itemsToGroup.pop();
-          }
-          results.push(arrayGroups);
-        }
-      }
-    }
-    // push the array of remaining articles in reverse order in the results array so chronological order is kept
-    itemsToGroup.length > 0 && results.push(itemsToGroup.reverse());
 
-    return results;
+    return groups;
   };
 
+  /**
+   * @ngdoc function
+   * @name appticles.posts.SlidesController#buildCategoriesList
+   * @description Index the categories names by their ids.
+   *
+   * @return {Array} List of categories.
+   */
   buildCategoriesList(categoriesData) {
 
     return categoriesData.reduce(
@@ -187,4 +216,4 @@ class SlidesController {
   }
 };
 
-SlidesController.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', 'configuration', '$stateParams', '$log', '$state', '$q', '$scope', '$ionicLoading'];
+SlidesController.$inject = ['AppticlesAPI', 'AppticlesValidation', 'configuration', '$q', '$scope', '$log'];
