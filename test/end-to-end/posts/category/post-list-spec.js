@@ -3,7 +3,7 @@
 let PostList = require('./post-list.po');
 let sideNav = require('../../layout/nav.po');
 
-fdescribe('category', () => {
+describe('category', () => {
 
   let categoryId;
   let categorySlug;
@@ -21,7 +21,7 @@ fdescribe('category', () => {
     let categoriesButton = nav.getCategoriesButton();
     categoriesButton.click();
 
-    let category = nav.getCategories().get(7);
+    let category = nav.getCategories().get(2);
     let categoryUrl = category.element(by.css('.nested-categories__item-content'));
 
     browser

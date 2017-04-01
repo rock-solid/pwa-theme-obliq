@@ -15,7 +15,7 @@ class Nav {
   }
 
   getCategories() {
-    return element.all(by.repeater('page in nestedCategoriesVm.currentCategories'));
+    return element.all(by.repeater('category in nestedCategoriesVm.categories'));
   }
 
   getCategorySubmenuIcons() {
