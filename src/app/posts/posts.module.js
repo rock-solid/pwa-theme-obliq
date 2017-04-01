@@ -42,6 +42,15 @@ function postsModule($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.nav.postWithoutLatest', {
+      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}',
+      views: {
+        'postList@app.nav': {
+          controller: 'PostDetailsController as postDetailsVm',
+          templateUrl: 'app/posts/details/post-details.template.html',
+        }
+      }
+    })
     .state('app.nav.externalPost', {
       url: '/article/{postId:[a-zA-Z0-9]+}',
       views: {
