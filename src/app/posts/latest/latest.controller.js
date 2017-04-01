@@ -53,22 +53,22 @@ class Latest {
         return $q.reject('error fetching posts or categories');
       }
 
-      let promise = {
+      let promises = {
         posts: validPosts,
         categories: validCategories
       };
 
-      return $q.when(promise);
+      return $q.when(promises);
     };
 
     /**
      * @ngdoc function
-     * @name appticles.posts.LatestController#populatePostList
+     * @name appticles.posts.LatestController#populateData
      * @description Internal method, bind results to the controller properties.
      *
      * @param {Promise} A promise object with arrays of categories and posts.
      */
-    const populatePostList = (result) => {
+    const populateData = (result) => {
       this.posts = result.posts;
       this.categories = result.categories;
     };
@@ -78,8 +78,8 @@ class Latest {
 
     getCategoriesPosts()
       .then(validateData)
-      .then(populatePostList)
-      .then(() => {
+      .then(populateData)
+      .finally(() => {
         $ionicLoading.hide();
         this.contentLoaded = true;
       })
