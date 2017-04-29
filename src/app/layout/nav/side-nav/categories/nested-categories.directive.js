@@ -2,14 +2,18 @@ angular
   .module('appticles.nav')
   .directive('appticlesNestedCategories', AppticlesNestedCategories);
 
-AppticlesNestedCategories.$inject = ['$log', '$state', '$ionicScrollDelegate', '$ionicSideMenuDelegate'];
-
-function AppticlesNestedCategories($log, $state, $ionicScrollDelegate, $ionicSideMenuDelegate) {
+/**
+ * @ngdoc directive
+ * @name appticles.layout.categories.AppticlesNestedCategories
+ *
+ * @description Render a menu with categories.
+ * @todo Display categories as nested.
+ */
+function AppticlesNestedCategories() {
   return {
     restrict: 'AE',
     scope: {
-      categories: '=',
-      directiveApi: '='
+      state: '='
     },
     templateUrl: 'app/layout/nav/side-nav/categories/nested-categories.template.html',
     controller: NestedCategoriesController,
@@ -18,127 +22,145 @@ function AppticlesNestedCategories($log, $state, $ionicScrollDelegate, $ionicSid
   };
 }
 
-
+/**
+ * @ngdoc controller
+ * @name appticles.layout.categories.NestedCategoriesController
+ *
+ * @description Controller for the directive that loads the categories submenu.
+ * @todo Add unit tests
+ */
 class NestedCategoriesController {
-  constructor($log, $document, configuration, $ionicScrollDelegate, $ionicSideMenuDelegate, $scope, $state, $filter, $q, AppticlesAPI, AppticlesValidation) {
+  constructor(
+    AppticlesAPI,
+    AppticlesValidation,
+    configuration,
+    $q,
+    $ionicScrollDelegate,
+    $ionicSideMenuDelegate,
+    $state,
+    $filter,
+    $scope,
+    $log) {
 
-    // this.openChildCategories = openChildCategories;
-    //let previousBackButtonTitle = '';
-    //this.currentCategories = this.buildNestedTree(this.categories, 0);
-    //let initialCategories = this.categories;
+    // list of categories displayed in the current view
+    this.categories = [];
 
-    this.goBackTo = goBackTo;
+    this.contentLoaded = false;
+
+    this.goBack = goBack;
     this.openContent = openContent;
-    this.backButtonTitle = $filter('translate')('LINKS.CATEGORIES');
     this.loadMoreCategories = loadMoreCategories;
 
+    this.moreCategoriesAvailable = true;
+    let page = 1;
     const rows = 10;
 
-    const validateCategories = (result) => {
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#validateData
+     * @description Internal method, validate categories.
+     *
+     * @param {Promise} A promise object with the categories, returned by the API.
+     *
+     * @return {Promise} A promise object with an array of validated categories.
+     */
+    const validateData = (result) => {
 
       let validCategories = AppticlesValidation.validateCategories(result);
 
       if (angular.isDefined(validCategories.error)) {
-        $state.go('app.latest');
-        return $q.reject('error fetching category list');
+        return $q.reject('error fetching categories');
       }
 
       let data = {
         categories: validCategories,
-        pagination: result.data.page
+        pagination: angular.isDefined(result.data.page)
       };
 
       return $q.when(data);
     };
 
-    const populateCategoryList = (result) => {
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#populateData
+     * @description Internal method, bind results to the controller properties.
+     *
+     * @param {Promise} A promise object with an array of categories and pagination param.
+     */
+    const populateData = (result) => {
 
-      this.categories = result.categories;
+      if (result.categories && result.categories.length > 0) {
+        // remove the latest category from the results
+        this.categories = result.categories.filter((category) => category.id != 0);
+      }
 
       // check page from response to see if the API supports paginating
-      if (!result.pagination)
+      if (!result.pagination) {
         this.moreCategoriesAvailable = false;
+      }
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#loadMoreCategories
+     * @description Load more categories when scrolling at the bottom of the list.
+     */
     function loadMoreCategories() {
       if (this.categories.length > 0) {
-        this.directiveApi.currentPaginationForCategories++;
-        AppticlesAPI.findCategories({ withArticles: 0, page: this.directiveApi.currentPaginationForCategories, rows: rows })
-          .then(validateCategories)
+        page++;
+
+        AppticlesAPI.findCategories({ withArticles: 1, limit: 1, page: page, rows: rows })
+          .then(validateData)
           .then(buildMoreCategories);
       }
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#loadMoreCategories
+     * @description Add the loaded categories in the list.
+     *
+     * @param {Promise} A promise object with an array of categories and pagination param
+     */
     const buildMoreCategories = (result) => {
+
       if (result.categories && result.categories.length > 0) {
         this.categories = this.categories.concat(result.categories);
       } else {
-        this.directiveApi.moreCategoriesAvailable = false;
+        this.moreCategoriesAvailable = false;
       }
       $scope.$broadcast('scroll.infiniteScrollComplete');
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#openContent
+     * @description Navigate to a category.
+     *
+     * @param {Object} The tapped category.
+     */
     function openContent(category) {
       $ionicSideMenuDelegate.toggleRight(false);
       $state.go('app.nav.category', { categorySlug: category.name_slug, categoryId: category.id });
     }
 
-    function goBackTo(parentCategoryId = 0) {
-      if (parentCategoryId === 0) {
-        this.directiveApi.isRoot = true;
-        this.directiveApi.categoriesVisible = false;
-        this.shouldAnimate = false;
-      }
-      // else {
-      //   let parentPageItem = initialCategories.filter((page) => page.id === parentCategoryId)[0];
-      //   let listAtParentPageLevel = initialCategories.filter((page) => page.parent_id === parentPageItem.parent_id);
-
-      //   this.currentCategories = listAtParentPageLevel;
-      //   this.currentParentId = parentPageItem.parent_id;
-      //   let parentOfIncomingList = initialCategories.filter((page) => page.id === this.currentParentId)[0];
-      //   this.backButtonTitle = this.currentParentId === 0 ? $filter('translate')('LINKS.CATEGORIES') : parentOfIncomingList.name;
-      // }
+    /**
+     * @ngdoc function
+     * @name appticles.layout.categories.NestedCategoriesController#goBack
+     * @description Close the categories submenu.
+     */
+    function goBack() {
+      this.state = 'root';
     }
-  }
-    // TODO enable after dashboard modifications are made
 
-    // function openChildCategories(parentPageId) {
-    //   // prevent scrolling issues by scrolling to top before updating the pageList
-    //   $ionicScrollDelegate.scrollTop();
-    //   previousBackButtonTitle = this.backButtonTitle;
-
-    //   let parentPage = this.currentCategories.filter((page) => page.id === parentPageId);
-    //   this.backButtonTitle = parentPage[0].name;
-    //   this.currentCategories = parentPage[0].children;
-    //   this.currentParentId = this.currentCategories[0].parent_id;
-
-    // }
-
-
-
-  /**
-   * Build tree with the pages/categories.
-   * Parent pages/categories will contain a list with their children.
-   */
-  buildNestedTree(items, parent) {
-
-    return items
-      .filter((item) => item.parent_id == parent)
-      .map((item) => {
-        if (item.id == 0) return item;
-
-        let children = this.buildNestedTree(items, item.id);
-
-        if (children.length > 0) {
-          item.children = children;
-
-          // Set active = 0 for parent items, to hide their submenus
-          item.active = 0;
-        }
-
-        return item;
-      });
+    AppticlesAPI.findCategories({ withArticles: 1, limit: 1, page: page, rows: rows })
+      .then(validateData)
+      .then(populateData)
+      .finally(() => {
+        this.contentLoaded = true;
+      })
+      .catch($log.error);
   }
 };
 
-NestedCategoriesController.$inject = ['$log', '$document', 'configuration', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$scope', '$state', '$filter', '$q', 'AppticlesAPI' , 'AppticlesValidation'];
+NestedCategoriesController.$inject = ['AppticlesAPI', 'AppticlesValidation', 'configuration', '$q', '$ionicScrollDelegate', '$ionicSideMenuDelegate', '$state', '$filter', '$scope', '$log'];
