@@ -1,37 +1,52 @@
 <ion-view cache-view="false" class="side-nav-ctx">
-  <ion-content data-ng-show="navSideVm.currentPages !== '' " class="side-nav__container side-nav__container-custom">
-    <div data-ng-if="navSideVm.directiveApi.isRoot" class="animate-repeat">
-      <div class="side-nav__categories-container side-nav__categories-container-custom  d-flex vertical-align">
-        <h4 menu-close class="side-nav__categories-title side-nav__categories-title-custom m-a-0" data-ui-sref="app.nav.latest"
-          translate="LINKS.HOME"></h4>
+  <ion-content class="side-nav__container side-nav__container-custom">
+    <div data-ng-if="navSideVm.state == 'root' && navSideVm.contentLoaded" class="animate-repeat">
+      <div
+        data-ui-sref="app.nav.latest"
+        menu-close
+        class="side-nav__categories-container side-nav__categories-container-custom d-flex vertical-align">
+        <h4 class="side-nav__categories-title side-nav__categories-title-custom m-a-0"
+          translate="LINKS.HOME">
+        </h4>
       </div>
 
-      <div data-ng-click="navSideVm.loadCategories()" data-ng-if="navSideVm.hasCategories" class="side-nav__categories-container side-nav__categories-container-custom d-flex space-between vertical-align">
+      <div
+        data-ng-if="navSideVm.hasCategories"
+        data-ng-click="navSideVm.openCategories()"
+        class="side-nav__categories-container side-nav__categories-container-custom d-flex space-between vertical-align">
+
         <h4 class="side-nav__categories-title side-nav__categories-title-custom text-ellipsis m-a-0" translate="LINKS.CATEGORIES"></h4>
-        <i ng-class="{'icon  button-icon side-nav__icon ion-ios-arrow-right side-nav__icon-custom': !navSideVm.categoryMenuOpen, 'icon  button-icon side-nav__icon ion-ios-arrow-up side-nav__icon-custom': navSideVm.categoryMenuOpen}"></i>
+        <i class="icon button-icon side-nav__icon side-nav__icon-custom ion-ios-arrow-right"></i>
       </div>
 
-      <div data-ng-click="navSideVm.loadPages()" data-ng-if="navSideVm.hasPages" class="side-nav__static-pages-container side-nav__static-pages-container-custom d-flex space-between vertical-align">
+      <div
+        data-ng-if="navSideVm.hasPages"
+        data-ng-click="navSideVm.openPages()"
+        class="side-nav__static-pages-container side-nav__static-pages-container-custom d-flex space-between vertical-align">
+
         <h4 class="side-nav__static-pages-title side-nav__static-pages-title-custom text-ellipsis m-a-0" translate="LINKS.GO_TO"></h4>
-        <i
-        class="icon button-icon side-nav__icon side-nav__icon-custom"
-        ng-class="{'ion-ios-arrow-right': !navSideVm.pageMenuOpen, 'ion-ios-arrow-up': navSideVm.pageMenuOpen}"></i>
+        <i class="icon button-icon side-nav__icon side-nav__icon-custom ion-ios-arrow-right"></i>
       </div>
 
       <!-- link to website -->
-      <div class="side-nav__go-to-container side-nav__go-to-container-custom" ng-if="navSideVm.websiteUrl" data-ng-click="navSideVm.openDesktopWebsite()">
-        <h4 class="side-nav__go-to-title side-nav__go-to-title-custom text-ellipsis" translate="LINKS.VISIT_WEBSITE"></h4>
+      <div
+        data-ng-if="navSideVm.websiteUrl"
+        data-ng-click="navSideVm.openDesktopWebsite()"
+        class="side-nav__go-to-container side-nav__go-to-container-custom">
+        <h4 class="side-nav__go-to-title side-nav__go-to-title-custom text-ellipsis"
+          translate="LINKS.VISIT_WEBSITE">
+        </h4>
       </div>
     </div>
 
-    <!-- static pages list -->
-    <div data-ng-if="navSideVm.directiveApi.pagesVisible && navSideVm.pageContentLoaded" class="side-nav__static-pages-list animate-repeat">
-      <appticles-nested-pages directive-api="navSideVm.directiveApi" pages="navSideVm.allPages"></appticles-nested-pages>
+    <!-- categories list -->
+    <div data-ng-if="navSideVm.state == 'categories' && navSideVm.hasCategories && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
+      <appticles-nested-categories state="navSideVm.state"></appticles-nested-categories>
     </div>
 
-    <!-- category list -->
-    <div data-ng-if="navSideVm.directiveApi.categoriesVisible && navSideVm.categoryContentLoaded" class="side-nav__static-pages-list animate-repeat">
-      <appticles-nested-categories directive-api="navSideVm.directiveApi" categories="navSideVm.allCategories"></appticles-nested-categories>
+    <!-- pages list -->
+    <div data-ng-if="navSideVm.state == 'pages' && navSideVm.hasPages && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
+      <appticles-nested-pages state="navSideVm.state"></appticles-nested-pages>
     </div>
 
   </ion-content>
