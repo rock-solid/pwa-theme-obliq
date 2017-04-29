@@ -1,15 +1,28 @@
-<div class="nested-pages-ctx">
-  <div class="nested-pages__title-container nested-pages__title-container-custom w-100 d-flex vertical-align p-a-1 animate-repeat" data-ng-click="nestedPagesVm.goBackTo(nestedPagesVm.currentParentId)">
+<div class="nested-pages-ctx" ng-if="nestedPagesVm.contentLoaded">
+  <div
+    data-ng-click="nestedPagesVm.goBack()"
+    class="nested-pages__title-container nested-pages__title-container-custom w-100 d-flex vertical-align p-a-1 animate-repeat">
     <i class="icon button-icon ion-ios-arrow-left m-r-1 nested-pages__button-back nested-pages__button-back-custom"></i>
-    <h4 class="nested-pages__page-title nested-pages__page-title-custom m-a-0 d-inline-block text-ellipsis">{{nestedPagesVm.backButtonTitle}}</h4>
-  </div>
-  <div class="page-item animate-repeat nested-pages__item-container
-  nested-pages__item-container-custom" ng-repeat="page in nestedPagesVm.currentPages">
-    <div class="nested-pages__item-content d-flex space-between vertical-align w-100 index-3 b-0">
-      <h6 class="nested-pages__item-title nested-pages__item-title-custom text-ellipsis" data-ng-bind-html="page.title | TrustHtmlFilter"
-        ng-click="nestedPagesVm.openContent(page)"></h6>
-      <i class="icon button-icon ion-ios-arrow-right nested-pages__item-icon-custom" ng-if="page.children.length > 0" ng-click="nestedPagesVm.openChildPages(page.id)"></i>
-    </div>
+    <h4
+      data-ng-bind-html="nestedPagesVm.currentParent.title | TrustHtmlFilter"
+      class="nested-pages__page-title nested-pages__page-title-custom m-a-0 d-inline-block text-ellipsis">
+    </h4>
   </div>
 
+  <div
+    ng-repeat="page in nestedPagesVm.pages"
+    class="page-item animate-repeat nested-pages__item-container nested-pages__item-container-custom">
+    <div class="nested-pages__item-content d-flex space-between vertical-align w-100 index-3 b-0">
+      <h6
+        data-ng-bind-html="page.title | TrustHtmlFilter"
+        ng-click="nestedPagesVm.openContent(page)"
+        class="nested-pages__item-title nested-pages__item-title-custom text-ellipsis">
+      </h6>
+      <i
+        ng-if="page.has_children"
+        ng-click="nestedPagesVm.openChildPages(page)"
+        class="icon button-icon ion-ios-arrow-right nested-pages__item-icon-custom">
+      </i>
+    </div>
+  </div>
 </div>
