@@ -49,5 +49,9 @@
     &__item-title, &__item-icon {
       color: $side-nav-color;
     }
+
+    &__spinner {
+      padding: $base-padding;
+    }
   }
 }
