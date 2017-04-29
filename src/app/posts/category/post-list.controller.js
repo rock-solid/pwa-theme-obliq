@@ -18,6 +18,8 @@ class PostList {
     this.posts = [];
     this.category = null;
 
+    this.contentLoaded = false;
+
     const categoryId = $stateParams.categoryId;
 
     // latest category id should redirect to home
