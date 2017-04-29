@@ -152,53 +152,33 @@ describe('sideNav controller', () => {
     };
   }));
 
-  it('should set allPages property', () => {
+  it('should set the hasPages property', () => {
     let controller = createController();
-    expect(controller.allPages).not.toBe(undefined);
+    expect(controller.hasPages).not.toBe(undefined);
   });
 
-  it('should make request to load pages', () => {
+  it('should set the hasCategories property', () => {
     let controller = createController();
-    controller.loadPages(); // simulateClick
-    expect(apiService.findPages).toHaveBeenCalled();
+    expect(controller.hasCategories).not.toBe(undefined);
   });
 
-  it('should set allPages data from request', () => {
+  it('should make request to load a category', () => {
+    let firstCall = {
+      withArticles: 0,
+      page: 1,
+      rows: 1
+    };
     let controller = createController();
-    controller.loadPages(); // simulateClick
-    $rootScope.$digest();
-    expect(controller.allPages.length).toEqual(3);
+    expect(apiService.findCategories).toHaveBeenCalledWith(firstCall);
   });
 
-  it('should set allPages property', () => {
+  it('should make request to load a page', () => {
+    let firstCall = {
+      page: 1,
+      rows: 1
+    };
     let controller = createController();
-    expect(controller.allPages).not.toBe(undefined);
-  });
-
-  /////
-
-  it('should set allCategories property', () => {
-    let controller = createController();
-    expect(controller.allCategories).not.toBe(undefined);
-  });
-
-  it('should make request to load Categories', () => {
-    let controller = createController();
-    controller.loadCategories(); // simulateClick
-    expect(apiService.findCategories).toHaveBeenCalled();
-  });
-
-  it('should make request to load categories', () => {
-    let controller = createController();
-    controller.loadCategories(); // simulateClick
-    expect(apiService.findCategories).toHaveBeenCalled();
-  });
-
-  it('should set allCategories data from request', () => {
-    let controller = createController();
-    controller.loadCategories(); // simulateClick
-    $rootScope.$digest();
-    expect(controller.allCategories.length).toEqual(4);
+    expect(apiService.findPages).toHaveBeenCalledWith(firstCall);
   });
 });
 
