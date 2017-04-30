@@ -2,12 +2,26 @@ describe('pageDetails controller', () => {
 
   let $rootScope, createController, apiService, validationService, $ionicLoadingMock;
 
+  let pageDetails = {
+    'page': {
+      'id': 1086,
+      'parent_id': 0,
+      'title': 'About',
+      'link': 'http:\/\/blog.dummydomainname.com\/about\/',
+      'image': {
+        'src': 'http:\/\/blog.dummydomainname.com\/wp-content\/uploads\/2013\/03\/page-image-691x1024.jpg',
+        'width': 691,
+        'height': 1024
+      },
+      'content': '<p>This is the content of the page<\/p>',
+      'has_content': 1
+    }
+  };
 
   beforeEach(module('appticles.pages'));
   beforeEach(module('appticles.validation'));
 
   beforeEach(() => {
-    // mock $ionicLoading
     $ionicLoadingMock = jasmine.createSpyObj('$ionicLoading spy', ['show', 'hide']);
   });
 
@@ -16,21 +30,6 @@ describe('pageDetails controller', () => {
       module(function ($provide) {
         $provide.factory('appticles.api', function ($q) {
           let findOnePages = jasmine.createSpy('findOnePages').and.callFake((paramObj) => {
-            let pageDetails = {
-              'page': {
-                'id': 1086,
-                'parent_id': 0,
-                'title': 'About',
-                'link': 'http:\/\/blog.dummydomainname.com\/about\/',
-                'image': {
-                  'src': 'http:\/\/blog.dummydomainname.com\/wp-content\/uploads\/2013\/03\/page-image-691x1024.jpg',
-                  'width': 691,
-                  'height': 1024
-                },
-                'content': '<p>This is the content of the page<\/p>',
-                'has_content': 1
-              }
-            };
             return $q.when({
               'data': pageDetails
             });
@@ -56,8 +55,6 @@ describe('pageDetails controller', () => {
     apiService = $injector.get('appticles.api');
     validationService = _AppticlesValidation_;
 
-
-
     createController = (dependencyObject) => {
       let controllerDependencies = {
         'AppticlesAPI': apiService,
@@ -80,7 +77,7 @@ describe('pageDetails controller', () => {
     };
   }));
 
-  it('should make request to load categories', () => {
+  it('should make request to load page', () => {
     stateParams = { pageId: '15' };
     let controller = createController({ $stateParams: stateParams });
     let pageId = stateParams.pageId;
@@ -89,12 +86,11 @@ describe('pageDetails controller', () => {
     });
   });
 
-  it('should set pages data from request', () => {
+  it('should set page data from request', () => {
     let controller = createController();
     $rootScope.$digest();
 
-    expect(controller.title).toBeDefined();
-    expect(controller.content).toBeDefined();
+    expect(controller.page).toBe(pageDetails.page);
   });
 });
 
