@@ -1,31 +1,35 @@
+/**
+ * @ngdoc controller
+ * @name appticles.pages.PageDetails
+ *
+ * @description Responsible for displaying a page's details.
+ */
 class PageDetails {
-  constructor(AppticlesAPI,
+  constructor(
+    AppticlesAPI,
     AppticlesValidation,
     AppticlesCanonical,
     $stateParams,
     $state,
-    $log,
     $q,
-    $ionicLoading) {
+    $ionicLoading,
+    $log) {
 
-    this.content = '';
-    this.image = '';
-    this.title = '';
+    this.page = null;
     this.contentLoaded = false;
 
     const pageId = $stateParams.pageId;
 
-
-    const showLoader = () => {
-      $ionicLoading.show();
-    };
-
-    const hideLoader = () => {
-      $ionicLoading.hide();
-      this.contentLoaded = true;
-    };
-
-    const validateOnePages = (result) => {
+    /**
+     * @ngdoc function
+     * @name appticles.pages.PageDetails#validateData
+     * @description Internal method, validate page.
+     *
+     * @param {Promise} A promise with a page object.
+     *
+     * @return {Promise} A promise with a validated page object.
+     */
+    const validateData = (result) => {
 
       let validPageDetails = AppticlesValidation.validateOnePages(result);
 
@@ -37,30 +41,37 @@ class PageDetails {
       return $q.when(validPageDetails);
     };
 
-    const populatePageDetails = (result) => {
+    /**
+     * @ngdoc function
+     * @name appticles.pages.PageDetails#populateData
+     * @description Internal method, bind results to the controller properties.
+     *
+     * @param {Promise} A promise object with a validated page.
+     */
+    const populateData = (result) => {
 
-      let pageDetails = result;
+      this.page = result;
 
-      this.content = pageDetails.content;
-      this.image = pageDetails.image;
-      this.title = pageDetails.title;
-
-      if (pageDetails.link) {
-        AppticlesCanonical.set(pageDetails.link);
+      if (angular.isDefined(this.page.link)) {
+        AppticlesCanonical.set(this.page.link);
       }
-
     };
-    showLoader();
+
+    $ionicLoading.show();
+
     AppticlesAPI
       .findOnePages({ pageId: pageId })
-      .then(validateOnePages)
-      .then(populatePageDetails)
-      .finally(hideLoader)
+      .then(validateData)
+      .then(populateData)
+      .finally(() => {
+        $ionicLoading.hide();
+        this.contentLoaded = true;
+      })
       .catch($log.error);
   }
 }
 
-PageDetails.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', '$stateParams', '$state', '$log', '$q', '$ionicLoading'];
+PageDetails.$inject = ['AppticlesAPI', 'AppticlesValidation', 'AppticlesCanonical', '$stateParams', '$state', '$q', '$ionicLoading', '$log'];
 
 angular.module('appticles.pages')
   .controller('PageDetailsController', PageDetails);
