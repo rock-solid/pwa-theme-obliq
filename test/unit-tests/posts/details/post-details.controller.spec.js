@@ -72,7 +72,6 @@ describe('posts details controller', () => {
     apiService = $injector.get('appticles.api');
 
 
-
     createController = (dependencyObject) => {
       let controllerDependencies = {
         'AppticlesAPI': apiService,
@@ -95,12 +94,12 @@ describe('posts details controller', () => {
     };
   }));
 
-  it('should set postDetails property', () => {
+  it('should set .post property', () => {
     let controller = createController();
-    expect(controller.postDetails).not.toBe(undefined);
+    expect(controller.post).not.toBe(undefined);
   });
 
-  it('should make request to load postList', () => {
+  it('should make request to load the post', () => {
     stateParams = { postId: '15' };
     let controller = createController({ $stateParams: stateParams });
     let postId = '15';
@@ -110,15 +109,15 @@ describe('posts details controller', () => {
     });
   });
 
-  it('should set postList data from request', () => {
+  it('should set post data from request', () => {
     let controller = createController();
     $rootScope.$digest();
 
-    expect(controller.postDetails.id).toBeDefined();
-    expect(controller.postDetails.content).toBeDefined();
-    expect(controller.postDetails.description).toBeDefined();
-    expect(controller.postDetails.title).toBeDefined();
-    expect(controller.postDetails['no_comments']).toBeDefined();
+    expect(controller.post.id).toBeDefined();
+    expect(controller.post.content).toBeDefined();
+    expect(controller.post.description).toBeDefined();
+    expect(controller.post.title).toBeDefined();
+    expect(controller.post['no_comments']).toBeDefined();
   });
 
   ///////////////////////////////////////////////////////////////////
