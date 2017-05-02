@@ -65,7 +65,7 @@ function postsModule($stateProvider, $urlRouterProvider) {
       views: {
         'postList@app.nav': {
           controller: 'CommentsController as commentsVm',
-          templateUrl: 'app/posts/comments/appticles-comments.template.html',
+          templateUrl: 'app/posts/comments/comment-list.template.html',
         }
       }
     });

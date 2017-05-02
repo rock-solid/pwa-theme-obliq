@@ -7,13 +7,13 @@
   <ion-pull-up-content scroll="false">
     <ion-content class="has-header" overflow-scroll="true">
       <form ng-model-options="{ updateOn: 'blur', debounce: { 'default': 300, 'blur': 0 } }" name="addCommentVm.commentForm" novalidate
-        data-ng-submit="addCommentVm.postComment()" class="add-comment__form">
+        data-ng-submit="addCommentVm.submitComment()" class="add-comment__form">
         <div class="list list-inset">
           <label data-ng-class="{'error': addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid }" class="item item-input item-stacked-label add-comment__input add-comment__input-custom">
-          <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}</span>
-          <input type="text" name="author" data-ng-model="addCommentVm.author" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}">
-          <i data-ng-show="addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
-    </label>
+            <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}</span>
+            <input type="text" name="author" data-ng-model="addCommentVm.author" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_NAME' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}">
+            <i data-ng-show="addCommentVm.commentForm.author.$dirty && addCommentVm.commentForm.author.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
+          </label>
           <div class="add-comment__error-container">
             <div ng-show="!addCommentVm.commentForm.author.$pristine && addCommentVm.commentForm.author.$invalid ">
               <p ng-show="addCommentVm.commentForm.author.$error.required" class="add-comment__error-message">{{ 'FORMS.YOUR_NAME_ERROR' | translate }}</p>
@@ -23,10 +23,10 @@
         <!-- error container -->
         <div class="list list-inset">
           <label data-ng-class="{'error': addCommentVm.commentForm.email.$dirty && addCommentVm.commentForm.email.$invalid }" class="item item-input item-stacked-label add-comment__input add-comment__input-custom">
-          <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_EMAIL' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}</span>
-          <input type="email" name="email" data-ng-model="addCommentVm.email" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_EMAIL' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}" >
-          <i data-ng-show="addCommentVm.commentForm.email.$dirty && addCommentVm.commentForm.email.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
-        </label>
+            <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_EMAIL' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}</span>
+            <input type="email" name="email" data-ng-model="addCommentVm.email" data-ng-required="addCommentVm.requireNameEmail" placeholder="{{('FORMS.YOUR_EMAIL' | translate) + (addCommentVm.requireNameEmail ? '*' : '')}}" >
+            <i data-ng-show="addCommentVm.commentForm.email.$dirty && addCommentVm.commentForm.email.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
+          </label>
           <!-- error container -->
           <div class="add-comment__error-container">
             <div ng-show="!addCommentVm.commentForm.email.$pristine && addCommentVm.commentForm.email.$invalid ">
@@ -38,13 +38,13 @@
         </div>
         <div class="list list-inset">
           <label data-ng-class="{'error': addCommentVm.commentForm.content.$dirty && addCommentVm.commentForm.content.$invalid }" class="item item-input item-stacked-label add-comment__input add-comment__input-custom">
-          <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_COMMENT' | translate) + '*'}}</span>
-          <textarea type="text" name="content"
-          data-ng-model="addCommentVm.content"
-          data-ng-model-options="{updateOn: 'default'}"
-          data-ng-required="true" placeholder="{{('FORMS.YOUR_COMMENT' | translate) + '*'}}"></textarea>
-          <i data-ng-show="addCommentVm.commentForm.content.$dirty && addCommentVm.commentForm.content.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
-    </label>
+            <span class="h6 input-label add-comment__label add-comment__label-custom">{{('FORMS.YOUR_COMMENT' | translate) + '*'}}</span>
+            <textarea type="text" name="content"
+            data-ng-model="addCommentVm.content"
+            data-ng-model-options="{updateOn: 'default'}"
+            data-ng-required="true" placeholder="{{('FORMS.YOUR_COMMENT' | translate) + '*'}}"></textarea>
+            <i data-ng-show="addCommentVm.commentForm.content.$dirty && addCommentVm.commentForm.content.$invalid" class="icon ion-ios-close-outline form-label add-comment__error-icon"></i>
+          </label>
           <!-- error container -->
           <div class="add-comment__error-container">
             <div ng-show="!addCommentVm.commentForm.content.$pristine && addCommentVm.commentForm.content.$invalid ">
@@ -54,7 +54,7 @@
         </div>
         <div class="list list-inset">
           <button translate="FORMS.SEND" data-ng-disabled="addCommentVm.commentForm.$invalid || addCommentVm.submitted" class="button button-block m-x-auto max-width-md comment-list button-custom add-comment__send-btn add-comment__send-btn-custom">
-    </button>
+          </button>
         </div>
       </form>
     </ion-content>

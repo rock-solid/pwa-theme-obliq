@@ -2,14 +2,19 @@ angular
   .module('appticles.posts')
   .directive('appticlesAddComment', AppticlesAddComment);
 
-AppticlesAddComment.$inject = [];
-
+/**
+ * @ngdoc directive
+ * @name appticles.posts.add-comment.AppticlesAddComment
+ *
+ * @description Add a post comment.
+ */
 function AppticlesAddComment() {
   return {
     restrict: 'AE',
     controller: AddCommentController,
     scope: {
-      directiveApi: '<'
+      postId: '<',
+      requireNameEmail: '<'
     },
     controllerAs: 'addCommentVm',
     bindToController: true,
@@ -17,18 +22,35 @@ function AppticlesAddComment() {
   };
 }
 
-///
+/**
+ * @ngdoc controller
+ * @name appticles.posts.add-comment.AddCommentController
+ *
+ * @description Controller for the directive that adds post comments.
+ * @todo Add unit tests
+ */
 class AddCommentController {
-  constructor(AppticlesAPI, AppticlesValidation, $stateParams, $ionicPopup, configuration, $scope, $log, $q, $filter) {
+  constructor(
+    AppticlesAPI,
+    AppticlesValidation,
+    configuration,
+    $stateParams,
+    $ionicPopup,
+    $scope,
+    $q,
+    $filter) {
 
-    this.postId = this.directiveApi.props.id;
-    this.requireNameEmail = Number(this.directiveApi.props['require_name_email']);
-    this.postComment = postComment;
     this.submitted = false;
+    this.submitComment = submitComment;
 
     const commentsToken = configuration.commentsToken;
 
-    function postComment() {
+    /**
+     * @ngdoc function
+     * @name appticles.posts.add-comment.AddCommentController#submitComment
+     * @description Submit a comment.
+     */
+    function submitComment() {
 
       if (this.submitted === true) {
         return;
@@ -59,25 +81,42 @@ class AddCommentController {
       }
     };
 
-
+    /**
+     * @ngdoc function
+     * @name appticles.posts.add-comment.AddCommentController#showPopup
+     * @description Show a message to the user, after the response from the server is received.
+     *
+     * @return {Promise} Object with status and popup data.
+     */
     const showPopup = (result) => {
 
-      let response = result.data;
-      let userFeedback;
-      let serverResponse;
-      let genericSubmissionError;
+      let userFeedback, serverResponse, genericSubmissionError;
 
-      if (response.status !== 0) {
-        userFeedback = $filter('translate')('FORMS.AWAITING_MODERATION');
-      }
-      else {
-        serverResponse = response.message;
+      if (result.data) {
+
+        let response = result.data;
+
+        if (response.status !== 0) {
+
+          userFeedback = $filter('translate')('FORMS.AWAITING_MODERATION');
+
+        } else {
+          serverResponse = response.message;
+          genericSubmissionError = $filter('translate')('FORMS.SUBMIT_ERROR');
+
+          userFeedback =
+            `<div>
+              <p>${genericSubmissionError}</p>
+              <p>${serverResponse}</p>
+            </div>`;
+        }
+
+      } else {
         genericSubmissionError = $filter('translate')('FORMS.SUBMIT_ERROR');
 
         userFeedback =
           `<div>
             <p>${genericSubmissionError}</p>
-            <p>${serverResponse}</p>
           </div>`;
       }
 
@@ -88,12 +127,17 @@ class AddCommentController {
           cssClass: 'popup-text',
           okType: 'popup-button button-custom'
         }),
-        'status': response.status
+        'status': result.data ? result.data.status : 0
       };
 
       return $q.all(promises);
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.posts.add-comment.AddCommentController#resetForm
+     * @description Reset form fields.
+     */
     const resetForm = (result) => {
 
       this.submitted = false;
@@ -110,5 +154,5 @@ class AddCommentController {
   }
 };
 
-AddCommentController.$inject = ['AppticlesAPI', 'AppticlesValidation', '$stateParams', '$ionicPopup', 'configuration', '$scope', '$log', '$q', '$filter'];
+AddCommentController.$inject = ['AppticlesAPI', 'AppticlesValidation', 'configuration', '$stateParams', '$ionicPopup',  '$scope', '$q', '$filter'];
 

@@ -1,104 +1,116 @@
-// @todo Add CSS class for styling the active order button
+/**
+ * @ngdoc controller
+ * @name appticles.comments.CommentsController
+ *
+ * @description Display a post's comments.
+ * @todo Add CSS class for styling the active order button
+ */
 class Comments {
-  constructor($log, $q, $state, $stateParams, $ionicLoading, $ionicScrollDelegate, AppticlesAPI, AppticlesValidation) {
+  constructor(
+    AppticlesAPI,
+    AppticlesValidation,
+    $state,
+    $stateParams,
+    $ionicLoading,
+    $ionicScrollDelegate,
+    $q,
+    $log) {
 
     this.postId = $stateParams.postId;
-    this.commentStatus = $stateParams.postCommentStatus;
-    this.requireNameEmail = $stateParams.postRequireNameEmail;
-
-    this.directiveApi = {
-      props: ''
-    };
+    this.commentStatus = null;
+    this.requireNameEmail = 0;
 
     this.contentLoaded = false;
 
-    const showLoader = () => {
-      $ionicLoading.show();
-    };
-
-    const hideLoader = () => {
-      $ionicLoading.hide();
-      this.contentLoaded = true;
-    };
-
-    const getCommentList = () => {
+    /**
+     * @ngdoc function
+     * @name appticles.comments.CommentsController#getPostComments
+     * @description Internal method, call API to load the post and its comments.
+     *
+     * @return {Promise} A promise object which resolves to an array with a post and comments.
+     */
+    const getPostComments = () => {
 
       let promises = {
-        'comments': AppticlesAPI.findComments({ articleId: this.postId }),
-        'article': AppticlesAPI.findOnePosts({ articleId: this.postId })
+        'post': AppticlesAPI.findOnePosts({ articleId: this.postId }),
+        'comments': AppticlesAPI.findComments({ articleId: this.postId })
       };
 
       return $q.all(promises);
     };
 
+    /**
+     * @ngdoc function
+     * @name appticles.comments.CommentsController#validateData
+     * @description Internal method, validate the post and comments.
+     *
+     * @param {Promise} A promise object with an array of comments and the post, returned by the API.
+     *
+     * @return {Promise} A promise object with a validated array of comments and the post or a reject promise.
+     */
     const validateData = (result) => {
-      let validArticle, validComments;
 
-      validComments = AppticlesValidation.validateComments(result.comments);
+      let validPost = AppticlesValidation.validateOnePosts(result.post);
+      let validComments = AppticlesValidation.validateComments(result.comments);
 
-      if (!this.commentStatus) {
-        validArticle = AppticlesValidation.validateOnePosts(result.article);
-      }
-      else {
-        validArticle = result.article;
-      }
-
-      if (validComments.error) {
+      if (validPost.error || validComments.error) {
         $state.go('app.nav.post', { postId: this.postId });
-        return $q.reject('error fetching comments for this post');
+        return $q.reject('error fetching post or comments');
       }
 
       let promise = {
         comments: validComments,
-        article: validArticle
+        post: validPost
       };
 
       return $q.when(promise);
     };
 
-    const populateCommentList = (result) => {
+    /**
+     * @ngdoc function
+     * @name appticles.comments.CommentsController#populateData
+     * @description Internal method, bind results to the controller properties.
+     *
+     * @param {Promise} A promise object with a validated array of comments and the post.
+     */
+    const populateData = (result) => {
 
-      // get post data from the passed state params or from the API response
-      let postDetails = result.article;
+      let postDetails = result.post;
 
       this.commentStatus = postDetails['comment_status'] || 'disabled';
-      this.postTitle = postDetails.title;
-      this.postImg = postDetails.image;
 
-
+      // redirect to the post details if comments are disabled
       if (this.commentStatus === 'disabled') {
         $state.go('app.nav.post', { postId: this.postId });
+        return;
       }
-      else {
-        this.comments = result.comments;
 
-        // convert numeric ids to numbers (for comments ordering)
-        angular.forEach(this.comments, comment => {
-          if (!isNaN(parseInt(comment.id))) {
-            comment.id = Number(comment.id);
-          }
-        });
+      this.comments = result.comments;
 
-        this.requireNameEmail = postDetails['require_name_email'] || 0;
+      // convert numeric ids to numbers (for comments ordering)
+      angular.forEach(this.comments, comment => {
+        if (!isNaN(parseInt(comment.id))) {
+          comment.id = Number(comment.id);
+        }
+      });
 
-        // properties to be passed and used by the add-comment modal
-        this.directiveApi.props = {
-          id: this.postId,
-          requireNameEmail: this.requireNameEmail,
-        };
-      }
+      this.requireNameEmail = Number(postDetails['require_name_email']) || 0;
     };
 
-    showLoader();
-    getCommentList()
+    $ionicLoading.show();
+
+    getPostComments()
       .then(validateData)
-      .then(populateCommentList)
-      .finally(hideLoader)
+      .then(populateData)
+      .finally(() => {
+        $ionicLoading.hide();
+        this.contentLoaded = true;
+      })
       .catch($log.error);
   }
 }
 
-Comments.$inject = ['$log', '$q', '$state', '$stateParams', '$ionicLoading', '$ionicScrollDelegate', 'AppticlesAPI', 'AppticlesValidation'];
+Comments.$inject = ['AppticlesAPI', 'AppticlesValidation', '$state', '$stateParams', '$ionicLoading', '$ionicScrollDelegate', '$q', '$log'];
 
 angular.module('appticles.posts')
   .controller('CommentsController', Comments);

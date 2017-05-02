@@ -31,5 +31,9 @@
       </div>
     </div>
   </ion-content>
-  <appticles-add-comment data-ng-if="commentsVm.commentStatus == 'open'" directive-api="commentsVm.directiveApi"></appticles-add-comment>
+  <appticles-add-comment
+    data-ng-if="commentsVm.commentStatus == 'open'"
+    post-id="commentsVm.postId"
+    require-name-email="commentsVm.requireNameEmail"
+  ></appticles-add-comment>
 </ion-view>
