@@ -2,31 +2,31 @@
   <ion-view>
     <ion-content scroll="false" class="social-modal">
       <div class="row social-modal__content">
-        <div ng-if="socialNetworksVm.directiveApi.hasComments">
-          <a data-ui-sref="app.nav.post.comments({categorySlugId: socialNetworksVm.postDetails.category_id, postId: socialNetworksVm.postDetails.id,
-          latest: socialNetworksVm.postDetails.from_latest })">
+        <div ng-if="socialNetworksVm.post.has_comments">
+          <a data-ui-sref="app.nav.post.comments({categorySlugId: socialNetworksVm.post.category_id, postId: socialNetworksVm.post.id,
+          latest: socialNetworksVm.post.from_latest })">
             <button class="button icon ion-ios-chatboxes-outline social-modal__btn-comm social-modal__btn-comm-custom position-relative">
-                <div
-                data-ng-if="socialNetworksVm.postDetails.no_comments > 0"
-                class="social-modal__label social-modal__label-custom text-ellipsis position-absolute">
-                  {{socialNetworksVm.postDetails.no_comments}}
-                </div>
-              </button>
+              <div
+              data-ng-if="socialNetworksVm.post.no_comments > 0"
+              class="social-modal__label social-modal__label-custom text-ellipsis position-absolute">
+                {{socialNetworksVm.post.no_comments}}
+              </div>
+            </button>
           </a>
         </div>
         <div data-ng-if="socialNetworksVm.hasFacebook">
-          <a data-ng-href="https://m.facebook.com/sharer.php?u={{socialNetworksVm.postDetails.link}}" target="_blank">
+          <a data-ng-href="https://m.facebook.com/sharer.php?u={{socialNetworksVm.post.link}}" target="_blank">
             <button class="button icon ion-social-facebook social-modal__btn-fb"></button>
           </a>
         </div>
         <div data-ng-if="socialNetworksVm.hasTwitter">
-          <a data-ng-href="https://twitter.com/intent/tweet?text={{ socialNetworksVm.postDetails.title + ' ' + socialNetworksVm.postDetails.link}}"
+          <a data-ng-href="https://twitter.com/intent/tweet?text={{ socialNetworksVm.post.title + ' ' + socialNetworksVm.post.link}}"
             target="_blank">
             <button class="button icon ion-social-twitter social-modal__btn-tw"></button>
           </a>
         </div>
         <div data-ng-if="socialNetworksVm.hasGoogle">
-          <a data-ng-href="https://plus.google.com/share?url={{socialNetworksVm.postDetails.link}}" target="_blank">
+          <a data-ng-href="https://plus.google.com/share?url={{socialNetworksVm.post.link}}" target="_blank">
             <button class="button icon ion-social-googleplus social-modal__btn-gplus"></button>
           </a>
         </div>

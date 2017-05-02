@@ -29,7 +29,7 @@ class PostDetails {
     this.postCover = configuration.defaultCover;
 
     this.directiveApi = {
-      props: ''
+      data: null
     };
 
     const postId = $stateParams.postId;
@@ -111,13 +111,13 @@ class PostDetails {
      */
     const populateData = () => {
 
-      this.directiveApi.props = {
+      this.directiveApi.data = {
         'id': this.post.id,
         'title': $window.encodeURIComponent(this.post.title),
         'link': this.post.link,
-        'has_comments': this.post.comment_status == 'open' || (this.post.comment_status == 'closed' && this.post.no_comments > 0),
-        'no_comments': this.post.no_comments,
+        'no_comments': Number(this.post.no_comments),
         'comment_status': this.post.comment_status || 'disabled',
+        'has_comments': Number(this.post.comment_status == 'open' || (this.post.comment_status == 'closed' && this.post.no_comments > 0)),
         'require_name_email': this.post.require_name_email || 0,
         'from_latest': Number(this.fromLatest),
         'category_id': this.category.id
