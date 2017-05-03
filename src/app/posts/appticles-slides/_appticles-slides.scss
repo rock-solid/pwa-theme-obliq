@@ -16,9 +16,9 @@
       color: $cover-text-color;
     }
     &__date {
-      color: rgba($post-bg, 1);
+      color: rgba($cover-text-color, 1);
     }
-    
+
     &__top-inner {
       flex: 1 0 auto;
     }
