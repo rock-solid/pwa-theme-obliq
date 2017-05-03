@@ -40,9 +40,9 @@ gulp.task('production', () => {
   ]);
 });
 
-gulp.task('production-js', ['prepare-templates', 'uglify']);
-gulp.task('production-css', ['prepare-fonts', 'concat-css']);
-gulp.task('production-scss', ['export-custom-scss-paths','build-custom-sass']);
+gulp.task('production:js', ['prepare-templates', 'uglify']);
+gulp.task('production:css', ['prepare-fonts', 'concat-css']);
+gulp.task('production:scss', ['export-custom-scss-paths','build-custom-sass']);
 
 gulp.task('prepare-templates', (callback) => {
   pump([
