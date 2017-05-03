@@ -1,13 +1,13 @@
 It is assumed that you already have your app working and online, and all the files related to it are in the ``` www ``` folder.
 Make sure 'ionic serve' is running and that the gulp watcher is enabled ('gulp watch' for newer versions of Ionic).
 
-1. Check out the ``` gulp production-js ``` task. 
+1. Check out the ``` gulp production:js ``` task. 
 
 * This task is formed from two sub-tasks. First checkout 'prepare-templates'. Make sure that the task has access to all the templates used in your application.
 * Now for the 'uglify' task you need to make sure you pass in all the files in your app in the order you have them in your index file, and at the end add the angular templates js file.
-* Run ``` gulp production-js ```
+* Run ``` gulp production:js ```
 
-2. Check out the ``` gulp production-css ``` task.
+2. Check out the ``` gulp production:css ``` task.
 
 * This tasks has two sub-tasks. One prepares the fonts to be inlined in a css file, the other concatenates that file with the other existing css.
 * First copy the 'fonts' folder from the Ionic library into 'src/assets/fonts'.
@@ -15,10 +15,10 @@ Make sure 'ionic serve' is running and that the gulp watcher is enabled ('gulp w
 * After the first build - Go to www.icomoon.io and upload the font-file with a .svg extension and the selection.json file from the ``` src/assets/fonts ``` folder. It will show you all the icons in the ionic library and the icons that are currently used in the app. You need to select only the ones used in your app, and press 'generate font'. 
 * Download the zipfile and overwrite the existing font-assets with the ones from icomoon.io.
 * Make sure the assets are copied over in the 'www/assets' folder .
-* Run ``` gulp production-css ```
+* Run ``` gulp production:css ```
 * Open the ``` www/dist/bundle.css ``` file. Search for `@font-face`. You should have 2 entries. Delete everything related to the second entry.
 
-3. Checkout the the ``` gulp production-scss ``` task
+3. Checkout the the ``` gulp production:scss ``` task
 
 * Open your terminal and run `` gulp export-custom-scss-paths ```. This runs through your 'customizable.scss' file and creates a dependency graph.
 * You can see it in your terminal, it should look like this:
