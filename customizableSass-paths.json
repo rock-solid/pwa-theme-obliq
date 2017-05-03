@@ -22,8 +22,8 @@
 
     "src/app/pages/details/_page-details-custom.scss",
     "src/app/layout/nav/side-nav/_side-nav-custom.scss",
-    "src/app/layout/nav/side-nav/categories/_nested-categories-cutom.scss",
-    "src/app/layout/nav/side-nav/pages/_nested-pages-cutom.scss"
+    "src/app/layout/nav/side-nav/categories/_nested-categories-custom.scss",
+    "src/app/layout/nav/side-nav/pages/_nested-pages-custom.scss"
 
   ]
 }
