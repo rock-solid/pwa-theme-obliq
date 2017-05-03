@@ -19,7 +19,7 @@ describe('post details', () => {
 
       let regex = /[a-z0-9]+/gi;
       let matches = result.match(regex);
-      articleId = matches[3];
+      articleId = matches[1];
     });
 
   });

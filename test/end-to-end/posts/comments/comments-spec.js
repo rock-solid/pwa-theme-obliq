@@ -19,7 +19,8 @@ describe('comments', () => {
 
       let regex = /[a-z0-9]+/gi;
       let matches = result.match(regex);
-      articleId = matches[3];
+
+      articleId = matches[1];
     });
 
   });
@@ -37,6 +38,14 @@ describe('comments', () => {
     let comments = postDetails.getComments();
     let noComments = comments.count();
     expect(noComments).toBeGreaterThan(0);
+  });
+
+  it('route should redirect to home if post does not exist', () => {
+
+    let postDetails = new PostDetails();
+    postDetails.open('/#/article/324234234234/comments');
+
+    expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '#/');
   });
 
 });

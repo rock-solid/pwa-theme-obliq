@@ -125,4 +125,6 @@ describe('Nav categories', () => {
 
     alertDialog.accept();
   });
+
+  // @todo Add test for load more categories
 });

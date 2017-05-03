@@ -1,6 +1,7 @@
 'use strict';
 
 let PostList = require('./post-list.po');
+let PostDetails = require('./../details/post-details.po');
 let sideNav = require('../../layout/nav.po');
 
 describe('category', () => {
@@ -56,6 +57,28 @@ describe('category', () => {
     let postList = new PostList();
     postList.open('/#/category/' + String(categorySlug) + '/' + String(categoryId));
     expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categorySlug) + '/' + String(categoryId));
+  });
+
+  it('route should go back to category after opening post details', () => {
+
+    let postList = new PostList();
+    postList.open('/#/category/' + String(categorySlug) + '/' + String(categoryId));
+    expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categorySlug) + '/' + String(categoryId));
+
+    // open a post
+    let articleItem = postList.getPosts().get(0);
+    articleItem.click();
+
+    // init post details
+    let postDetails = new PostDetails();
+
+    // back button should go back to category page
+    let closeButton = postDetails.getCloseButton();
+    closeButton.click();
+
+    // check if the route is set back to the category
+    let regex = new RegExp('/category/[a-z-]+/' + categoryId, 'g');
+    expect(browser.getCurrentUrl()).toMatch(regex);
   });
 
   it('route should redirect to home if category id does not exist', () => {

@@ -5,8 +5,7 @@ let PostDetails = require('./post-details.po');
 
 describe('post', () => {
 
-  let articleId;
-  let categoryId;
+  let articleId;;
 
   beforeAll(() => {
 
@@ -20,8 +19,7 @@ describe('post', () => {
 
       let regex = /[a-z0-9]+/gi;
       let matches = result.match(regex);
-      articleId = matches[3];
-      categoryId = matches[1];
+      articleId = matches[1];
     });
 
   });
@@ -36,12 +34,11 @@ describe('post', () => {
       postDetails.open('/#/article/' + String(articleId));
       expect(browser.getCurrentUrl()).toContain('/#/article/' + String(articleId));
 
-      // back button should go to a category route
+      // back button should go back to home page
       let closeButton = postDetails.getCloseButton();
       closeButton.click();
 
-      let regex = /category\/[a-z-]+\/[a-z0-9]+/;
-      expect(browser.getCurrentUrl()).toMatch(regex);
+      expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '#/');
     });
 
     it('should respond if category id is 0 (latest)', () => {
@@ -51,35 +48,6 @@ describe('post', () => {
       // check route category=0
       postDetails.open('/#/category/0/article/' + String(articleId));
       expect(browser.getCurrentUrl()).toContain('/#/category/0/article/' + String(articleId));
-
-      // back button should go back to home page
-      let closeButton = postDetails.getCloseButton();
-      closeButton.click();
-      expect(browser.getCurrentUrl()).toBe(browser.baseUrl + '#/');
-    });
-
-
-    it('should respond if category id is set', () => {
-
-      let postDetails = new PostDetails();
-
-      postDetails.open('/#/category/' + String(categoryId) + '/article/' + String(articleId));
-      expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categoryId) + '/article/' + String(articleId));
-
-      // back button should go back to category page
-      let closeButton = postDetails.getCloseButton();
-      closeButton.click();
-
-      let regex = new RegExp('/category/[a-z-]+/' + categoryId, 'g');
-      expect(browser.getCurrentUrl()).toMatch(regex);
-    });
-
-    it('should respond if category id and latest param are set', () => {
-
-      let postDetails = new PostDetails();
-
-      postDetails.open('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/1');
-      expect(browser.getCurrentUrl()).toContain('/#/category/' + String(categoryId) + '/article/' + String(articleId) + '/1');
 
       // back button should go back to home page
       let closeButton = postDetails.getCloseButton();

@@ -18,7 +18,7 @@ describe('home page', () => {
     // click article and check if the url has changed
     article.click();
 
-    let regex = /category\/[a-z0-9]+\/article\/[a-z0-9]+\/1/;
+    let regex = /article\/[a-z0-9]+/;
     let newUrl = browser.getCurrentUrl();
 
     expect(newUrl).toMatch(regex);
@@ -32,7 +32,7 @@ describe('home page', () => {
 
       article.click();
 
-      let regex = /category\/[a-z0-9]+\/article\/[a-z0-9]+\/1/;
+      let regex = /article\/[a-z0-9]+/;
       let newUrl = browser.getCurrentUrl();
 
       expect(newUrl).toMatch(regex);
@@ -69,7 +69,7 @@ describe('home page', () => {
     // click article and check if the url has changed
     article.click();
 
-    let regex = /category\/[a-z0-9]+\/article\/[a-z0-9]+\/1/;
+    let regex = /article\/[a-z0-9]+/;
     let newUrl = browser.getCurrentUrl();
 
     expect(newUrl).toMatch(regex);
@@ -88,7 +88,7 @@ describe('home page', () => {
 
       article.click();
 
-      let regex = /category\/[a-z0-9]+\/article\/[a-z0-9]+\/1/;
+      let regex = /article\/[a-z0-9]+/;
       let newUrl = browser.getCurrentUrl();
 
       expect(newUrl).toMatch(regex);

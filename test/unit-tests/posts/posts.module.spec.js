@@ -124,7 +124,7 @@ describe('posts module', () => {
     });
 
     it('should resolve a valid route', () => {
-      expect($state.href(stateName, { categorySlugId: '16', postId: '1647' })).toEqual('#/category/16/article/1647/');
+      expect($state.href(stateName, { postId: '1647' })).toEqual('#/article/1647');
     });
 
     it('should change to the \'app.nav.post\' state', () => {
