@@ -33,13 +33,13 @@
     </div>
   </div>
   <ion-infinite-scroll
-    data-ng-if="nestedPagesVm.contentLoaded && nestedCategoriesVm.categories.length > 0 && nestedCategoriesVm.moreCategoriesAvailable"
+    data-ng-if="nestedCategoriesVm.contentLoaded && nestedCategoriesVm.categories.length > 0 && nestedCategoriesVm.moreCategoriesAvailable"
     data-on-infinite="nestedCategoriesVm.loadMoreCategories()"
     distance="10%"
     immediate-check="false">
   </ion-infinite-scroll>
 
-  <div class="nested-categories__item-content text-center">
-    <ion-spinner ng-if="!nestedPagesVm.contentLoaded"></ion-spinner>
+  <div class="nested-categories__item-content text-center" ng-if="!nestedCategoriesVm.contentLoaded">
+    <ion-spinner></ion-spinner>
   </div>
 </div>

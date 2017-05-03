@@ -51,7 +51,7 @@ class NestedCategoriesController {
     this.openContent = openContent;
     this.loadMoreCategories = loadMoreCategories;
 
-    this.moreCategoriesAvailable = true;
+    this.moreCategoriesAvailable = false;
     let page = 1;
     const rows = 10;
 
@@ -95,8 +95,8 @@ class NestedCategoriesController {
       }
 
       // check page from response to see if the API supports paginating
-      if (!result.pagination) {
-        this.moreCategoriesAvailable = false;
+      if (result.pagination) {
+        this.moreCategoriesAvailable = true;
       }
     };
 
