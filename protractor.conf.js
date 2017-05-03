@@ -19,6 +19,7 @@ exports.config = {
   jasmineNodeOpts : {
     showColors : true,
     isVerbose :  true,
+    defaultTimeoutInterval: 2500000,
     // Added in order to prevent reporter messages from being prefixed with a dot "."
     print: function noop() {}
   },
