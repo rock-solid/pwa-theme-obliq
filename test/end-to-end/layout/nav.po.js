@@ -10,8 +10,12 @@ class Nav {
     return element(by.css('.latest__button-more'));
   }
 
+  getHomeButton() {
+    return element(by.css('[data-ui-sref="app.nav.latest"]'));
+  }
+
   getCategoriesButton() {
-    return element(by.css('[data-ng-click="navSideVm.loadCategories()"]'));
+    return element(by.css('[data-ng-click="navSideVm.openCategories()"]'));
   }
 
   getCategories() {
@@ -31,7 +35,7 @@ class Nav {
   }
 
   getPageSubmenuIcons() {
-    return element.all(by.css('[ng-click="nestedPagesVm.openChildPages(page.id)"]'));
+    return element.all(by.css('[ng-click="nestedPagesVm.openChildPages(page)"]'));
   }
 
   getSubmenuNestedList(arrowIcon) {

@@ -10,14 +10,12 @@ class PostDetails {
     return element(by.css('[data-ng-click="postDetailsVm.goBack()"]'));
   }
 
-  //@todo add comment button function
-
   getCommentsButton() {
     return element(by.css('.social-modal__btn-comm'));
   }
 
   getComments() {
-    return element.all(by.repeater('comment in commentsVm.commentList'));
+    return element.all(by.repeater('comment in commentsVm.comments'));
   }
 
   getAddCommentButton() {

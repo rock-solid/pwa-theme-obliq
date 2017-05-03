@@ -11,32 +11,43 @@ describe('category', () => {
   beforeAll(() => {
 
     let nav = new sideNav();
+    let EC = protractor.ExpectedConditions;
 
     // opening the sideMenu
     nav.open('/#/');
     let sideMenuBtn = nav.getSideMenuBtn();
     sideMenuBtn.click();
 
-    //requesting the list of categories
+    // wait for the side menu to open
+    browser.wait(EC.visibilityOf($('.side-nav__container')), 5000);
+
+    // load the list of categories
     let categoriesButton = nav.getCategoriesButton();
     categoriesButton.click();
 
-    let category = nav.getCategories().get(2);
-    let categoryUrl = category.element(by.css('.nested-categories__item-content'));
-
+    // wait for the categories to load
     browser
-      .executeScript('arguments[0].scrollIntoView({behavior: \'smooth\'});', category.getWebElement())
-      .then(() => {
-        category.click().then(() => {
-          browser.sleep(2000);
-          browser.getCurrentUrl().then((result) => {
-            let regex = /[a-z0-9]+/gi;
-            let matches = result.split('/');
+      .wait(EC.invisibilityOf($('.spinner')), 10000)
+      .then( () => {
 
-            categoryId = matches[matches.length - 1];
-            categorySlug = matches[matches.length - 2];
+        let category = nav.getCategories().get(2);
+        let categoryUrl = category.element(by.css('.nested-categories__item-content'));
+
+        browser
+          .executeScript('arguments[0].scrollIntoView({behavior: \'smooth\'});', category.getWebElement())
+          .then(() => {
+
+            category.click().then(() => {
+              browser.sleep(2000);
+              browser.getCurrentUrl().then((result) => {
+                let regex = /[a-z0-9]+/gi;
+                let matches = result.split('/');
+
+                categoryId = matches[matches.length - 1];
+                categorySlug = matches[matches.length - 2];
+              });
+            });
           });
-        });
       });
 
   });
@@ -73,7 +84,7 @@ describe('category', () => {
     });
   });
 
-  it('should load more articles as you scroll', () => {
+  it('should load more articles as you swipe', () => {
 
     let postList = new PostList();
     postList.open('/#/category/' + String(categorySlug) + '/' + String(categoryId));

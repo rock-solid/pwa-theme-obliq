@@ -10,12 +10,22 @@ describe('page', () => {
   });
 
   beforeEach(() => {
+
     sideNav.open('/#/');
+
+    let EC = protractor.ExpectedConditions;
+
     let sideMenuBtn = sideNav.getSideMenuBtn();
-    sideMenuBtn.click(); // open the sidemenu
+    sideMenuBtn.click(); // open the side menu
+
+    // wait for the side menu to open
+    browser.wait(EC.visibilityOf($('.side-nav__container')), 5000);
 
     let pagesButton = sideNav.getPagesButton();
-    pagesButton.click(); //load the list of pages
+    pagesButton.click(); // load the list of pages
+
+    // wait for the pages to load
+    browser.wait(EC.invisibilityOf($('.spinner')), 5000);
   });
 
   // @todo Can't check separate route if we don't have access to a page ID.

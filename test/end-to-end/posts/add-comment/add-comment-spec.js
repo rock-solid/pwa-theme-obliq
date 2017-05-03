@@ -10,9 +10,6 @@ describe('add comment', () => {
 
   beforeAll(() => {
 
-    // set window size to portrait, otherwise some inputs might not be visible, causing errors
-    browser.driver.manage().window().setSize(350, 800);
-
     let homepage = new Homepage();
     homepage.open();
 
@@ -32,20 +29,17 @@ describe('add comment', () => {
 
     postDetails = new PostDetails();
     postDetails.open('/#/article/' + String(articleId));
+
     let shareButton = postDetails.getShareButton();
     shareButton.click();
+
     let commentsBtn = postDetails.getCommentsButton();
     commentsBtn.click();
 
     let addCommentButton = postDetails.getAddCommentButton();
-    browser.executeScript('arguments[0].scrollIntoView({behavior: \'smooth\'});', addCommentButton.getWebElement()).then(() => {
+    addCommentButton.click();
 
-      addCommentButton.click();
-
-      // $ionicScrollDelegate will miscalculate position in combination with the test, so re-focus button
-      browser.sleep(1000);
-      browser.executeScript('arguments[0].scrollIntoView({behavior: \'smooth\'});', addCommentButton.getWebElement());
-    });
+    browser.sleep(2000);
   });
 
   it('should open a comment form', () => {
@@ -68,7 +62,6 @@ describe('add comment', () => {
     let sendCommentBtn = postDetails.getSendCommentButton();
 
     var EC = protractor.ExpectedConditions;
-
     browser.wait(EC.visibilityOf(emailField), 5000);
 
     nameField.sendKeys('John Test');
@@ -97,6 +90,6 @@ describe('add comment', () => {
     sendCommentBtn.click();
 
     browser.wait(EC.visibilityOf($('.popup-buttons')), 5000);
-    expect(element(by.css('.popup > .popup-body')).getText()).toBe('Ihr Kommentar wartet Genehmigung!');
+    expect(element(by.css('.popup > .popup-body')).getText()).toBe('Your comment is awaiting moderation!');
   });
 });
