@@ -22,8 +22,7 @@ class PostDetails {
     this.post = null;
     this.category = null;
 
-    this.fromLatest = (angular.isDefined($stateParams.latest) && Number($stateParams.latest) === 1) ||
-      (angular.isDefined($stateParams.categorySlugId) && Number($stateParams.categorySlugId) === 0);
+    this.fromLatest = angular.isUndefined($stateParams.categorySlugId) || Number($stateParams.categorySlugId) === 0;
 
     this.hasSocialNetworks = this.checkHasSocialNetworks(configuration.socialMedia);
     this.postCover = configuration.defaultCover;

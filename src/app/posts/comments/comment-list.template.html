@@ -4,8 +4,12 @@
    class="bar bar-clear bar-comments bar-comments-custom">
     <h4 class="h4 title comments__title comments__title-custom bar-title text-ellipsis w-80 m-b-0 m-x-5" translate="TEXTS.COMMENTS"></h4>
   </ion-header-bar>
+  <!-- TEST THIS -->
   <ion-nav-buttons>
-    <button class="button icon ion-android-close comments__close-btn comments__close-btn-custom position-absolute" data-ui-sref="app.nav.post({postId:commentsVm.postId})"></button>
+    <button
+      class="button icon ion-android-close comments__close-btn comments__close-btn-custom position-absolute"
+      ng-click="commentsVm.goBack()">
+    </button>
   </ion-nav-buttons>
 
   <ion-content class="comments__comm-content">

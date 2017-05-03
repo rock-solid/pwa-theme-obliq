@@ -34,24 +34,6 @@ function postsModule($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.nav.post', {
-      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}/{latest:[0-1]}',
-      views: {
-        'postList@app.nav': {
-          controller: 'PostDetailsController as postDetailsVm',
-          templateUrl: 'app/posts/details/post-details.template.html',
-        }
-      }
-    })
-    .state('app.nav.postWithoutLatest', {
-      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}',
-      views: {
-        'postList@app.nav': {
-          controller: 'PostDetailsController as postDetailsVm',
-          templateUrl: 'app/posts/details/post-details.template.html',
-        }
-      }
-    })
-    .state('app.nav.externalPost', {
       url: '/article/{postId:[a-zA-Z0-9]+}',
       views: {
         'postList@app.nav': {
@@ -60,7 +42,25 @@ function postsModule($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.nav.postFromCategory', {
+      url: '/category/:categorySlugId/article/{postId:[a-zA-Z0-9]+}',
+      views: {
+        'postList@app.nav': {
+          controller: 'PostDetailsController as postDetailsVm',
+          templateUrl: 'app/posts/details/post-details.template.html',
+        }
+      }
+    })
     .state('app.nav.post.comments', {
+      url: '/comments',
+      views: {
+        'postList@app.nav': {
+          controller: 'CommentsController as commentsVm',
+          templateUrl: 'app/posts/comments/comment-list.template.html',
+        }
+      }
+    })
+    .state('app.nav.postFromCategory.comments', {
       url: '/comments',
       views: {
         'postList@app.nav': {

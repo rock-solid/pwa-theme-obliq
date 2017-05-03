@@ -32,7 +32,8 @@ class SocialNetworksController {
     AppticlesAPI,
     configuration,
     $ionicModal,
-    $scope) {
+    $scope,
+    $state) {
 
     this.modal = null;
     this.post = this.directiveApi.data;
@@ -40,6 +41,8 @@ class SocialNetworksController {
     this.hasFacebook = angular.isDefined(configuration.socialMedia.facebook) ? configuration.socialMedia.facebook : false;
     this.hasTwitter = angular.isDefined(configuration.socialMedia.twitter) ? configuration.socialMedia.twitter : false;
     this.hasGoogle = angular.isDefined(configuration.socialMedia.google) ? configuration.socialMedia.google : false;
+
+    this.openComments = openComments;
 
     // Initialize the modal options
     $ionicModal.fromTemplateUrl('app/posts/details/social/appticles-social.template.html', {
@@ -70,7 +73,21 @@ class SocialNetworksController {
     $scope.$on('$stateChangeStart', () => {
       this.modal.remove();
     });
+
+    /**
+     * @ngdoc function
+     * @nameappticles.posts.details.social.SocialNetworksController#openComments
+     * @description Navigate to the comments route.
+     */
+    function openComments() {
+
+      if (this.post.from_latest){
+        return $state.go('app.nav.post.comments', { postId: this.post.id });
+      }
+
+      $state.go('app.nav.postFromCategory.comments', { categorySlugId: this.post.category_id, postId: this.post.id });
+    };
   }
 };
 
-SocialNetworksController.$inject = ['AppticlesAPI', 'configuration', '$ionicModal', '$scope'];
+SocialNetworksController.$inject = ['AppticlesAPI', 'configuration', '$ionicModal', '$scope', '$state'];

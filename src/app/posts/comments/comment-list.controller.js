@@ -17,10 +17,16 @@ class Comments {
     $log) {
 
     this.postId = $stateParams.postId;
+
     this.commentStatus = null;
     this.requireNameEmail = 0;
 
     this.contentLoaded = false;
+
+    let fromLatest = angular.isUndefined($stateParams.categorySlugId) || Number($stateParams.categorySlugId) === 0;
+    let categorySlugId = $stateParams.categorySlugId || undefined;
+
+    this.goBack = goBack;
 
     /**
      * @ngdoc function
@@ -96,6 +102,20 @@ class Comments {
 
       this.requireNameEmail = Number(postDetails['require_name_email']) || 0;
     };
+
+    /**
+     * @ngdoc function
+     * @name appticles.comments.CommentsController#goBack
+     * @description Go back to the post details.
+     */
+    function goBack() {
+
+      if (fromLatest || !categorySlugId) {
+        return $state.go('app.nav.post', { postId: this.postId });
+      }
+
+      return $state.go('app.nav.postFromCategory', { categorySlug: categorySlugId, postId: this.postId });
+    }
 
     $ionicLoading.show();
 
