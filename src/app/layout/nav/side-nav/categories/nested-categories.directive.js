@@ -13,7 +13,7 @@ function AppticlesNestedCategories() {
   return {
     restrict: 'AE',
     scope: {
-      state: '='
+      menuItem: '='
     },
     templateUrl: 'app/layout/nav/side-nav/categories/nested-categories.template.html',
     controller: NestedCategoriesController,
@@ -150,7 +150,7 @@ class NestedCategoriesController {
      * @description Close the categories submenu.
      */
     function goBack() {
-      this.state = 'root';
+      this.menuItem = 'root';
     }
 
     AppticlesAPI.findCategories({ withArticles: 1, limit: 1, page: page, rows: rows })

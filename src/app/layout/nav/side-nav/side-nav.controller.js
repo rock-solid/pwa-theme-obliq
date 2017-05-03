@@ -15,7 +15,7 @@ class SideNav {
     $translate,
     $log ) {
 
-    this.state = 'root';
+    this.menuItem = 'root';
 
     this.hasCategories = false;
     this.hasPages = false;
@@ -116,7 +116,7 @@ class SideNav {
      *
      */
     function openCategories() {
-      this.state = 'categories';
+      this.menuItem = 'categories';
     }
 
     /**
@@ -126,7 +126,7 @@ class SideNav {
      *
      */
     function openPages() {
-      this.state = 'pages';
+      this.menuItem = 'pages';
     }
 
     getCategoriesPages()

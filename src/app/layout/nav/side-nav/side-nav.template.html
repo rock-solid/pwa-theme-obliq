@@ -1,6 +1,6 @@
 <ion-view cache-view="false" class="side-nav-ctx">
   <ion-content class="side-nav__container side-nav__container-custom">
-    <div data-ng-if="navSideVm.state == 'root' && navSideVm.contentLoaded" class="animate-repeat">
+    <div data-ng-if="navSideVm.menuItem == 'root' && navSideVm.contentLoaded" class="animate-repeat">
       <div
         data-ui-sref="app.nav.latest"
         menu-close
@@ -40,13 +40,13 @@
     </div>
 
     <!-- categories list -->
-    <div data-ng-if="navSideVm.state == 'categories' && navSideVm.hasCategories && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
-      <appticles-nested-categories state="navSideVm.state"></appticles-nested-categories>
+    <div data-ng-if="navSideVm.menuItem == 'categories' && navSideVm.hasCategories && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
+      <appticles-nested-categories menu-item="navSideVm.menuItem"></appticles-nested-categories>
     </div>
 
     <!-- pages list -->
-    <div data-ng-if="navSideVm.state == 'pages' && navSideVm.hasPages && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
-      <appticles-nested-pages state="navSideVm.state"></appticles-nested-pages>
+    <div data-ng-if="navSideVm.menuItem == 'pages' && navSideVm.hasPages && navSideVm.contentLoaded" class="side-nav__static-pages-list animate-repeat">
+      <appticles-nested-pages menu-item="navSideVm.menuItem"></appticles-nested-pages>
     </div>
 
   </ion-content>

@@ -12,7 +12,7 @@ function AppticlesNestedPages() {
   return {
     restrict: 'AE',
     scope: {
-      state: '=',
+      menuItem: '=',
     },
     templateUrl: 'app/layout/nav/side-nav/pages/nested-pages.template.html',
     controller: NestedPagesController,
@@ -120,7 +120,7 @@ class NestedPagesController {
 
       if (this.currentParent.id === 0) {
         // exit the pages menu
-        this.state = 'root';
+        this.menuItem = 'root';
       } else {
 
         let page = this.getPageById(this.currentParent.id);
