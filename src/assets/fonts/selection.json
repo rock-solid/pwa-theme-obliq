@@ -4,9 +4,39 @@
     {
       "icon": {
         "paths": [
+          "M896 448h-320v-320h-128v320h-320v128h320v320h128v-320h320z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "plus"
+        ],
+        "grid": 0
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 18,
+        "id": 0,
+        "name": "ion-plus",
+        "prevSize": 32,
+        "code": 61976
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
           "M596 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
         ],
         "width": 596,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -15,8 +45,9 @@
         "defaultCode": 62167,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 41,
+        "id": 1,
         "order": 7,
         "ligatures": "",
         "prevSize": 32,
@@ -24,14 +55,15 @@
         "name": "ion-android-close"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 40
+      "setId": 2,
+      "iconIdx": 1
     },
     {
       "icon": {
         "paths": [
           "M448 596v0 0l348-334c8-8 24-8 32 0l62 60c8 8 8 24 0 32l-426 408c-4 4-10 6-16 6s-12-2-16-6l-426-408c-8-8-8-24 0-32l62-60c8-8 24-8 32 0z"
         ],
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -40,8 +72,9 @@
         "defaultCode": 61731,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 188,
+        "id": 2,
         "order": 6,
         "ligatures": "",
         "prevSize": 32,
@@ -49,14 +82,15 @@
         "name": "ion-chevron-down"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 187
+      "setId": 2,
+      "iconIdx": 2
     },
     {
       "icon": {
         "paths": [
           "M448 428l-348 334c-8 8-24 8-32 0l-62-60c-8-8-8-24 0-32l426-408c4-4 10-6 16-6s12 2 16 6l426 408c8 8 8 24 0 32l-62 60c-8 8-24 8-32 0l-348-334z"
         ],
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -65,8 +99,9 @@
         "defaultCode": 61734,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 191,
+        "id": 3,
         "order": 5,
         "ligatures": "",
         "prevSize": 32,
@@ -74,8 +109,8 @@
         "name": "ion-chevron-up"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 190
+      "setId": 2,
+      "iconIdx": 3
     },
     {
       "icon": {
@@ -83,6 +118,7 @@
           "M384 256l-254 256 254 256-64 64-320-320 320-320z"
         ],
         "width": 384,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -91,8 +127,9 @@
         "defaultCode": 62415,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 264,
+        "id": 4,
         "order": 10,
         "ligatures": "",
         "prevSize": 32,
@@ -100,8 +137,8 @@
         "name": "ion-ios-arrow-back"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 263
+      "setId": 2,
+      "iconIdx": 4
     },
     {
       "icon": {
@@ -109,6 +146,7 @@
           "M384 230l-300 282 300 282-42 38-342-320 342-320z"
         ],
         "width": 384,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -117,8 +155,9 @@
         "defaultCode": 62418,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 267,
+        "id": 5,
         "order": 3,
         "ligatures": "",
         "prevSize": 32,
@@ -126,8 +165,8 @@
         "name": "ion-ios-arrow-left"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 266
+      "setId": 2,
+      "iconIdx": 5
     },
     {
       "icon": {
@@ -135,6 +174,7 @@
           "M0 230l42-38 342 320-342 320-42-38 300-282z"
         ],
         "width": 384,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -143,8 +183,9 @@
         "defaultCode": 62419,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 268,
+        "id": 6,
         "order": 2,
         "ligatures": "",
         "prevSize": 32,
@@ -152,8 +193,8 @@
         "name": "ion-ios-arrow-right"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 267
+      "setId": 2,
+      "iconIdx": 6
     },
     {
       "icon": {
@@ -161,6 +202,7 @@
           "M602 704l-282-300-282 300-38-42 320-342 320 342z"
         ],
         "width": 640,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -169,8 +211,9 @@
         "defaultCode": 62424,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 273,
+        "id": 7,
         "order": 4,
         "ligatures": "",
         "prevSize": 32,
@@ -178,8 +221,8 @@
         "name": "ion-ios-arrow-up"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 272
+      "setId": 2,
+      "iconIdx": 7
     },
     {
       "icon": {
@@ -187,6 +230,7 @@
           "M32 128v384h192v32h-224v-448h576v224h-32v-192h-512zM256 352h576v448h-96v128h-26l-128-128h-326v-448zM800 768v-384h-512v384h306l110 110v-110h96z"
         ],
         "width": 832,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -195,8 +239,9 @@
         "defaultCode": 62457,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 306,
+        "id": 8,
         "order": 12,
         "ligatures": "",
         "prevSize": 32,
@@ -204,8 +249,8 @@
         "name": "ion-ios-chatboxes-outline"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 305
+      "setId": 2,
+      "iconIdx": 8
     },
     {
       "icon": {
@@ -213,6 +258,7 @@
           "M0 546v-64h640v64h-640zM0 354v-64h640v64h-640zM0 738v-64h640v64h-640z"
         ],
         "width": 640,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -221,8 +267,9 @@
         "defaultCode": 61966,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 564,
+        "id": 9,
         "order": 9,
         "ligatures": "",
         "prevSize": 32,
@@ -230,8 +277,8 @@
         "name": "ion-navicon"
       },
       "setIdx": 0,
-      "setId": 3,
-      "iconIdx": 563
+      "setId": 2,
+      "iconIdx": 9
     },
     {
       "icon": {
@@ -239,6 +286,7 @@
           "M256 384h128l-16 128h-112v384h-166v-384h-90v-128h90v-86c0-108 46-170 182-170h112v128h-68c-54 0-60 18-60 52v76z"
         ],
         "width": 384,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -247,23 +295,25 @@
         "defaultCode": 62001,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 7,
+        "id": 10,
         "order": 13,
         "ligatures": "",
         "prevSize": 32,
         "code": 62001,
         "name": "ion-social-facebook"
       },
-      "setIdx": 1,
+      "setIdx": 0,
       "setId": 2,
-      "iconIdx": 6
+      "iconIdx": 10
     },
     {
       "icon": {
         "paths": [
           "M420 552c44 36 90 72 90 146 0 98-94 198-278 198-160 0-232-78-232-154 0-20 6-84 84-130 54-32 122-42 170-46-8-14-16-30-16-52 0-8 0-14 2-20h-8c-38 0-92-8-134-52-30-30-48-72-48-114 0-52 26-106 70-142v0c64-50 138-58 188-58h268l-120 66h-26c22 26 46 62 46 116 0 80-50 118-90 148v2c-12 12-22 20-22 34 0 12 8 20 20 30v0zM170 280c0 26 8 66 28 102 14 24 42 54 82 54 20 0 42-8 56-22 20-20 20-50 20-60 0-36-12-74-30-106-16-26-40-56-80-56-22 0-46 10-58 26-12 14-18 36-18 62zM412 736c0-40-26-62-100-112-6 0-8-2-16-2-12 0-62 4-100 16-32 12-76 32-76 84 0 62 64 102 160 102 82 0 132-34 132-88zM740 284h156v68h-156v162h-68v-162h-160v-68h160v-156h68v156z"
         ],
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -272,17 +322,18 @@
         "defaultCode": 62005,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 8,
+        "id": 11,
         "order": 14,
         "ligatures": "",
         "prevSize": 32,
         "code": 62005,
         "name": "ion-social-googleplus"
       },
-      "setIdx": 1,
+      "setIdx": 0,
       "setId": 2,
-      "iconIdx": 7
+      "iconIdx": 11
     },
     {
       "icon": {
@@ -290,6 +341,7 @@
           "M944 220c-26 40-58 72-96 100v24c0 256-196 552-552 552-110 0-210-32-296-88 16 2 30 4 46 4 90 0 174-32 240-84-84-2-156-58-180-134 12 2 24 4 36 4 18 0 36-4 52-8-88-18-156-96-156-190v-2c26 14 56 24 88 24-52-34-86-94-86-162 0-36 10-68 26-96 96 118 238 194 398 202-4-14-4-28-4-44 0-108 86-194 194-194 56 0 104 24 140 62 44-8 86-26 124-48-14 46-46 84-86 108 40-4 78-14 112-30z"
         ],
         "width": 944,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -298,17 +350,18 @@
         "defaultCode": 62019,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 9,
+        "id": 12,
         "order": 15,
         "ligatures": "",
         "prevSize": 32,
         "code": 62019,
         "name": "ion-social-twitter"
       },
-      "setIdx": 1,
+      "setIdx": 0,
       "setId": 2,
-      "iconIdx": 8
+      "iconIdx": 12
     },
     {
       "icon": {
@@ -316,6 +369,7 @@
           "M640 688c68 0 124 56 124 124s-56 124-124 124-124-56-124-124c0-10 2-20 4-28l-304-176c-24 22-54 34-88 34-70 0-128-58-128-128s56-128 126-128c34 0 64 12 88 34l302-174c-2-10-4-20-4-30 0-70 58-128 128-128s128 58 128 128-58 128-128 128c-34 0-64-12-88-34l-302 174c2 10 4 20 4 30s-2 20-4 30l306 176c22-22 52-32 84-32z"
         ],
         "width": 768,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -324,17 +378,18 @@
         "defaultCode": 62380,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 10,
+        "id": 13,
         "order": 11,
         "ligatures": "",
         "prevSize": 32,
         "code": 62380,
         "name": "ion-android-share-alt"
       },
-      "setIdx": 1,
+      "setIdx": 0,
       "setId": 2,
-      "iconIdx": 9
+      "iconIdx": 13
     },
     {
       "icon": {
@@ -342,6 +397,7 @@
           "M710 218c162 162 162 426 0 588s-426 162-588 0-162-426 0-588 426-162 588 0zM686 782c148-148 148-392 0-540s-392-148-540 0-148 392 0 540 392 148 540 0zM584 320l24 24-168 168 168 168-24 24-168-168-168 168-24-24 168-168-168-168 24-24 168 168z"
         ],
         "width": 832,
+        "attrs": [],
         "isMulticolor": false,
         "isMulticolor2": false,
         "tags": [
@@ -350,15 +406,16 @@
         "defaultCode": 62469,
         "grid": 0
       },
+      "attrs": [],
       "properties": {
-        "id": 15,
+        "id": 14,
         "order": 8,
         "ligatures": "",
         "prevSize": 32,
         "code": 62469,
         "name": "ion-ios-close-outline"
       },
-      "setIdx": 1,
+      "setIdx": 0,
       "setId": 2,
       "iconIdx": 14
     }
