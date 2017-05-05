@@ -33,7 +33,7 @@
     }
     &__no-comments-title {
       color: $post-text-color;
-      padding-top: $base-padding;
+      padding-top: $base-padding * 2;
     }
     &__title {
       color: $post-text-color !important;
