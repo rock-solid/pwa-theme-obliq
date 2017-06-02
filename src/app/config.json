@@ -1,42 +1,42 @@
 {
     "export": {
         "categories": {
-            "find": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcategories",
-            "findOne": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcategory"
+            "find": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcategories",
+            "findOne": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcategory"
         },
         "posts": {
-            "find": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportarticles",
-            "findOne": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportarticle"
+            "find": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportarticles",
+            "findOne": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportarticle"
         },
         "pages": {
-            "find": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportpages",
-            "findOne": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportpage"
+            "find": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportpages",
+            "findOne": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportpage"
         },
         "comments": {
-            "find": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcomments",
-            "insert": "//dev2.techlady.co/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=savecomment"
+            "find": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=exportcomments",
+            "insert": "//pwathemes.com/demo-api/wp-content/plugins/wordpress-mobile-pack/export/content.php?content=savecomment"
         }
     },
     "translate": {
-      "path":"https://s3-eu-west-1.amazonaws.com/appticles-devel/others/locales3/de_DE.json"
+      "path":"/assets/translate.json"
     },
     "socialMedia": {
       "facebook": true,
       "twitter": true,
       "google": true
     },
-    "commentsToken": "ZWVjY2I0ZTU3MGMwOWMwNWI1YTZmMzE5MjM0MWE1YmZfMTQ1ODk0MTQxMA==",
+    "commentsToken": "replace with a valid token",
     "articlesPerCard": "auto",
     "homeText": "This is some homepage content",
-    "websiteUrl": "//dev2.techlady.co?wmp_theme_mode=desktop",
-    "logo": "//cdn-kits.appticles.com/resources/images/logo.png",
-    "icon": "//cdn-kits.appticles.com/resources/icons/152x152.png",
-    "defaultCover": "//cdn-kits.appticles.com/resources/covers/phone/pattern-1.jpg",
+    "websiteUrl": "/?wmp_theme_mode=desktop",
+    "logo": "/assets/images/logo.png",
+    "icon": "/assets/images/icon.png",
+    "defaultCover": "/assets/images/cover.jpg",
     "googleAds": {
         "adsInterval": 15,
         "phone": {
-            "networkCode": 1060237,
-            "adUnitCode": "dev.demo.ad.test1",
+            "networkCode": 123456789,
+            "adUnitCode": "adunitname",
             "sizes": [
                 [
                     336,
@@ -55,7 +55,6 @@
                     250
                 ]
             ]
-        },
-        "tablet": null
+        }
     }
 }
