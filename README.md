@@ -1,11 +1,11 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Theme Obliq
+# Progressive Web App Obliq for Mobile
 
 
 ## About
 
-This repository hosts the assets for the Obliq theme, developed by Appticles.
+This repository hosts the assets for the Obliq progressive web app, developed by Appticles.
 
 ## Regulatory Information
 
