@@ -44,6 +44,7 @@ It is useful for custom fonts, images as well as JSON configuration files.
 source code. This is a manual task that can be run by anyone and its results can be served from a webserver.
 - `test` - Performs a single run of the unit tests located in `test/unit-tests/`. This is also used when running the pre-push hook, which means that all tests must pass in order to be able to push on a branch.
 - `test:watch` - Starts the tests in watch mode. Every time a test in `tests/unit-tests/` changes the code is run again by the Karma Chrome Launcher and the results are displayed in the console.
+- See [PRODUCTION.md document](PRODUCTION.md) for `production` tasks
 
 ## Protractor
 

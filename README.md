@@ -60,6 +60,9 @@ To get more details on the meaning of each item in the commit message, please fo
 - [body](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#body)  
 - [footer](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#footer)  
 
+## Styling the application
+
+We all know CSS is hard to tame, so to make it easy for you we give you our battle-tested method for styling your application while remaining sane - [STYLING.md](STYLING.md). 
 
 ## Testing
 
@@ -75,11 +78,11 @@ We test our application in two ways:
 
 For more information about our current testing toolkit please visit the official docs of [Karma](https://karma-runner.github.io/1.0/index.html), [Jasmine](http://jasmine.github.io/) and [Protractor](http://www.protractortest.org/#/).
 
+## Production process
+
+The process to make an application production ready is detailed in the [PRODUCTION.md](PRODUCTION.md) document.
+
 ## Useful resources
 
 For a list of useful resources on various aspects of Ionic/AngularJS take a look at
 the [USEFUL_LINKS.md](USEFUL_LINKS.md) document.
-
-## Production process
-
-The process to make an application production ready is detailed in the [PRODUCTION.md](PRODUCTION.md) document.
