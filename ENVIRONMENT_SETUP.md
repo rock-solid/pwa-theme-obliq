@@ -20,6 +20,8 @@ After you have installed everything above, you need to run the following tasks, 
 
 - `npm install`
 - `bower install`
+- `gulp`
+- `gulp watch` (optional, if you want the app to refresh with the latest changes)
 - `ionic serve`
 
 You should see your default browser open, and an Ionic 1 application booting up.
