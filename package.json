@@ -1,7 +1,7 @@
 {
-  "name": "appticles-ionic1-seed",
-  "version": "1.1.1",
-  "description": "appticles-ionic1-seed: An Ionic project",
+  "name": "appticles-theme-obliq",
+  "version": "1.0.0",
+  "description": "The Obliq mobile app theme built on Angular JS and Ionic 1",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
