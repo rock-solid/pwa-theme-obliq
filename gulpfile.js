@@ -198,7 +198,11 @@ gulp.task('jsdoc', () => {
 
 gulp.task('ngdoc', () => {
   return gulp.src(['./src/**/*.js'])
-    .pipe(ngdoc.process())
+    .pipe(
+      ngdoc.process({
+        title: 'Progressive Web App Obliq'
+      })
+    )
     .pipe(gulp.dest('./docs'));
 });
 
