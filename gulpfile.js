@@ -173,8 +173,13 @@ gulp.task('copy-assets', () => {
     './src/**/*.json',
   ]).pipe(gulp.dest('./www'));
   gulp.src([
-    './src/assets/**/*'
-  ]).pipe(gulp.dest('./www/assets'));
+    './src/assets/fonts/**/*',
+    './src/assets/images/**/*',
+    './src/assets/other/**/*', // if there are other types of assets put them in the 'other' folder
+    './src/assets/sass/**/*.css'
+  ],
+    {base: './src/assets/'}
+  ).pipe(gulp.dest('./www/assets'));
 });
 
 gulp.task('lint', () => {
