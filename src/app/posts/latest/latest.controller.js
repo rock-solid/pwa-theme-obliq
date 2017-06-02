@@ -19,6 +19,7 @@ class Latest {
     /**
      * @ngdoc function
      * @name appticles.posts.LatestController#getCategoriesPosts
+     * @methodOf appticles.posts.LatestController
      * @description Internal method, call API to load the first batch of posts and all the categories.
      *
      * @return {Promise} A promise object which resolves to arrays with categories and posts.
@@ -36,9 +37,10 @@ class Latest {
     /**
      * @ngdoc function
      * @name appticles.posts.LatestController#validateData
+     * @methodOf appticles.posts.LatestController
      * @description Internal method, validate posts and categories.
      *
-     * @param {Promise} A promise object with arrays of categories and posts returned by the API.
+     * @param {Promise} result A promise object with arrays of categories and posts returned by the API.
      *
      * @return {Promise} A promise object with validated arrays of categories and posts or a reject promise.
      */
@@ -64,9 +66,10 @@ class Latest {
     /**
      * @ngdoc function
      * @name appticles.posts.LatestController#populateData
+     * @methodOf appticles.posts.LatestController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with arrays of categories and posts.
+     * @param {Promise} result A promise object with arrays of categories and posts.
      */
     const populateData = (result) => {
       this.posts = result.posts;

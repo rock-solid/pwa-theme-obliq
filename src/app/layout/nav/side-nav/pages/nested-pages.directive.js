@@ -62,9 +62,10 @@ class NestedPagesController {
     /**
      * @ngdoc function
      * @name appticles.layout.pages.NestedPagesController#validateData
+     * @methodOf appticles.layout.pages.NestedPagesController
      * @description Internal method, validate pages.
      *
-     * @param {Promise} A promise object with the pages, returned by the API.
+     * @param {Promise} result A promise object with the pages, returned by the API.
      *
      * @return {Promise} A promise object with an array of validated pages.
      */
@@ -82,9 +83,10 @@ class NestedPagesController {
     /**
      * @ngdoc function
      * @name appticles.layout.pages.NestedPagesController#populateData
+     * @methodOf appticles.layout.pages.NestedPagesController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with an array of pages.
+     * @param {Promise} result A promise object with an array of pages.
      */
     const populateData = (result) => {
 
@@ -98,9 +100,10 @@ class NestedPagesController {
     /**
      * @ngdoc function
      * @name appticles.layout.pages.NestedPagesController#openChildPages
+     * @methodOf appticles.layout.pages.NestedPagesController
      * @description Open submenu when a parent page is clicked.
      *
-     * @param {Object} The page that was clicked.
+     * @param {Object} page The page that was clicked.
      */
     function openChildPages(page) {
 
@@ -114,6 +117,7 @@ class NestedPagesController {
     /**
      * @ngdoc function
      * @name appticles.layout.pages.NestedPagesController#goBack
+     * @methodOf appticles.layout.pages.NestedPagesController
      * @description Go up one level in the page hierarchy.
      */
     function goBack() {
@@ -151,9 +155,10 @@ class NestedPagesController {
     /**
      * @ngdoc function
      * @name appticles.layout.pages.NestedPagesController#openContent
+     * @methodOf appticles.layout.pages.NestedPagesController
      * @description Open the page's details or submenu if the page doesn't have any content.
      *
-     * @param {Object} The page that was clicked.
+     * @param {Object} page The page that was clicked.
      */
     function openContent(page) {
       if (!page.has_content && page.has_children) {
@@ -177,9 +182,10 @@ class NestedPagesController {
   /**
    * @ngdoc function
    * @name appticles.layout.pages.NestedPagesController#getPageById
+   * @methodOf appticles.layout.pages.NestedPagesController
    * @description Search a page by its id in the list of pages.
    *
-   * @param {Number} The id of the page
+   * @param {Number} id The id of the page
    */
   getPageById(id) {
 
@@ -195,9 +201,10 @@ class NestedPagesController {
   /**
    * @ngdoc function
    * @name appticles.layout.pages.NestedPagesController#getChildPagesByParentId
+   * @methodOf appticles.layout.pages.NestedPagesController
    * @description Search pages by their parent id in the list of pages.
    *
-   * @param {Number} The id of the parent
+   * @param {Number} parentId The id of the parent
    */
   getChildPagesByParentId(parentId) {
     return this.allPages.filter((page) => page.parent_id === parentId);
@@ -206,9 +213,10 @@ class NestedPagesController {
   /**
    * @ngdoc function
    * @name appticles.layout.pages.NestedPagesController#checkChildren
+   * @methodOf appticles.layout.pages.NestedPagesController
    * @description Attach a has_children property to the list of pages.
    *
-   * @param {Array} A list of pages objects
+   * @param {Array} items A list of pages objects
    */
   checkChildren(items) {
 

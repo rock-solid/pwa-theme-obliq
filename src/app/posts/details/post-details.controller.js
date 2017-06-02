@@ -42,9 +42,10 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#validatePost
+     * @methodOf appticles.posts.PostDetails
      * @description Internal method, validate post.
      *
-     * @param {Promise} A promise with a post object.
+     * @param {Promise} result A promise with a post object.
      *
      * @return {Promise} A promise with a validated post object.
      */
@@ -65,9 +66,10 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#getCategory
+     * @methodOf appticles.posts.PostDetails
      * @description Internal method, make request to read a category.
      *
-     * @param {Promise} A promise with a list of categories ids.
+     * @param {Promise} result A promise with a list of categories ids.
      *
      * @return {Promise} A promise for retrieving a category.
      */
@@ -84,9 +86,10 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#validateCategory
+     * @methodOf appticles.posts.PostDetails
      * @description Internal method, validate category.
      *
-     * @param {Promise} A promise with a category object.
+     * @param {Promise} result A promise with a category object.
      *
      * @return {Promise} A promise with a validated category object.
      */
@@ -106,6 +109,7 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.pages.PageDetails#populateData
+     * @methodOf appticles.posts.PostDetails
      * @description Internal method, bind results to the controller properties.
      */
     const populateData = () => {
@@ -130,6 +134,7 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#goBack
+     * @methodOf appticles.posts.PostDetails
      * @description Go back to a category or latest carousel.
      */
     function goBack() {
@@ -143,9 +148,10 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#handleOnScroll
+     * @methodOf appticles.posts.PostDetails
      * @description Scroll event listener, display / hide back and social buttons.
      *
-     * @param {Object} The scroll event
+     * @param {Object} $event The scroll event
      */
     function handleOnScroll($event) {
       this.deltaY = (this.lastScrollY) ? $ionicScrollDelegate.getScrollPosition().top - this.lastScrollY : 0;
@@ -165,6 +171,7 @@ class PostDetails {
     /**
      * @ngdoc function
      * @name appticles.posts.PostDetails#handleOnTap
+     * @methodOf appticles.posts.PostDetails
      * @description Tap event listener, display back and social buttons.
      */
     function handleOnTap() {
@@ -189,9 +196,10 @@ class PostDetails {
   /**
    * @ngdoc function
    * @name appticles.posts.PostDetails#checkHasSocialNetworks
+   * @methodOf appticles.posts.PostDetails
    * @description Check if social sharing is enabled.
    *
-   * @param {Object} The configuration.socialMedia object.
+   * @param {Object} socialNetworks The configuration.socialMedia object.
    */
   checkHasSocialNetworks(socialNetworks) {
 

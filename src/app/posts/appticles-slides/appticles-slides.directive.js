@@ -4,7 +4,7 @@ angular
 
 /**
  * @ngdoc directive
- * @name appticles.posts.appticlesSlides
+ * @name appticles.posts.AppticlesSlides
  *
  * @description Render a slider with posts.
  */
@@ -83,6 +83,7 @@ class SlidesController {
     /**
      * @ngdoc function
      * @name appticles.posts.SlidesController#loadMorePosts
+     * @methodOf appticles.posts.SlidesController
      * @description Load more posts in the slider.
      *
      * @return {Promise} A promise object which resolves to an array with posts.
@@ -103,9 +104,10 @@ class SlidesController {
     /**
      * @ngdoc function
      * @name appticles.posts.SlidesController#validatePosts
+     * @methodOf appticles.posts.SlidesController
      * @description Internal method, validate posts.
      *
-     * @param {Promise} A promise object with an array of posts returned by the API.
+     * @param {Promise} result A promise object with an array of posts returned by the API.
      *
      * @return {Promise} A promise object with a validated array of posts.
      */
@@ -123,9 +125,10 @@ class SlidesController {
     /**
      * @ngdoc function
      * @name appticles.posts.SlidesController#buildMorePosts
+     * @methodOf appticles.posts.SlidesController
      * @description Internal method, add more posts groups in the slider.
      *
-     * @param {Promise} A promise object with an array of validated posts.
+     * @param {Promise} result A promise object with an array of validated posts.
      */
     const buildMorePosts = (result) => {
       if (result.length > 0) {
@@ -154,6 +157,7 @@ class SlidesController {
   /**
    * @ngdoc function
    * @name appticles.posts.SlidesController#initializeCoverPost
+   * @methodOf appticles.posts.SlidesController
    * @description Set the first post as a separate property, if we have a cover.
    */
   initializeCoverPost(){
@@ -171,9 +175,10 @@ class SlidesController {
   /**
    * @ngdoc function
    * @name appticles.posts.SlidesController#combineIntoGroupsOf
+   * @methodOf appticles.posts.SlidesController
    * @description Split the posts lists into chunks that can be displayed on separate pages.
    *
-   * @param {string} articlesPerCard Posts per card (1, 2 or auto - 2,1,2,1, ...)
+   * @param {String} articlesPerCard Posts per card (1, 2 or auto - 2,1,2,1, ...)
    * @param {Array} posts Array with posts
    *
    * @return {Array} Nested array, with each element an array of articlesPerCard of elements.
@@ -200,9 +205,10 @@ class SlidesController {
   /**
    * @ngdoc function
    * @name appticles.posts.SlidesController#buildCategoriesList
+   * @methodOf appticles.posts.SlidesController
    * @description Index the categories names by their ids.
    *
-   * @return {Array} List of categories.
+   * @return {Array} categoriesData List of categories.
    */
   buildCategoriesList(categoriesData) {
 

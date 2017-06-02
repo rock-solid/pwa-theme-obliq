@@ -22,7 +22,7 @@ function AppticlesCanonical($document) {
     * @name appticles.canonical.AppticlesCanonical#set
     * @methodOf appticles.canonical.AppticlesCanonical
     * @description Sets the canonical url in the DOM for the current view
-    * @param  {String} the url of the current view
+    * @param  {String} href the url of the current view
     */
   function set(href) {
 

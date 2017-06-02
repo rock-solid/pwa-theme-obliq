@@ -48,6 +48,7 @@ class AddCommentController {
     /**
      * @ngdoc function
      * @name appticles.posts.add-comment.AddCommentController#submitComment
+     * @methodOf appticles.posts.add-comment.AddCommentController
      * @description Submit a comment.
      */
     function submitComment() {
@@ -84,6 +85,7 @@ class AddCommentController {
     /**
      * @ngdoc function
      * @name appticles.posts.add-comment.AddCommentController#showPopup
+     * @methodOf appticles.posts.add-comment.AddCommentController
      * @description Show a message to the user, after the response from the server is received.
      *
      * @return {Promise} Object with status and popup data.
@@ -136,6 +138,7 @@ class AddCommentController {
     /**
      * @ngdoc function
      * @name appticles.posts.add-comment.AddCommentController#resetForm
+     * @methodOf appticles.posts.add-comment.AddCommentController
      * @description Reset form fields.
      */
     const resetForm = (result) => {

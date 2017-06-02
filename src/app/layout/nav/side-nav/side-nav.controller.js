@@ -31,6 +31,7 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#getCategoriesPages
+     * @methodOf appticles.layout.SideNavController
      * @description Internal method, call API to load a single category and a page.
      *
      * @return {Promise} A promise object which resolves to an array with a category and a page.
@@ -48,9 +49,10 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#validateData
+     * @methodOf appticles.layout.SideNavController
      * @description Internal method, validate the category and page.
      *
-     * @param {Promise} A promise object with the category and page, returned by the API.
+     * @param {Promise} result A promise object with the category and page, returned by the API.
      *
      * @return {Promise} A promise object with a validated category and page or a reject promise.
      */
@@ -74,9 +76,10 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#populateData
+     * @methodOf appticles.layout.SideNavController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with a validated category and page.
+     * @param {Promise} result A promise object with a validated category and page.
      */
     const populateData = (result) => {
 
@@ -87,6 +90,7 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#confirmNavigation
+     * @methodOf appticles.layout.SideNavController
      * @description Internal method, redirect user to the desktop version.
      *
      */
@@ -99,6 +103,7 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#openDesktopWebsite
+     * @methodOf appticles.layout.SideNavController
      * @description Ask user if he wants to navigate to the desktop version.
      *
      */
@@ -112,6 +117,7 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#openCategories
+     * @methodOf appticles.layout.SideNavController
      * @description Open the categories submenu.
      *
      */
@@ -122,6 +128,7 @@ class SideNav {
     /**
      * @ngdoc function
      * @name appticles.layout.SideNavController#openPages
+     * @methodOf appticles.layout.SideNavController
      * @description Open the pages submenu.
      *
      */

@@ -23,9 +23,10 @@ class PageDetails {
     /**
      * @ngdoc function
      * @name appticles.pages.PageDetails#validateData
+     * @methodOf appticles.pages.PageDetails
      * @description Internal method, validate page.
      *
-     * @param {Promise} A promise with a page object.
+     * @param {Promise} result A promise with a page object.
      *
      * @return {Promise} A promise with a validated page object.
      */
@@ -44,9 +45,10 @@ class PageDetails {
     /**
      * @ngdoc function
      * @name appticles.pages.PageDetails#populateData
+     * @methodOf appticles.pages.PageDetails
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with a validated page.
+     * @param {Promise} result A promise object with a validated page.
      */
     const populateData = (result) => {
 

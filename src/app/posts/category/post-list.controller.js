@@ -31,6 +31,7 @@ class PostList {
     /**
      * @ngdoc function
      * @name appticles.posts.PostListController#getCategoryPosts
+     * @methodOf appticles.posts.PostListController
      * @description Internal method, call API to load the first batch of posts and the category.
      *
      * @return {Promise} A promise object which resolves to an array with posts and a category.
@@ -48,9 +49,10 @@ class PostList {
     /**
      * @ngdoc function
      * @name appticles.posts.PostListController#validateData
+     * @methodOf appticles.posts.PostListController
      * @description Internal method, validate posts and the category.
      *
-     * @param {Promise} A promise object with an array of posts and the category, returned by the API.
+     * @param {Promise} result A promise object with an array of posts and the category, returned by the API.
      *
      * @return {Promise} A promise object with a validated array of posts and category or a reject promise.
      */
@@ -75,9 +77,10 @@ class PostList {
     /**
      * @ngdoc function
      * @name appticles.posts.PostListController#populateData
+     * @methodOf appticles.posts.PostListController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with a validated array of posts and category.
+     * @param {Promise} result A promise object with a validated array of posts and category.
      */
     const populateData = (result) => {
 

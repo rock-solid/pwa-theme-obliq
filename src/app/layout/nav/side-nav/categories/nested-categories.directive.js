@@ -58,9 +58,10 @@ class NestedCategoriesController {
     /**
      * @ngdoc function
      * @name appticles.layout.categories.NestedCategoriesController#validateData
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Internal method, validate categories.
      *
-     * @param {Promise} A promise object with the categories, returned by the API.
+     * @param {Promise} result A promise object with the categories, returned by the API.
      *
      * @return {Promise} A promise object with an array of validated categories.
      */
@@ -83,9 +84,10 @@ class NestedCategoriesController {
     /**
      * @ngdoc function
      * @name appticles.layout.categories.NestedCategoriesController#populateData
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with an array of categories and pagination param.
+     * @param {Promise} result A promise object with an array of categories and pagination param.
      */
     const populateData = (result) => {
 
@@ -103,6 +105,7 @@ class NestedCategoriesController {
     /**
      * @ngdoc function
      * @name appticles.layout.categories.NestedCategoriesController#loadMoreCategories
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Load more categories when scrolling at the bottom of the list.
      */
     function loadMoreCategories() {
@@ -117,10 +120,11 @@ class NestedCategoriesController {
 
     /**
      * @ngdoc function
-     * @name appticles.layout.categories.NestedCategoriesController#loadMoreCategories
+     * @name appticles.layout.categories.NestedCategoriesController#buildMoreCategories
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Add the loaded categories in the list.
      *
-     * @param {Promise} A promise object with an array of categories and pagination param
+     * @param {Promise} result A promise object with an array of categories and pagination param
      */
     const buildMoreCategories = (result) => {
 
@@ -135,9 +139,10 @@ class NestedCategoriesController {
     /**
      * @ngdoc function
      * @name appticles.layout.categories.NestedCategoriesController#openContent
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Navigate to a category.
      *
-     * @param {Object} The tapped category.
+     * @param {Object} category The tapped category.
      */
     function openContent(category) {
       $ionicSideMenuDelegate.toggleRight(false);
@@ -147,6 +152,7 @@ class NestedCategoriesController {
     /**
      * @ngdoc function
      * @name appticles.layout.categories.NestedCategoriesController#goBack
+     * @methodOf  appticles.layout.categories.NestedCategoriesController
      * @description Close the categories submenu.
      */
     function goBack() {

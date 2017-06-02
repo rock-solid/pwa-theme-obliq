@@ -56,7 +56,8 @@ class SocialNetworksController {
 
     /**
      * @ngdoc function
-     * @nameappticles.posts.details.social.SocialNetworksController#triggerModal
+     * @name appticles.posts.details.social.SocialNetworksController#triggerModal
+     * @methodOf appticles.posts.details.social.SocialNetworksController
      * @description Open the share & comments buttons modal.
      */
     const triggerModal = () => {
@@ -76,7 +77,8 @@ class SocialNetworksController {
 
     /**
      * @ngdoc function
-     * @nameappticles.posts.details.social.SocialNetworksController#openComments
+     * @name appticles.posts.details.social.SocialNetworksController#openComments
+     * @methodOf appticles.posts.details.social.SocialNetworksController
      * @description Navigate to the comments route.
      */
     function openComments() {

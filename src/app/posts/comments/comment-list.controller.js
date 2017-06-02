@@ -31,6 +31,7 @@ class Comments {
     /**
      * @ngdoc function
      * @name appticles.comments.CommentsController#getPostComments
+     * @methodOf appticles.comments.CommentsController
      * @description Internal method, call API to load the post and its comments.
      *
      * @return {Promise} A promise object which resolves to an array with a post and comments.
@@ -48,9 +49,10 @@ class Comments {
     /**
      * @ngdoc function
      * @name appticles.comments.CommentsController#validateData
+     * @methodOf appticles.comments.CommentsController
      * @description Internal method, validate the post and comments.
      *
-     * @param {Promise} A promise object with an array of comments and the post, returned by the API.
+     * @param {Promise} result A promise object with an array of comments and the post, returned by the API.
      *
      * @return {Promise} A promise object with a validated array of comments and the post or a reject promise.
      */
@@ -75,9 +77,10 @@ class Comments {
     /**
      * @ngdoc function
      * @name appticles.comments.CommentsController#populateData
+     * @methodOf appticles.comments.CommentsController
      * @description Internal method, bind results to the controller properties.
      *
-     * @param {Promise} A promise object with a validated array of comments and the post.
+     * @param {Promise} result A promise object with a validated array of comments and the post.
      */
     const populateData = (result) => {
 
@@ -106,6 +109,7 @@ class Comments {
     /**
      * @ngdoc function
      * @name appticles.comments.CommentsController#goBack
+     * @methodOf appticles.comments.CommentsController
      * @description Go back to the post details.
      */
     function goBack() {

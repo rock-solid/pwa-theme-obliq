@@ -7,7 +7,7 @@ AppticlesTranslateConfig.$inject = ['$translateProvider'];
 
 
 /**
- * @ngdoc factory
+ * @ngdoc service
  * @name appticles.i18n.AppticlesTranslateLoader
  *
  * @description Async loading for the JSON file with text translations
