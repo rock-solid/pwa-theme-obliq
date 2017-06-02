@@ -5,7 +5,7 @@
 
 ## About
 
-This repository hosts the assets for the Obliq progressive web app, developed by Appticles.
+This repository hosts the assets for the [Obliq Progressive Web App](https://wpmobilepack.com/mobile-app-themes/obliq.html), developed by Appticles.
 
 ## Regulatory Information
 
