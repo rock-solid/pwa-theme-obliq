@@ -22,7 +22,6 @@ module.exports = function(config) {
       'www/lib/ngDfp/angular-dfp.min.js',
       'www/lib/ionic-pullup/dist/ion-pullup.min.js',
 
-      // 'src/app/main.js',
       'src/app/app.module.js',
 
       'src/app/**/*.module.js',

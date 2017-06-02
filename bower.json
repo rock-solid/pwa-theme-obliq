@@ -1,6 +1,5 @@
 {
-  "name": "theme-obliq",
-  "private": "true",
+  "name": "appticles-pwa-obliq",
   "dependencies": {
     "angular-translate": "^2.13.0",
     "ngDfp": "^0.16.0",
