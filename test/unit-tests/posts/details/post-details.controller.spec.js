@@ -38,8 +38,6 @@ describe('posts details controller', () => {
                 'timestamp': 1455102149,
                 'description': '<p>lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem&#8230;<\/p>\n', 'content': '<p><iframe width="660" height="371" src="https:\/\/www.youtube.com\/embed\/WVbQ-oro7FQ?feature=oembed" frameborder="0" allowfullscreen=""><\/iframe><\/p>\n<p>lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem ipsum text lorem<\/p>',
                 'categories': [1],
-                'category_id': 1,
-                'category_name': 'Uncategorized',
                 'comment_status': 'open',
                 'no_comments': 0,
                 'show_avatars': 1,
