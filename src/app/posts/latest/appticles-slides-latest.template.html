@@ -28,7 +28,7 @@
               </div>
               <div class="slide__overlay slide__overlay-custom w-100 h-100 position-absolute index-1 bg-cover"></div>
             </div>
-            <div class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( ' + (slidesVm.coverPost.image.src || slidesVm.appCover) + ')'}"></div>
+            <div class="slide__cover w-100 h-100 bg-cover" data-ng-style=" {'background':'url( ' + (slidesVm.appCover || slidesVm.coverPost.image.src) + ')'}"></div>
             <div class="slide__triangle-custom position-absolute"></div>
           </div>
         </div>
