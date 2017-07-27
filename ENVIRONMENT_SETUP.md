@@ -6,7 +6,7 @@
 - A globally-installed version of [Bower](https://bower.io/)
 - A globally-installed version of [Gulp](http://gulpjs.com/)
 - A globally-installed version of [commitizen](https://www.npmjs.com/package/commitizen)
-- A globally-installed version of [Ionic CLI](http://ionicframework.com/docs/cli/install.html)
+- A globally-installed version of [Ionic CLI](http://ionicframework.com/docs/cli/)
 - [EditorConfig](http://editorconfig.org/) plugin for your preferred text editor/intended
 - A code linter plugin that can use ESLint, to get visual feedback of code errors directly in your IDE/editor
   - Atom: [linter plugin](https://atom.io/packages/linter) + [linter-eslint](https://atom.io/packages/linter-eslint)
