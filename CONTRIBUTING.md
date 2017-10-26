@@ -23,6 +23,6 @@ To contribute to this repository you need to follow the steps below:
 If you need more information, make sure to get in touch via one or more of the
 channels below:
 
-- Twitter: @appticles
-- Email: hq@appticles.com
-- Slack group: appticles-hq.slack.com
+- Twitter: [@appticles](https://twitter.com/appticles)
+- Email: contact@appticles.com
+- Slack group: [appticles.slack.com](https://appticles.slack.com)
