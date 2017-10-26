@@ -1,6 +1,6 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Progressive Web App Obliq for Mobile
+# [OBLIQ Progressive Web App](https://pwathemes.com) &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20Started%20With%20Progressive%20Web%20Apps&url=https://pwathemes.com&via=appticles&hashtags=pwa,mobile,javascript)
 
 
 ## About
